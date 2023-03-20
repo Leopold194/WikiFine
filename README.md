@@ -13,4 +13,4 @@ Exemple:
 > users/zadde/update-README
 
 Après avoir choisi le nom, il faut sélectionner comme référence **"MAIN"**.</br>
-Après cette étape vous serez prêt à développer !!!!
+Après cette étape vous serez prêt à développer !
