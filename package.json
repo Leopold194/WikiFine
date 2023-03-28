@@ -4,6 +4,7 @@
     "description": "Notre Projet Annuel",
     "main": "index.php",
     "scripts": {
+      "build": "echo \"Build\"",
       "test": "echo \"Error: no test specified\" && exit 1"
     },
     "author": "Moi",
