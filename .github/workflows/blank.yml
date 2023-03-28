@@ -14,3 +14,9 @@ jobs:
 
       - name: Build project
         run: yarn run build
+        
+      - name: Download project as artifact
+        uses: actions/upload-artifact@master
+        with:
+          name: bundle
+          path: ./dist
