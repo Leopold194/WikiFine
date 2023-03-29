@@ -27,6 +27,6 @@ jobs:
           privateKey: ${{ secrets.SSHKEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
           localDir: "./"
-          remoteDir: "/var/www/html"
+          remoteDir: "/var/www/WikiFine"
           dryRun: false
           forceUpload: true
