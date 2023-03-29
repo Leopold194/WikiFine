@@ -1,0 +1,32 @@
+name: Upload
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Remove not-wanted files in server
+        run: "rm -r README.md .git .github"
+
+      - uses: actions/upload-artifact@v3
+        name: Upload Artifact
+        with:
+          name: WikiFine
+          path: "./*"
+  
+      - name: Copy repository contents
+        uses: wangyucode/sftp-upload-action@v2.0.2
+        if: ${{ env.SECRET_KEY != 0 }}
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          port: ${{ secrets.PORT }}
+          privateKey: ${{ secrets.SSHKEY }}
+          passphrase: ${{ secrets.PASSPHRASE }}
+          localDir: "./"
+          remoteDir: "/var/www/html"
+          dryRun: false
+          forceUpload: true
