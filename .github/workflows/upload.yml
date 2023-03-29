@@ -19,7 +19,7 @@ jobs:
   
       - name: Copy repository contents
         uses: wangyucode/sftp-upload-action@v2.0.2
-        if: secrets.HOST != ''
+        if: ${{ env.SECRET_KEY != 0 }}
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
