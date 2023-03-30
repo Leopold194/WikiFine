@@ -41,7 +41,7 @@
         </ul>
     </nav>
     <div class="articleContent">
-        <h1>Le nombre d'Or</h1>
+        <h1>Le nombre de Bronze</h1>
         <p>Il intervient dans la construction du pentagone régulier. Ses propriétés algébriques le lient à la suite de
             Fibonacci et au corps quadratique ℚ(√5). Le nombre d'or s'observe aussi dans la nature (quelques
             phyllotaxies, par exemple chez les capitules du tournesol, pavage de Penrose de quasi-cristaux) ou dans
