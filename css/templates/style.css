@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Rokkitt:wght@700&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
 /*-------------------normalize css------------------*/ 
 
 *,
@@ -67,5 +68,5 @@ h6 {
 
 body{
     background-color: rgba(244, 244, 242, 1);
-    font-family: 'GothamBook';
+    font-family: 'Montserrat', 'GothamBook';
 }
