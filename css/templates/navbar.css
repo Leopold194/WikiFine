@@ -1,0 +1,138 @@
+header{
+    margin-bottom: 15px;
+    border-bottom: 2px solid #333;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+.logoFont {
+
+    font-family: 'Rokkitt', serif;
+    font-size: 150px;
+}
+
+.logo {
+    height: 90px;
+    width: 350px;
+}
+
+.logoBlock {
+    display: flex;
+    position: relative;
+    margin-top: 10px;
+    height: 110px;
+    width: 861px;
+    /* background-color: aqua; */
+}
+
+.searchBarBlock {
+    position: absolute;
+    top: 60px;
+    left: 120px;
+}
+
+.searchBar {
+    height: 35px;
+    width: 250px;
+    padding: 15px;
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 10px;
+    background-color: rgba(217, 217, 217, 1)
+}
+
+.profileBlock {
+    display: flex;
+    position: absolute;
+    margin-top: 25px;
+    margin-right: 25px;
+    top: 0;
+    right: 0;
+    padding: 10px;
+}
+
+.profileBlock a {
+    text-decoration: none;
+}
+
+.login {
+    border: #5F85DB solid 2px;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+.login p {
+    padding: 10px 20px 10px 20px;
+    color: #5F85DB;
+}
+
+.register {
+    background-color: #5F85DB;
+    border: #5F85DB solid 2px;
+    border-radius: 10px;
+}
+
+.register p {
+    padding: 10px 20px 10px 20px;
+    color: #F4F4F2;
+}
+
+.button, .button::after {
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+      
+.button {
+    position: relative;
+    z-index: 1;
+}
+
+.button::before, .button::after {
+    border-radius: 8px;
+    content: "";
+    position: absolute;
+    z-index: -1;
+}
+
+.login::before, .login::after {
+    background: #5F85DB;
+}
+
+.register::before, .register::after {
+    background: #F4F4F2;
+}
+
+.login:hover p {
+    color: #fff;
+}
+
+.register:hover p {
+    color: #5F85DB;
+}
+
+.button::after {
+    height: 100%;
+    left: 0;
+    top: 0;
+    width: 0;
+}
+
+.button:hover:after {
+    width: 100%;
+}
+
+.square {
+    width: 50px;
+    height: 50px;
+    background-color: #333;
+    margin-left: 20px;
+}
+
+.circle {
+    width: 50px;
+    height: 50px;
+    background-color: #333;
+    border-radius: 50%;
+    margin-left: 20px;
+}

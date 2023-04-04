@@ -1,0 +1,43 @@
+.articleContent {
+    margin-left: 300px;
+    padding: 20px;
+    width: 1500px;
+}
+
+.navTitle{
+    font-size: 30px;
+    border-bottom: 2px solid #333;
+}
+
+.navSubTitle{
+    font-size: 20px;
+    margin-left: 20px;
+    margin-bottom: 5px;
+}
+
+h1,h2{
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.imgBlock{
+    float: right;
+    margin-left: 20px;
+    margin-top: -400px;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: #333;
+    background-color: rgb(255, 255, 255);
+    height: 350px;
+}
+
+.imgTitle{
+    text-align: center;
+    font-size: 20px;
+}
+
+.imgSubTitle{
+    text-align: center;
+    font-size: 10px;
+}
