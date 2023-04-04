@@ -6,9 +6,10 @@
     <title>Wikifine</title>
     <link rel="icon" type="image/x-icon" href="img\logos\wikifineColorFavicon.png">
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' href='css/index.css'>
     <link rel='stylesheet' href='css/templates/style.css'>
-
-
+    <link rel='stylesheet' href='css/templates/navbar.css'>
+    <link rel='stylesheet' href='css/templates/sidebar.css'>
 </head>
 
 <body>
@@ -20,26 +21,19 @@
             </div>
         </div>
         <div class="profileBlock">
-            <div class="square button1"></div>
+            <div class="login button">
+                <a href=""><p>Se connecter</p></a>
+            </div>
+            <div class="register button">
+                <a href="pages/register1.php"><p>S'inscrire</p></a>
+            </div>
+            <!--<div class="square button1"></div>
             <div class="square button2"></div>
             <div class="square button3"></div>
-            <div class="circle profilePic"></div>
+            <div class="circle profilePic"></div>-->
         </div>
     </header>
-    <nav class="sideNavBar">
-        <ul>
-            <li class="navTitle">Accueil</li><br>
-            <li class="navSubTitle">Portails thématiques</li>
-            <li class="navSubTitle">Article au hasard</li>
-            <li class="navSubTitle">Contact</li>
-            <li class="navTitle">Contribuer</li><br>
-            <li class="navSubTitle">Débuter sur Wikifine</li>
-            <li class="navSubTitle">Aide</li>
-            <li class="navSubTitle">Communauté</li>
-            <li class="navSubTitle">Modifications récentes</li>
-            <li class="navSubTitle">Faire un don</li>
-        </ul>
-    </nav>
+    <?php require 'pages/templates/sidebar.php'; ?>
     <div class="articleContent">
         <h1>Le nombre d'Or</h1>
         <p>Il intervient dans la construction du pentagone régulier. Ses propriétés algébriques le lient à la suite de
