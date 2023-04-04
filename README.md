@@ -14,3 +14,13 @@ Exemple:
 
 Après avoir choisi le nom, il faut sélectionner comme référence **"MAIN"**.</br>
 Après cette étape vous serez prêt à développer !
+
+## Les règles pour créer une nouvelle page du site
+### Importer les templates
+**Créer un nouveau fichier .php dans le dossier pages**
+*Ajouter en haut du nouveau fichier :*
+<?php require 'templates/head.php'; ?>
+Ajouter entre les deux, les balises link pour lier le fichier CSS utilisé pour uniquement votre page
+<?php require 'templates/navbar.php'; ?>
+Commencer directement l'intérieur de la balise body sans mettre la balise ouvrante
+*Cloturer votre fichier par les balises ouvrantes et fermantes de body et html*
