@@ -18,9 +18,9 @@ Après cette étape vous serez prêt à développer !
 ## Les règles pour créer une nouvelle page du site
 ### Importer les templates
 **Créer un nouveau fichier .php dans le dossier pages**</br></br>
-*Ajouter en haut du nouveau fichier :*
-`<?php require 'templates/head.php'; ?>`
-Ajouter entre les deux, les balises link pour lier le fichier CSS utilisé pour uniquement votre page
+*Ajouter en haut du nouveau fichier :*</br>
+`<?php require 'templates/head.php'; ?>`</br>
+Ajouter entre les deux, les balises link pour lier le fichier CSS utilisé pour uniquement votre page</br>
 `<?php require 'templates/navbar.php'; ?>`
 Commencer directement l'intérieur de la balise body sans mettre la balise ouvrante</br></br>
 *Cloturer votre fichier par les balises ouvrantes et fermantes de body et html*
