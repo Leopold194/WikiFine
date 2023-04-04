@@ -22,5 +22,5 @@ Après cette étape vous serez prêt à développer !
 <?php require 'templates/head.php'; ?>
 Ajouter entre les deux, les balises link pour lier le fichier CSS utilisé pour uniquement votre page
 <?php require 'templates/navbar.php'; ?>
-Commencer directement l'intérieur de la balise body sans mettre la balise ouvrante
+Commencer directement l'intérieur de la balise body sans mettre la balise ouvrante</br></br>
 *Cloturer votre fichier par les balises ouvrantes et fermantes de body et html*
