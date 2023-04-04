@@ -57,7 +57,7 @@ h6 {
 /*-----------------end of normalize css------------------*/
 @font-face {
     font-family: 'Gotham';
-    src:  url('../../fonts/GothamBook.ttf"') format('book'),
+    src:  url('../../fonts/GothamBook.ttf"'),
           url('../../fonts/GothamBold.ttf') format('bold');
   }
 
