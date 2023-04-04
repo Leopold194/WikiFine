@@ -1,5 +1,5 @@
 form {
-    margin-top: 60px;
+    margin-top: 70px;
     margin-left: 40px;
     margin-right: 40px;
     display: grid;
@@ -29,6 +29,17 @@ form {
     outline: none;
     border: 2px solid #5F85DB;
     box-shadow: 0 0 10px #719ECE;
+}
+
+.notError .warning {
+    visibility: hidden;
+}
+
+.error input {
+    
+    outline: none;
+    border: 2px solid #d94c42;
+    box-shadow: 0 0 10px #f07d7d;
 }
 
 label {
@@ -61,7 +72,6 @@ label {
 }
 
 .email {
-    margin-top: 35px;
     grid-area: 2 / 1 / 3 / 7;
     place-self: center;
 }
@@ -71,7 +81,6 @@ label {
 }
 
 .country {
-    margin-top: 35px;
     grid-area: 3 / 1 / 4 / 2;
     place-self: end;
 }
@@ -83,7 +92,6 @@ label {
 }
 
 .tel {
-    margin-top: 35px;
     grid-area: 3 / 2 / 4 / 7;
     place-self: start;
 }
@@ -95,13 +103,11 @@ label {
 }
 
 .pwd {
-    margin-top: 35px;
     grid-area: 4 / 1 / 5 / 4;
     place-self: center;
 }
 
 .pwdConfirm {
-    margin-top: 35px;
     grid-area: 4 / 4 / 5 / 7;
     place-self: center;
 }
@@ -113,56 +119,10 @@ label {
     border-radius: 20px;
 }
 
-.submit button {
-    padding: 10px 20px 10px 20px;
-    background-color: #8ca7e2;
-    border: none;
-    border-radius: 15px;
-    font-size: 20px;
-    font-weight: bold;
-    color: #F4F4F2;
-    border: #8ca7e2 2px solid;
-}
-
-.submit button, .submit button::after {
-    -webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    -o-transition: all 0.3s;
-    transition: all 0.3s;
-}
-      
-.submit button {
-    position: relative;
-    z-index: 1;
-}
-
-.submit button::before, .submit button::after {
-    border-radius: 8px;
-    content: "";
-    position: absolute;
-    z-index: -1;
-}
-
-.submit button::before, .submit button::after {
-    background: #F4F4F2;
-    border-radius: 12px;
-}
-
-.submit button:hover {
-    color: #5F85DB;
-}
-
-.submit button::after {
-    height: 100%;
-    left: 0;
-    top: 0;
-    width: 0;
-}
-
-.submit button:hover:after {
-    width: 100%;
-}
-
 .field {
     position: relative;
+}
+
+.mt {
+    margin-top: 40px;
 }
