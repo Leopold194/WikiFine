@@ -57,11 +57,11 @@ h6 {
 /*-----------------end of normalize css------------------*/
 @font-face {
     font-family: 'Gotham';
-    src:  url('fonts\GothamBook.ttf"') format('book'),
-          url('fonts\GothamBold.ttf') format('bold');
+    src:  url('../../fonts/GothamBook.ttf"') format('book'),
+          url('../../fonts/GothamBold.ttf') format('bold');
   }
 
 body{
     background-color: rgba(244, 244, 242, 1);
-    font-family: Gotham;
+    font-family: 'Gotham';
 }
