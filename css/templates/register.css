@@ -178,3 +178,51 @@
 .submit button:hover:after {
     width: 100%;
 }
+
+.error input {
+    outline: none;
+    border: 2px solid #d94c42;
+    box-shadow: 0 0 10px #f07d7d;
+}
+
+.inputForm, .selectForm {
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 7px 14px;
+    transition: 0.4s;
+    background: #F4F4F2;
+}
+
+.inputForm::-webkit-input-placeholder {
+    opacity: 1;
+    transition: all 0.5s;
+}
+
+.inputForm:focus::-webkit-input-placeholder {
+    opacity: 0;
+}
+
+.inputForm:focus, .selectForm:focus {
+    outline: none;
+    border: 2px solid #5F85DB;
+    box-shadow: 0 0 10px #719ECE;
+}
+
+.placeholderLabel {
+    position: absolute;
+    left: 14px;
+    width: 100%;
+    top: 10px;
+    color: #aaa;
+    transition: 0.3s;
+    z-index: -1;
+    letter-spacing: 0.5px;
+}
+
+.inputForm:focus ~ label {
+    top: -20px;
+    left: 0;
+    font-size: 14px;
+    color: #5F85DB;
+    transition: 0.3s;
+}

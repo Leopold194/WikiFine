@@ -1,7 +1,12 @@
-<?php session_start() ?>
+<?php 
+  session_start();
+  if($_SESSION['login'] < 1){
+    header('Location: register1.php');
+  }
+?>
 <?php require 'templates/head.php'; ?>
 <link rel='stylesheet' href='../css/templates/register.css'>
-<link rel='stylesheet' href='../css/registers/emailConfirm.css'>
+<link rel='stylesheet' href='../css/registers/emailconfirm.css'>
 <?php require 'templates/navbar.php'; ?>
 
 <div class="breadcrumb">
@@ -17,142 +22,66 @@
 
 <div class="registerForm">
     <h2 class="formTitle">Vérification de l’adresse mail :</h2>
-    <p class="formContent">Nous vous avons envoyé un e-mail à l'adresse <b>leopold.goudier@gmail.com</b><br><br>Pour activer votre compte WikiFine, vous devez renseigner dans le champ ci-dessous le code présent dans l’e-mail.</p>
-    <div class="frame">
-        <span class="forNumber forNumber0"></span>
-        <span class="forNumber forNumber1"></span>
-        <span class="forNumber forNumber2"></span>
-        <span class="hyphen"></span>
-        <span class="forNumber forNumber3"></span>
-        <span class="forNumber forNumber4"></span>
-        <span class="forNumber forNumber5"></span>
-        <div class="inputDigitDiv">
-            <div class="inputDigitLeft">
-                <input type="text" class="inputDigit" maxlength="1" id="firstInput">
-                <input type="text" class="inputDigit inputDigit1" maxlength="1" id="secondInput">
-                <input type="text" class="inputDigit inputDigit2" maxlength="1" id="thirdInput">
-            </div>
-            <div class="inputDigitRight">
-                <input type="text" class="inputDigit inputDigit3" maxlength="1" id="fourthInput">
-                <input type="text" class="inputDigit inputDigit4" maxlength="1" id="fifthInput">
-                <input type="text" class="inputDigit inputDigit5" maxlength="1" id="sixthInput">
+    <p class="formContent">Nous vous avons envoyé un e-mail à l'adresse <b><?php echo $_SESSION['form1']['email']; ?></b><br><br>Pour activer votre compte WikiFine, vous devez renseigner dans le champ ci-dessous le code présent dans l’e-mail.</p>
+    <?php
+        if(isset($_POST['0']) || isset($_POST['1']) || isset($_POST['2']) || isset($_POST['3']) || isset($_POST['4']) || isset($_POST['5'])) {
+            if(count($_POST) != 6
+                || !isset($_POST["0"])
+                || !isset($_POST["1"])
+                || !isset($_POST["2"])
+                || !isset($_POST["3"])
+                || !isset($_POST["4"])
+                || !isset($_POST["5"]))
+            {
+                ?>
+                <div class="alert">
+                    <li>Code de Validation incorrect.</li>
+                </div>
+                <?php
+            }else{
+                $userCode = $_POST['0'].$_POST['1'].$_POST['2'].$_POST['3'].$_POST['4'].$_POST['5'];
+                if($_SESSION['form1']['validateCode'] == $userCode){
+                    $_SESSION['login'] = 2;
+                    unset($_SESSION['form1']['validateCode']);
+                    header('Location: register2.php');
+                }else{
+                    ?>
+                    <div class="alert">
+                        <li>Code de Validation incorrect.</li>
+                    </div>
+                    <?php
+                }
+            }
+        }
+    ?>
+    <form method="POST">
+        <div class="frame">
+            <span class="forNumber forNumber0"></span>
+            <span class="forNumber forNumber1"></span>
+            <span class="forNumber forNumber2"></span>
+            <span class="hyphen"></span>
+            <span class="forNumber forNumber3"></span>
+            <span class="forNumber forNumber4"></span>
+            <span class="forNumber forNumber5"></span>
+            <div class="inputDigitDiv">
+                <div class="inputDigitLeft">
+                    <input type="text" name="0" class="inputDigit inputDigit0" maxlength="1" id="firstInput" autocomplete="off">
+                    <input type="text" name="1" class="inputDigit inputDigit1" maxlength="1" id="secondInput" autocomplete="off">
+                    <input type="text" name="2" class="inputDigit inputDigit2" maxlength="1" id="thirdInput" autocomplete="off">
+                </div>
+                <div class="inputDigitRight">
+                    <input type="text" name="3" class="inputDigit inputDigit3" maxlength="1" id="fourthInput" autocomplete="off">
+                    <input type="text" name="4" class="inputDigit inputDigit4" maxlength="1" id="fifthInput" autocomplete="off">
+                    <input type="text" name="5" class="inputDigit inputDigit5" maxlength="1" id="sixthInput" autocomplete="off">
+                </div>
             </div>
         </div>
-    </div>
-    <div class="submit field">
-        <button type="submit">CONTINUER</button>
-    </div> 
+        <div class="submit field">
+            <button type="submit">CONTINUER</button>
+        </div> 
+    </form>
 </div>
 <script>
-/*
-const firstInput = document.getElementById('firstInput');
-const secondtInput = document.getElementById('secondInput');
-const thirdInput = document.getElementById('thirdInput');
-const fourthInput = document.getElementById('fourthInput');
-const fifthInput = document.getElementById('fifthInput');
-const sixthInput = document.getElementById('sixthInput');
-
-firstInput.addEventListener('keyup', function(event) {
-  if (firstInput.value.length === 1) {
-    secondInput.focus();
-  }
-});
-
-secondInput.addEventListener('keyup', function(event) {
-  if (secondInput.value.length === 1) {
-    thirdInput.focus();
-  }
-});
-
-thirdInput.addEventListener('keyup', function(event) {
-  if (thirdInput.value.length === 1) {
-    fourthInput.focus();
-  }
-});
-
-fourthInput.addEventListener('keyup', function(event) {
-  if (fourthInput.value.length === 1) {
-    fifthInput.focus();
-  }
-});
-
-fifthInput.addEventListener('keyup', function(event) {
-  if (fifthInput.value.length === 1) {
-    sixthInput.focus();
-  }
-});
-
-
-
-
-
-
-secondInput.addEventListener('keyup', function(event) {
-  if (secondInput.value.length === 0) {
-    firstInput.focus();
-  }
-});
-
-thirdInput.addEventListener('keyup', function(event) {
-  if (thirdInput.value.length === 0) {
-    secondInput.focus();
-  }
-});
-
-fourthInput.addEventListener('keyup', function(event) {
-  if (fourthInput.value.length === 0) {
-    thirdInput.focus();
-  }
-});
-
-fifthInput.addEventListener('keyup', function(event) {
-  if (fifthInput.value.length === 0) {
-    fourthInput.focus();
-  }
-});
-
-sixthInput.addEventListener('keyup', function(event) {
-  if (sixthInput.value.length === 0) {
-    fifthInput.focus();
-  }
-});*/
-/*
-const inputs = document.querySelectorAll('input');
-
-inputs.forEach((input, index) => {
-    input.addEventListener('keyup', (event) => {
-        if (input.value.length === 3 && index < inputs.length - 1) {
-            inputs[index + 1].focus();
-        } 
-    });
-});
-
-secondInput.addEventListener('keyup', function(event) {
-  if (secondInput.value.length === 0) {
-    firstInput.focus();
-  }
-});*/
-
-/*
-const inputs = [
-    document.getElementById('firstInput'),
-    document.getElementById('secondInput'),
-    document.getElementById('thirdInput'),
-    document.getElementById('fourthInput'),
-    document.getElementById('fifthInput'),
-    document.getElementById('sixthInput')
-];
-
-inputs.forEach((input, index) => {
-    input.addEventListener('input', (event) => {
-        if (input.value.length === 1 && index < inputs.length - 1) {
-            inputs[index + 1].focus();
-        } else if (input.value.length === 0 && index > 0) {
-            inputs[index - 1].focus();
-        }
-    });
-});*/
-
 const inputs = document.querySelectorAll('input.inputDigit');
 for (let i = 0; i < inputs.length; i++) {
   inputs[i].addEventListener('keydown', function(event) {
@@ -171,7 +100,6 @@ for (let i = 0; i < inputs.length; i++) {
   });
   inputs[i].tabIndex = i + 1;
 }
-
 </script>
 </body>
 </html>

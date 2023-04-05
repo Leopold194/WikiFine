@@ -1,4 +1,7 @@
-<?php session_start() ?>
+<?php 
+    session_start();
+    $_SESSION['login'] = 0;
+?>
 <?php require 'templates/head.php'; ?>
 <link rel='stylesheet' href='../css/templates/register.css'>
 <link rel='stylesheet' href='../css/registers/register1.css'>
@@ -29,20 +32,20 @@
         ?>
     </div>
     <?php
-    unset($_SESSION['errors']);}
+        unset($_SESSION['errors']);}
     ?>
     <form action="../core/registerUser.php" method="POST">
         <div class="firstname field <?php echo $inputState["firstname"]; ?>">
             <input type="text" class="inputForm" name="firstname" id="firstname" placeholder="Prénom" required>
-            <label for="firstname">Prénom</label>
+            <label class="placeholderLabel">Prénom</label>
         </div>
         <div class="lastname field <?php echo $inputState["lastname"]; ?>">
             <input type="text" class="inputForm" name="lastname" placeholder="Nom" required>
-            <label>Nom</label>
+            <label class="placeholderLabel">Nom</label>
         </div>
         <div class="email field mt <?php echo $inputState["email"]; ?>">
             <input type="email" class="inputForm" name="email" placeholder="Email" required>
-            <label>Email</label>
+            <label class="placeholderLabel">Email</label>
         </div>
         <div class="country field mt <?php echo $inputState["country"]; ?>">
             <select class="selectForm" name="country" placeholder=" ">
@@ -52,15 +55,15 @@
         </div>
         <div class="tel field mt <?php echo $inputState["tel"]; ?>">
             <input type="tel" class="inputForm" name="tel" placeholder="Téléphone" required>
-            <label>Téléphone</label>
+            <label class="placeholderLabel">Téléphone</label>
         </div>
         <div class="pwd field mt <?php echo $inputState["pwd"]; ?>">
             <input type="password" class="inputForm" name="pwd" placeholder="Mot de passe" required>
-            <label>Mot de passe</label>
+            <label class="placeholderLabel">Mot de passe</label>
         </div>
         <div class="pwdConfirm field mt <?php echo $inputState["pwdConfirm"]; ?>">
             <input type="password" class="inputForm" name="pwdConfirm" placeholder="Confirmation" required>
-            <label>Confirmation</label>
+            <label class="placeholderLabel">Confirmation</label>
         </div>
         <div class="submit field">
             <button type="submit">CONTINUER</button>

@@ -1,0 +1,112 @@
+form {
+    margin-top: 70px;
+    margin-left: 40px;
+    margin-right: 40px;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%;
+}
+
+.avatar {
+    grid-area: 1 / 1 / 4 / 4;
+    place-self: center;
+}
+
+.avatar img {
+    width: 150px;
+}
+
+.pseudo {
+    grid-area: 1 / 4 / 2 / 9;
+    place-self: center;
+}
+
+.pseudo .inputForm {
+    width: 600px;
+}
+
+.birthday {
+    grid-area: 2 / 4 / 3 / 6;
+    place-self: center;
+}
+
+.birthday .inputForm {
+    width: 230px;
+}
+
+.gender {
+    grid-area: 2 / 6 / 3 / 9;
+    place-self: center;
+    margin-left: 40px;
+}
+
+.gender input[type="radio"] {
+    transform: scale(1.5);
+}
+
+.gender input[type="radio"]:checked {
+    border: 3px solid red;
+    background-color: red;
+}
+
+.gender label {
+    margin-right: 30px;
+    margin-left: 5px;
+}
+  
+
+
+.adress {
+    grid-area: 4 / 1 / 5 / 6;
+    place-self: start;
+}
+
+.adress .inputForm {
+    width: 560px;
+}
+
+.country {
+    grid-area: 4 / 6 / 5 / 9;
+    place-self: end;
+}
+
+.country .inputForm {
+    width: 360px;
+}
+
+.cp {
+    grid-area: 5 / 1 / 6 / 4;
+    place-self: start;
+}
+
+.cp .inputForm {
+    width: 320px;
+}
+
+.city {
+    grid-area: 5 / 4 / 6 / 9;
+    place-self: start;
+}
+
+.city .inputForm {
+    width: 600px;
+}
+
+.submit {
+    margin-top: 50px;
+    grid-area: 6 / 4 / 7 / 6;
+    place-self: center;
+    border-radius: 20px;
+}
+
+.field {
+    position: relative;
+}
+
+.mt {
+    margin-top: 40px;
+}
+
+.tiny-mt {
+    margin-top: 20px;
+}
