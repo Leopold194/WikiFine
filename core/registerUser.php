@@ -1,4 +1,9 @@
 <?php
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
 session_start();
 require "functions.php";
 
@@ -66,10 +71,50 @@ if(empty($listOfErrors)){
     for($cpt = 0; $cpt < 6; $cpt++){
         $validateCode .= strval(rand(0, 9));
     }
+
+	//Load Composer's autoloader
+	require 'vendor/autoload.php';
+	
+	$data = file_get_contents('../../secrets/secrets.json');
+	$obj = json_decode($data);
+
+	$mail = new PHPMailer(true);
+
+	try {
+		//Server settings
+		$mail->isSMTP();
+		$mail->Host       = $obj[0]->HOST;
+		$mail->SMTPAuth   = true;
+		$mail->Username   = $obj[0]->USERNAME;
+		$mail->Password   = $obj[0]->SMTP_PASSWORD;
+		$mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+		$mail->Port       = $obj[0]->PORT;
+	
+		//Recipients
+		$mail->setFrom($obj[0]->USERNAME, $obj[0]->ADRESS_NAME);
+		$mail->addAddress($_POST['email']);
+	
+		//Content
+		$mail->isHTML(true);
+		$mail->Subject = 'Confirmation par e-mail';
+		$mail->Body    = '<center>
+						<a href="www.wikifine.org"><img src="https://drive.google.com/uc?id=1NMNel1OLhMk-XW22pAGLg2ZRvIznSSNo" alt="Logo">
+						</a><br><br><br><h1>Te voilà arrivé sur WikiFine !</h1><br><br><h3>Prêt à apprendre pleins de nouvelles choses, 
+						et épater tout le monde en repas de famille ?</h3><br><i>Nous devons vérifier ton adresse e-mail. Pour ce faire, 
+						saisi le code de confirmation suivant :</i><br><br><br><span style="font-size: 50px;">'.$validateCode.'</span><br><br><br><br><br><br><br><i>Ce mail a 
+						été généré automatiquement, merci de ne pas y répondre.
+						</center>';
+		$mail->CharSet = 'UTF-8';   
+		$mail->send();
+	} catch (Exception $e) {
+		echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+	}
+
     $_POST['validateCode'] = $validateCode;
     $_POST["pwd"] = password_hash($_POST["pwd"], PASSWORD_DEFAULT);
     $_SESSION['form1'] = $_POST;
-    header("Location: ../pages/emailConfirm.php");
+	$_SESSION['login'] = 1;
+    header("Location: ../pages/emailconfirm.php");
 }else{
     $_SESSION['errors']= $listOfErrors;
     header("Location: ../pages/register1.php");
