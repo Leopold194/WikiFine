@@ -1,0 +1,53 @@
+.formContentTitle {
+    margin-top: 60px;
+    font-weight: normal;
+    font-size: 30px;
+    text-align: center;   
+}
+
+.hobbiesForm {
+    margin-top: 40px;
+    margin-left: -20px;
+    display: grid;
+    grid-template-columns: 16% 16% 16% 16% 16% 16%;
+}
+
+.hobbiesForm label {
+    margin-bottom: 30px;
+    font-size: 20px;
+}
+
+.hobbiesForm input {
+    justify-self: end;
+    transform: scale(1.7);
+    margin-right: 15px;
+    margin-bottom: 30px;
+}
+
+.hobbiesForm input[type="checkbox"]:checked + label {
+    color: #5F85DB;
+    font-weight: bold;
+    transition: all 0.4s;
+}
+
+.line2 {
+    width: 850px;
+    height: 1px;
+    background-color: black;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.newsletter {
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+.newsletter, .cgu {
+    text-align: center;
+}
+
+.cguLink {
+    color: #5F85DB;
+}

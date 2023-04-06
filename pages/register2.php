@@ -37,12 +37,12 @@
     <?php
         unset($_SESSION['errors']);}
     ?>
-    <form action="../core/registerUser.php" method="POST">
+    <form action="../core/registerUser2.php" method="POST">
         <div class="avatar field">
             <a href=""><img src="../img/register/avatar.png" alt="avatarMenu"></a>
         </div>
         <div class="pseudo field tiny-mt <?php echo $inputState["pseudo"]; ?>">
-            <input type="text" class="inputForm" name="pseudo" id="pseudo" placeholder="Pseudonyme" required>
+            <input type="text" class="inputForm" name="pseudo" id="pseudo" maxlength="30" placeholder="Pseudonyme" required>
             <label class="placeholderLabel">Prénom</label>
         </div>
         <div class="gender field mt <?php echo $inputState["gender"]; ?>">
@@ -55,8 +55,6 @@
 
             <input type="radio" id="gender2" name="gender" value="2">
             <label for="gender2">Autre</label>
-
-
         </div>
         <div class="birthday field mt <?php echo $inputState["birthday"]; ?>">
             <input type="date" class="inputForm" name="birthday" placeholder="Date de naissance" required>
@@ -71,11 +69,11 @@
             <label class="placeholderLabel">Pays</label>
         </div>
         <div class="cp field mt <?php echo $inputState["cp"]; ?>">
-            <input type="password" class="inputForm" name="cp" placeholder="Code postal" required>
+            <input type="text" class="inputForm" name="cp" maxlength="5" placeholder="Code postal" required>
             <label class="placeholderLabel">Code postal</label>
         </div>
         <div class="city field mt <?php echo $inputState["city"]; ?>">
-            <input type="password" class="inputForm" name="city" placeholder="Ville" required>
+            <input type="text" class="inputForm" name="city" placeholder="Ville" required>
             <label class="placeholderLabel">Ville</label>
         </div>
         <div class="submit field">

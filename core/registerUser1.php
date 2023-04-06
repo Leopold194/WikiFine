@@ -16,7 +16,6 @@ if( count($_POST) != 7
 	|| empty($_POST["pwd"])
 	|| empty($_POST["pwdConfirm"])) 
 {
-	print_r($_POST);
     die("Faire quelque chose de un minimum graphique");
 }
 
@@ -49,7 +48,6 @@ if(!preg_match("#^0?[1-9]([ -]?[0-9]{2}){4}$#", $_POST["tel"])){
     $listOfErrors[] = ["tel", "Numéro de téléphone invalide"];
 }
 
-// Pwd -> Min 8 caractères avec minuscules majuscules et chiffres
 if( strlen($_POST["pwd"])<8
     || !preg_match("#[a-z]#", $_POST["pwd"])
 	|| !preg_match("#[A-Z]#", $_POST["pwd"])
@@ -59,12 +57,9 @@ if( strlen($_POST["pwd"])<8
     $listOfErrors[] = ["pwd", "Votre mot de passe doit faire au minimum 8 caractères avec des minuscules, des majuscules, des chiifres et des caractères spéciaux (?!._&)"];
 }
 
-
-//pwdConfirm -> = Pwd
 if($_POST["pwd"] != $_POST["pwdConfirm"]){
 	$listOfErrors[] = ["pwdConfirm", "Votre mot de passe de confirmation ne correspond pas"];
 }
-
 
 if(empty($listOfErrors)){
     $validateCode = "";
@@ -119,3 +114,4 @@ if(empty($listOfErrors)){
     $_SESSION['errors']= $listOfErrors;
     header("Location: ../pages/register1.php");
 }
+?>
