@@ -44,18 +44,11 @@ form {
     transform: scale(1.5);
 }
 
-.gender input[type="radio"]:checked {
-    border: 3px solid red;
-    background-color: red;
-}
-
 .gender label {
     margin-right: 30px;
     margin-left: 5px;
 }
   
-
-
 .adress {
     grid-area: 4 / 1 / 5 / 6;
     place-self: start;

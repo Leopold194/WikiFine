@@ -34,7 +34,7 @@
     <?php
         unset($_SESSION['errors']);}
     ?>
-    <form action="../core/registerUser.php" method="POST">
+    <form action="../core/registerUser1.php" method="POST">
         <div class="firstname field <?php echo $inputState["firstname"]; ?>">
             <input type="text" class="inputForm" name="firstname" id="firstname" placeholder="Prénom" required>
             <label class="placeholderLabel">Prénom</label>

@@ -21,7 +21,7 @@
 </div>
 
 <div class="registerForm">
-    <h2 class="formTitle">Vérification de l’adresse mail :</h2>
+    <h2 class="formContentTitle">Vérification de l’adresse mail :</h2>
     <p class="formContent">Nous vous avons envoyé un e-mail à l'adresse <b><?php echo $_SESSION['form1']['email']; ?></b><br><br>Pour activer votre compte WikiFine, vous devez renseigner dans le champ ci-dessous le code présent dans l’e-mail.</p>
     <?php
         if(isset($_POST['0']) || isset($_POST['1']) || isset($_POST['2']) || isset($_POST['3']) || isset($_POST['4']) || isset($_POST['5'])) {

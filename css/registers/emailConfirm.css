@@ -1,11 +1,10 @@
-
-
 .registerForm {
     text-align: center;
 }
 
-.formTitle {
-    margin-top: 60px;
+.formContentTitle {
+    margin-top: 50px;
+    margin-bottom: 20px;
     font-weight: normal;
     font-size: 30px;
 }
