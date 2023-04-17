@@ -27,7 +27,10 @@
 .hobbiesForm input[type="checkbox"]:checked + label {
     color: #5F85DB;
     font-weight: bold;
-    transition: all 0.4s;
+}
+
+input {
+    accent-color: #5F85DB;
 }
 
 .line2 {
@@ -51,3 +54,102 @@
 .cguLink {
     color: #5F85DB;
 }
+
+.buttons {
+    margin-top: 30px;
+    justify-content: center;
+    display: flex;
+    padding-bottom: 30px;
+}
+
+.buttons a {
+    text-decoration: none;
+}
+
+.captchaButton {
+    padding: 10px 10px 10px 20px;
+    background-color: #8ca7e2;
+    border: none;
+    border-radius: 15px;
+    font-weight: bold;
+    color: #F4F4F2;
+    border: #8ca7e2 2px solid;
+    display: flex;
+    font-size: 30px;
+}
+
+#registerButton {
+    padding: 10px 35px 10px 35px;
+    color: #F4F4F2;
+    border-radius: 15px;
+    font-weight: bold;
+    display: flex;
+    font-size: 30px;
+    margin-left: 150px;
+}
+
+.registerButtonInactive {
+    background-color: #c1c1c0;
+    border: #c1c1c0 2px solid;
+    transition: all 0.5s;
+}
+
+.registerButtonActive {
+    background-color: #8ca7e2;
+    border: #8ca7e2 2px solid;
+    transition: all 0.5s;
+}
+
+.captchaButton img {
+    margin-top: -12px;
+    margin-left: 11px;
+    height: 55px;
+}
+
+.captchaButton, .captchaButton::after, .registerButtonActive, .registerButtonActive::after {
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+      
+.captchaButton, .registerButtonActive {
+    position: relative;
+    z-index: 1;
+}
+
+.captchaButton::before, .captchaButton::after, .registerButtonActive::before, .registerButtonActive::after {
+    border-radius: 8px;
+    content: "";
+    position: absolute;
+    z-index: -1;
+}
+
+.captchaButton::before, .captchaButton::after, .registerButtonActive::before, .registerButtonActive::after {
+    background: #F4F4F2;
+    border-radius: 12px;
+}
+
+.buttons a:hover .captchaButton, .registerButtonActive:hover {
+    color: #5F85DB !important;
+}
+
+.buttons a:hover .captchaButton img {
+    transform: rotate(180deg);
+    margin-top: 2px;
+    margin-bottom: -20px;
+    transition: all 0.5s;
+}
+
+.captchaButton::after, .registerButtonActive::after {
+    height: 100%;
+    left: 0;
+    top: 0;
+    width: 0;
+}
+
+.buttons a:hover .captchaButton:after, .registerButtonActive:hover::after {
+    width: 100%;
+}
+
+

@@ -4,21 +4,21 @@ form {
     margin-right: 40px;
     display: grid;
     justify-content: center;
-    grid-template-columns: 16% 16% 16% 16% 16% 16%;
+    grid-template-columns: 16.66% 16.66% 16.66% 16.66% 16.66% 16.66%;
 }
 
 .inputForm, .selectForm {
-    width: 420px;
+    width: 440px;
 }
 
 .firstname {
     grid-area: 1 / 1 / 2 / 4;
-    place-self: center;
+    place-self: start;
 }
 
 .lastname {
     grid-area: 1 / 4 / 2 / 7;
-    place-self: center;
+    place-self: end;
 }
 
 .email {
@@ -27,39 +27,38 @@ form {
 }
 
 .email .inputForm {
-    width: 860px;
+    width: 914px;
 }
 
 .country {
     grid-area: 3 / 1 / 4 / 2;
-    place-self: end;
+    place-self: start;
 }
 
 .country .selectForm {
-    width: 137px;
+    width: 153px;
     height: 42px;
     border-radius: 5px 0 0 5px;
 }
 
 .tel {
     grid-area: 3 / 2 / 4 / 7;
-    place-self: start;
+    place-self: end;
 }
 
 .tel .inputForm {
-    width: 725px;
+    width: 764px;
     border-radius: 0 5px 5px 0;
-    margin-left: -2px;
 }
 
 .pwd {
     grid-area: 4 / 1 / 5 / 4;
-    place-self: center;
+    place-self: start;
 }
 
 .pwdConfirm {
     grid-area: 4 / 4 / 5 / 7;
-    place-self: center;
+    place-self: end;
 }
 
 .submit {

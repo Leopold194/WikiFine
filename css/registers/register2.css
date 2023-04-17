@@ -1,10 +1,11 @@
 form {
-    margin-top: 70px;
+    margin-top: 50px;
     margin-left: 40px;
     margin-right: 40px;
     display: grid;
     justify-content: center;
-    grid-template-columns: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%;
+    grid-template-columns: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%;
+    /*grid-template-columns: 16% 16% 16% 16% 16% 16%;*/
 }
 
 .avatar {
@@ -22,7 +23,7 @@ form {
 }
 
 .pseudo .inputForm {
-    width: 600px;
+    width: 572px;
 }
 
 .birthday {
@@ -64,7 +65,7 @@ form {
 }
 
 .country .inputForm {
-    width: 360px;
+    width: 330px;
 }
 
 .cp {
@@ -82,7 +83,7 @@ form {
 }
 
 .city .inputForm {
-    width: 600px;
+    width: 572px;
 }
 
 .submit {
@@ -101,5 +102,5 @@ form {
 }
 
 .tiny-mt {
-    margin-top: 20px;
+    margin-top: 23px;
 }

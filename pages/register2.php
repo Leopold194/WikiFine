@@ -60,11 +60,11 @@
             <input type="date" class="inputForm" name="birthday" placeholder="Date de naissance" required>
             <label class="placeholderLabel">Date de naissance</label>
         </div>
-        <div class="adress field mt <?php echo $inputState["adress"]; ?>">
+        <div class="adress field tiny-mt <?php echo $inputState["adress"]; ?>">
             <input type="adress" class="inputForm" name="adress" placeholder="Adresse" required>
             <label class="placeholderLabel">Adresse</label>
         </div>
-        <div class="country field mt <?php echo $inputState["country"]; ?>">
+        <div class="country field tiny-mt <?php echo $inputState["country"]; ?>">
             <input type="country" class="inputForm" name="country" placeholder="Pays" required>
             <label class="placeholderLabel">Pays</label>
         </div>
