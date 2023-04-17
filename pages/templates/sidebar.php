@@ -1,6 +1,6 @@
 <nav class="sideNavBar">
     <ul>
-        <li class="navTitle">Accueil</li><br>
+        <a href="index.php"><li class="navTitle">Accueil</li><br></a>
         <li class="navSubTitle">Portails thématiques</li>
         <li class="navSubTitle">Article au hasard</li>
         <li class="navSubTitle">Contact</li>
