@@ -13,7 +13,7 @@
 
     function connectDB() {
         try{
-            $connection= new PDO("mysql:host=54.36.182.0;dbname=WikiFine_Test;port=22","debian","Francis2004");
+            $connection= new PDO("mysql:host=54.36.182.0;dbname=WikiFine_Test;port=3306","external_admin","Francis2004");
         }catch (Exception $e){
             die("Erreur SQL ".$e->getMessage());
         }

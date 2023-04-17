@@ -1,0 +1,70 @@
+form {
+    margin-top: 70px;
+    margin-left: 40px;
+    margin-right: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.email .inputForm {
+    width: 914px;
+}
+
+.email, .pwd {
+    position: relative;
+}
+
+.email .placeholderLabel, .pwd .placeholderLabel {
+    position: absolute;
+}
+
+.pwd .inputForm {
+    width: 914px;
+}
+
+.submit {
+    margin-top: 35px;
+    border-radius: 20px;
+}
+
+.link {
+    text-align: center;
+}
+
+.loginForm {
+    margin-top: -40px;
+    margin-left: auto;
+    margin-right: auto;
+    border: #5F85DB 3px solid;
+    border-radius: 30px;
+    width: 1000px;
+    z-index: -4;
+}
+
+.placeholderLabel {
+    position: relative;
+}
+
+.mt {
+    margin-top: 40px;
+}
+
+.link a {
+    text-decoration: none;
+    color: #5F85DB;
+}
+
+.link a:hover {
+    color: black;
+    transition: all 0.3s ease-in-out;
+}
+
+.formTitle h1 {
+    margin-top: 80px;
+}
+
+.alert {
+    width: 914px;
+}
