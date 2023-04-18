@@ -17,7 +17,7 @@
     ?>
     <div class="profileBlock">
         <div class="login button">
-            <a href=""><p>Se connecter</p></a>
+            <a href="login.php"><p>Se connecter</p></a>
         </div>
         <div class="register button">
             <a href="register1.php"><p>S'inscrire</p></a>

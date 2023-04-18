@@ -27,20 +27,25 @@
             </div>
         </div>
         </a>
+        <?php
+        if(!empty($_SESSION['login']) && $_SESSION['login'] == 1) {
+        ?>
+
+
+        <?php 
+            }else{
+        ?>
         <div class="profileBlock">
             <div class="login button">
                 <a href="pages/login.php"><p>Se connecter</p></a>
             </div>
             <div class="register button">
-                <a href="pages/register1.php">
-                    <p>S'inscrire</p>
-                </a>
+                <a href="pages/register1.php"><p>S'inscrire</p></a>
             </div>
-            <!--<div class="square button1"></div>
-            <div class="square button2"></div>
-            <div class="square button3"></div>
-            <div class="circle profilePic"></div>-->
         </div>
+        <?php 
+            }
+        ?>
     </header>
     <?php require 'pages/templates/sidebar.php'; ?>
     <div class="article">
