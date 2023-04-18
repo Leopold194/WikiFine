@@ -18,7 +18,7 @@
         if(!empty($_POST['pwd']) && !empty($_POST['email'])){
 					
             $email = cleanEmail($_POST['email']);
-            
+
             $connection = connectDB();
             $queryPrepared = $connection->prepare("SELECT password FROM WF_USER WHERE email=:email");
             $queryPrepared->execute([
@@ -28,7 +28,7 @@
 
             if(!empty($result) && password_verify($_POST['pwd'], $result['password'])){
                 $_SESSION['email'] = $email;
-                $_SESSION['login'] = 4;
+                $_SESSION['login'] = 1;
                 header('Location: ../index.php');
             }else{
     ?>
@@ -40,7 +40,7 @@
     <?php
         }
     ?>
-    <form ="" method="POST">
+    <form method="POST">
         <div class="email field">
             <input type="email" class="inputForm" name="email" placeholder="Email ou Pseudonyme" required>
             <label class="placeholderLabel">Email ou Pseudonyme</label>

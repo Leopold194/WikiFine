@@ -1,6 +1,6 @@
 <?php 
   session_start();
-  if($_SESSION['login'] < 1){
+  if($_SESSION['register'] < 1){
     header('Location: register1.php');
   }
 ?>

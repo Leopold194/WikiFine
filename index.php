@@ -1,3 +1,8 @@
+<?php 
+    session_start();
+    unset($_SESSION['login']);
+?>
+
 <!DOCTYPE html>
 <html>
 

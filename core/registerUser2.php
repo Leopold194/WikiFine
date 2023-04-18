@@ -63,7 +63,7 @@ if(!preg_match($pattern, $_POST['cp'])) {
 
 if(empty($listOfErrors)){
     $_SESSION['form2'] = $_POST;
-	$_SESSION['login'] = 3;
+	$_SESSION['register'] = 3;
     header("Location: ../pages/register3.php");
 }else{
     $_SESSION['errors']= $listOfErrors;

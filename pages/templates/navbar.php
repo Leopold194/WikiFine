@@ -7,6 +7,14 @@
             <input class="searchBar" type="text" name="search" placeholder="Search articles..">
         </div>
     </div>
+    <?php
+        if(!empty($_SESSION['login']) && $_SESSION['login'] == 1) {
+    ?>
+
+
+    <?php 
+        }else{
+    ?>
     <div class="profileBlock">
         <div class="login button">
             <a href=""><p>Se connecter</p></a>
@@ -14,9 +22,8 @@
         <div class="register button">
             <a href="register1.php"><p>S'inscrire</p></a>
         </div>
-        <!--<div class="square button1"></div>
-        <div class="square button2"></div>
-        <div class="square button3"></div>
-        <div class="circle profilePic"></div>-->
     </div>
+    <?php 
+        }
+    ?>
 </header>

@@ -108,7 +108,7 @@ if(empty($listOfErrors)){
     $_POST['validateCode'] = $validateCode;
     $_POST["pwd"] = password_hash($_POST["pwd"], PASSWORD_DEFAULT);
     $_SESSION['form1'] = $_POST;
-	$_SESSION['login'] = 1;
+	$_SESSION['register'] = 1;
     header("Location: ../pages/emailconfirm.php");
 }else{
     $_SESSION['errors']= $listOfErrors;

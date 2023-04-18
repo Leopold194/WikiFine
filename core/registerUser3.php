@@ -17,7 +17,7 @@ $_POST['newsletter'] = ($_POST['newsletter'] == 'on') ? (1) : (0);
 
 if(empty($listOfErrors)){
     //$_SESSION['form2'] = $_POST;
-	$_SESSION['login'] = 4;
+	$_SESSION['login'] = 1;
     $connection = connectDB();
     echo 'oui';
     $query=$connection->prepare("INSERT INTO WF_USER (pseudo, firstname, lastname, email, password, newsletter, birthday, gender, address, city, country, post_code, phone, phone_ext) VALUES (:pseudo, :firstname, :lastname, :email, :password, :newsletter, :birthday, :gender, :address, :city, :country, :post_code, :phone, :phone_ext)");

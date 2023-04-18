@@ -1,9 +1,9 @@
 <?php 
   session_start();
-  if($_SESSION['login'] < 2){
+  if($_SESSION['register'] < 2){
     header('Location: register1.php');
   }
-  $_SESSION['login'] = 2;
+  $_SESSION['register'] = 2;
 ?>
 <?php require 'templates/head.php'; ?>
 <link rel='stylesheet' href='../css/templates/register.css'>

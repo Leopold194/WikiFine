@@ -1,6 +1,6 @@
 <?php 
     session_start();
-    $_SESSION['login'] = 0;
+    $_SESSION['register'] = 0;
 ?>
 <?php require 'templates/head.php'; ?>
 <link rel='stylesheet' href='../css/templates/register.css'>
