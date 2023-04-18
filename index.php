@@ -1,58 +1,14 @@
 <?php 
     session_start();
+    require 'core/loginUser.php';
+    require 'core/functions.php';
 ?>
+<?php require 'pages/templates/head.php'; ?>
+<link rel='stylesheet' href='css/templates/sidebar.css'>
+<link rel='stylesheet' href='css/index.css'>
+<?php require 'pages/templates/navbar.php'; ?>
+<?php require 'pages/templates/sidebar.php'; ?>
 
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset='UTF-8'>
-    <title>Wikifine</title>
-    <link rel="icon" type="image/x-icon" href="img\logos\wikifineColorFavicon.png">
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' href='css/index.css'>
-    <link rel='stylesheet' href='css/templates/style.css'>
-    <link rel='stylesheet' href='css/templates/navbar.css'>
-    <link rel='stylesheet' href='css/templates/sidebar.css'>
-</head>
-
-<body>
-    <header>
-        <a href="index.php">
-        <div class="logoBlock">
-            <img class="logo" src="img\logos\wikifineColorFull.png" alt="logo">
-            <div class="searchBarBlock">
-                <input class="searchBar" type="text" name="search" placeholder="Search articles..">
-            </div>
-        </div>
-        </a>
-        <?php
-        if(!empty($_SESSION['login']) && $_SESSION['login'] == 1) {
-        ?>
-        <div class="profileBlock">
-            <div class="login button">
-                <a href="pages/login.php"><p>Se déconnecter</p></a>
-            </div>
-            <div class="register button">
-                <a href="pages/register1.php"><p>Mon profil</p></a>
-            </div>
-        </div>
-        <?php 
-            }else{
-        ?>
-        <div class="profileBlock">
-            <div class="login button">
-                <a href="pages/login.php"><p>Se connecter</p></a>
-            </div>
-            <div class="register button">
-                <a href="pages/register1.php"><p>S'inscrire</p></a>
-            </div>
-        </div>
-        <?php 
-            }
-        ?>
-    </header>
-    <?php require 'pages/templates/sidebar.php'; ?>
     <div class="article">
         <div class="articleContent">
             <h1>Le nombre d'Or</h1>
