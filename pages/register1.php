@@ -2,6 +2,7 @@
     session_start();
     $_SESSION['register'] = 0;
 ?>
+<?php require '../conf.inc.php'; ?>
 <?php require 'templates/head.php'; ?>
 <link rel='stylesheet' href='../css/templates/register.css'>
 <link rel='stylesheet' href='../css/registers/register1.css'>

@@ -1,8 +1,9 @@
 <?php 
     session_start();
-    require 'core/loginUser.php';
     require 'core/functions.php';
 ?>
+
+<?php require 'conf.inc.php'; ?>
 <?php require 'pages/templates/head.php'; ?>
 <link rel='stylesheet' href='css/templates/sidebar.css'>
 <link rel='stylesheet' href='css/index.css'>

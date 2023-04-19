@@ -16,10 +16,7 @@ if(!array_key_exists('interest', $_POST) || count($_POST['interest']) < 3){
 $_POST['newsletter'] = ($_POST['newsletter'] == 'on') ? (1) : (0);
 
 if(empty($listOfErrors)){
-    //$_SESSION['form2'] = $_POST;
-	$_SESSION['login'] = 1;
     $connection = connectDB();
-    echo 'oui';
     $query=$connection->prepare("INSERT INTO WF_USER (pseudo, firstname, lastname, email, password, newsletter, birthday, gender, address, city, country, post_code, phone, phone_ext) VALUES (:pseudo, :firstname, :lastname, :email, :password, :newsletter, :birthday, :gender, :address, :city, :country, :post_code, :phone, :phone_ext)");
     $query->execute([
         "pseudo"=>$_SESSION['form2']['pseudo'], 
@@ -37,9 +34,9 @@ if(empty($listOfErrors)){
         "phone"=>$_SESSION['form1']['tel'], 
         "phone_ext"=>$_SESSION['form1']['country'], 
         //"avatar"=>
-        //$_SESSION['form1']['firstname'],
     ]);
-    //header("Location: ../pages/login.php");
+    unset($_SESSION['register']);
+    header("Location: ../pages/login.php");
 }else{
     $_SESSION['errors']= $listOfErrors;
     header("Location: ../pages/register3.php");

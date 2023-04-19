@@ -40,12 +40,26 @@ if(!in_array($_POST['country'], $listOfCities) ){
 
 if(!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)){
 	$listOfErrors[] = ["email", "L'email est incorrect"];
+}else{
+    $connection = connectDB();
+    $queryPrepared = $connection->prepare("SELECT * FROM esgi_user WHERE email=:email");
+    $queryPrepared->execute([
+        "email"=>$_POST['email']
+    ]);
+    $result = $queryPrepared->fetch();
+
+    if(!empty($result)){
+        $listOfErrors[] = ["email", "Vous avez déjà un compte"];
+    }
 }
-// Email -> Unicité
 
 //Adapter à tous les numéros de téléphone du monde
 if(!preg_match("#^0?[1-9]([ -]?[0-9]{2}){4}$#", $_POST["tel"])){
     $listOfErrors[] = ["tel", "Numéro de téléphone invalide"];
+}else{
+	if(strlen($_POST["tel"]) == 9) {
+		$_POST["tel"] = "0".$_POST["tel"];
+	}
 }
 
 if( strlen($_POST["pwd"])<8
@@ -67,7 +81,6 @@ if(empty($listOfErrors)){
         $validateCode .= strval(rand(0, 9));
     }
 
-	//Load Composer's autoloader
 	require 'vendor/autoload.php';
 	
 	$data = file_get_contents('../../secrets/secrets.json');

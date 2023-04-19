@@ -4,6 +4,8 @@
     header('Location: register1.php');
   }
 ?>
+
+<?php require '../conf.inc.php'; ?>
 <?php require 'templates/head.php'; ?>
 <link rel='stylesheet' href='../css/templates/register.css'>
 <link rel='stylesheet' href='../css/registers/emailconfirm.css'>
@@ -41,7 +43,7 @@
             }else{
                 $userCode = $_POST['0'].$_POST['1'].$_POST['2'].$_POST['3'].$_POST['4'].$_POST['5'];
                 if($_SESSION['form1']['validateCode'] == $userCode){
-                    $_SESSION['login'] = 2;
+                    $_SESSION['register'] = 2;
                     unset($_SESSION['form1']['validateCode']);
                     header('Location: register2.php');
                 }else{

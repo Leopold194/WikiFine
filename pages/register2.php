@@ -5,6 +5,8 @@
   }
   $_SESSION['register'] = 2;
 ?>
+
+<?php require '../conf.inc.php'; ?>
 <?php require 'templates/head.php'; ?>
 <link rel='stylesheet' href='../css/templates/register.css'>
 <link rel='stylesheet' href='../css/registers/register2.css'>
