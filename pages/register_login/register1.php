@@ -22,7 +22,7 @@
 
 <div class="registerForm">
     <?php
-        $inputState = ["firstname"=>"notError", "lastname"=>"notError", "email"=>"notError", "country"=>"notError", "tel"=>"notError", "pwd"=>"notError", "pwdConfirm"=>"notError"];
+        $inputState = ["firstname"=>"", "lastname"=>"", "email"=>"", "country"=>"", "tel"=>"", "pwd"=>"", "pwdConfirm"=>""];
         if(!empty($_SESSION['errors'])){
     ?>
     <div class="alert">

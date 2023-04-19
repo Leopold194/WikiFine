@@ -28,16 +28,9 @@ $pattern = "#^[a-z0-9-_]{3,30}$#i";
 if(!preg_match($pattern, $_POST['pseudo'])) {
     $listOfErrors[] = ["pseudo", "Pseudonyme incorrect : Entre 3 et 30 caractères, pas de caractères spéciaux (à part - et _)"];
 }else{
-    $connection = connectDB();
-    $queryPrepared = $connection->prepare("SELECT * FROM ".DB_PREFIX."USER WHERE pseudo=:pseudo");
-    $queryPrepared->execute([
-        "pseudo"=>$_POST['pseudo']
-    ]);
-    $result = $queryPrepared->fetch();
-
-    if(!empty($result)){
-        $listOfErrors[] = ["pseudo", "Pseudo déjà existant"];
-    }
+    if(checkDataInDB("pseudo", $_POST['pseudo'])) {
+		$listOfErrors[] = ["pseudo", "Pseudo déjà existant"];
+	}
 }
 
 $birthdaySeparate = explode("-", $_POST['birthday']);

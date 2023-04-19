@@ -41,16 +41,9 @@ if(!in_array($_POST['country'], $listOfCities) ){
 if(!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)){
 	$listOfErrors[] = ["email", "L'email est incorrect"];
 }else{
-    $connection = connectDB();
-    $queryPrepared = $connection->prepare("SELECT * FROM ".DB_PREFIX."USER WHERE email=:email");
-    $queryPrepared->execute([
-        "email"=>$_POST['email']
-    ]);
-    $result = $queryPrepared->fetch();
-
-    if(!empty($result)){
-        $listOfErrors[] = ["email", "Vous avez déjà un compte"];
-    }
+    if(checkDataInDB("email", $_POST['email'])) {
+		$listOfErrors[] = ["email", "Vous avez déjà un compte"];
+	}
 }
 
 //Adapter à tous les numéros de téléphone du monde

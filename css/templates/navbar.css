@@ -122,17 +122,34 @@ header{
     width: 100%;
 }
 
-.square {
-    width: 50px;
-    height: 50px;
-    background-color: #333;
-    margin-left: 20px;
+.profileBlockConnected {
+    display: flex;
+    position: absolute;
+    margin-top: 10px;
+    margin-right: 25px;
+    top: 0;
+    right: 0;
+    padding: 10px;
 }
 
-.circle {
-    width: 50px;
-    height: 50px;
-    background-color: #333;
-    border-radius: 50%;
-    margin-left: 20px;
+.avatar {
+    width: 80px;
+}
+
+.pageLogos {
+    height: 45px;
+    margin-top: 17px;
+    margin-right: 25px;
+}
+
+.clock {
+    height: 42px;
+    margin-top: 19px;
+}
+
+.verif {
+    width: 35px;
+    position: absolute;
+    right: 0;
+    bottom: 7px;
 }

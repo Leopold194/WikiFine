@@ -49,12 +49,13 @@
             <label class="placeholderLabel">Email ou Pseudonyme</label>
         </div>
         <div class="pwd field mt">
-            <input type="password" class="inputForm" name="pwd" placeholder="Mot de passe" required>
+            <input type="password" class="inputForm" name="pwd" id="pwd" placeholder="Mot de passe" required>
+            <img src="../../img/register/open_eye.svg" class="eye open_eye" id="eye0">
             <label class="placeholderLabel">Mot de passe</label>
         </div>
         <div class="link mt">
-            <a href="">Vous n’avez pas de compte ? Inscrivez vous dès maintenant !</a><br>
-            <a href="">Mot de passe oublié</a>
+            <a href="register1.php">Vous n’avez pas de compte ? Inscrivez vous dès maintenant !</a><br>
+            <a href="reset_password.php">Mot de passe oublié</a>
         </div>
         <div class="submit field">
             <button type="submit">CONNEXION</button>
@@ -62,5 +63,25 @@
         </div></div>
     </form> 
 </div>
+<script>
+
+const eye0 = document.getElementById("eye0");
+const passwordField = document.getElementById("pwd");
+
+eye0.addEventListener("click", () => {
+  if(eye0.classList.contains('open_eye')){
+    eye0.src = "../../img/register/close_eye.svg";
+    passwordField.type = "text";
+    eye0.classList.add('close_eye');
+    eye0.classList.remove('open_eye');
+  }else{
+    eye0.src = "../../img/register/open_eye.svg";
+    passwordField.type = "password";
+    eye0.classList.add('open_eye');
+    eye0.classList.remove('close_eye');
+  }
+});
+
+</script>
 </body>
 </html>
