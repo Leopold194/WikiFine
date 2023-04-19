@@ -85,6 +85,7 @@
 </div>
 <script>
 const inputs = document.querySelectorAll('input.inputDigit');
+
 for (let i = 0; i < inputs.length; i++) {
   inputs[i].addEventListener('keydown', function(event) {
     if (event.keyCode === 8 && this.value.length === 0) {

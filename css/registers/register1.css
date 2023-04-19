@@ -75,3 +75,11 @@ form {
 .mt {
     margin-top: 40px;
 }
+
+.eye {
+    height: 20px;
+    right: 10px;
+    top: 11px;
+    position: absolute;
+    cursor: pointer;
+}

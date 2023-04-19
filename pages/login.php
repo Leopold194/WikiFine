@@ -21,7 +21,7 @@
             $email = cleanEmail($_POST['email']);
 
             $connection = connectDB();
-            $queryPrepared = $connection->prepare("SELECT password FROM WF_USER WHERE email=:email");
+            $queryPrepared = $connection->prepare("SELECT password FROM ".DB_PREFIX."USER WHERE email=:email");
             $queryPrepared->execute([
                 "email"=>$email
             ]);

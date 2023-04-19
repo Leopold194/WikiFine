@@ -17,7 +17,7 @@ $_POST['newsletter'] = ($_POST['newsletter'] == 'on') ? (1) : (0);
 
 if(empty($listOfErrors)){
     $connection = connectDB();
-    $query=$connection->prepare("INSERT INTO WF_USER (pseudo, firstname, lastname, email, password, newsletter, birthday, gender, address, city, country, post_code, phone, phone_ext) VALUES (:pseudo, :firstname, :lastname, :email, :password, :newsletter, :birthday, :gender, :address, :city, :country, :post_code, :phone, :phone_ext)");
+    $query=$connection->prepare("INSERT INTO ".DB_PREFIX."USER (pseudo, firstname, lastname, email, password, newsletter, birthday, gender, address, city, country, post_code, phone, phone_ext) VALUES (:pseudo, :firstname, :lastname, :email, :password, :newsletter, :birthday, :gender, :address, :city, :country, :post_code, :phone, :phone_ext)");
     $query->execute([
         "pseudo"=>$_SESSION['form2']['pseudo'], 
         "firstname"=>strtolower($_SESSION['form1']['firstname']), 

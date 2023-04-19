@@ -42,7 +42,7 @@ if(!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)){
 	$listOfErrors[] = ["email", "L'email est incorrect"];
 }else{
     $connection = connectDB();
-    $queryPrepared = $connection->prepare("SELECT * FROM esgi_user WHERE email=:email");
+    $queryPrepared = $connection->prepare("SELECT * FROM ".DB_PREFIX."USER WHERE email=:email");
     $queryPrepared->execute([
         "email"=>$_POST['email']
     ]);
