@@ -36,6 +36,17 @@
         return (!empty($result)) ? true : false;
     }
 
+    function isVerify($email) {
+        $connection = connectDB();
+        $query = $connection->prepare("SELECT verify FROM ".DB_PREFIX."USER WHERE email=:email");
+        $query->execute([
+            "email"=>$email
+        ]);
+        $result = $query->fetch();
+
+        return ($result['verify'] == 1) ? true : false;
+    }
+
     function sendMail($recipient, $subject, $body){
         
         require 'vendor/autoload.php';

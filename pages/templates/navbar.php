@@ -1,3 +1,4 @@
+
 </head>
 <body>
 <header>
@@ -24,7 +25,13 @@
             <a href="">
                 <img src="../../../img_avatar/test_avatar.png" alt="Avatar" class="avatar">
             </a>
+            <?php
+                if(isVerify($_SESSION['id'])) {
+            ?>
             <img src="img/page_logos/verif.svg" alt="Verif" class="verif">
+            <?php
+                }
+            ?>
         </div>
     </div>
     <?php 
