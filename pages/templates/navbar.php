@@ -12,10 +12,10 @@
     ?>
     <div class="profileBlock">
         <div class="login button">
-            <a href=<?php echo FILE_PREFIX."pages/login.php"; ?>><p>Se déconnecter</p></a>
+            <a href=<?php echo FILE_PREFIX."pages/register_login/login.php"; ?>><p>Se déconnecter</p></a>
         </div>
         <div class="register button">
-            <a href=<?php echo FILE_PREFIX."pages/register1.php"; ?>><p>Mon profil</p></a>
+            <a href=<?php echo FILE_PREFIX."pages/register_login/register1.php"; ?>><p>Mon profil</p></a>
         </div>
     </div>
     <?php 
@@ -23,10 +23,10 @@
     ?>
     <div class="profileBlock">
         <div class="login button">
-            <a href=<?php echo FILE_PREFIX."pages/login.php"; ?>><p>Se connecter</p></a>
+            <a href=<?php echo FILE_PREFIX."pages/register_login/login.php"; ?>><p>Se connecter</p></a>
         </div>
         <div class="register button">
-            <a href=<?php echo FILE_PREFIX."pages/register1.php"; ?>><p>S'inscrire</p></a>
+            <a href=<?php echo FILE_PREFIX."pages/register_login/register1.php"; ?>><p>S'inscrire</p></a>
         </div>
     </div>
     <?php 

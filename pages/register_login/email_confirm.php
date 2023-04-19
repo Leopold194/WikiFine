@@ -5,11 +5,11 @@
   }
 ?>
 
-<?php require '../conf.inc.php'; ?>
-<?php require 'templates/head.php'; ?>
-<link rel='stylesheet' href='../css/templates/register.css'>
-<link rel='stylesheet' href='../css/registers/emailconfirm.css'>
-<?php require 'templates/navbar.php'; ?>
+<?php require '../../conf.inc.php'; ?>
+<?php require '../templates/head.php'; ?>
+<link rel='stylesheet' href='../../css/templates/register.css'>
+<link rel='stylesheet' href='../../css/registers/emailconfirm.css'>
+<?php require '../templates/navbar.php'; ?>
 
 <div class="breadcrumb">
     <span class="line"></span>  

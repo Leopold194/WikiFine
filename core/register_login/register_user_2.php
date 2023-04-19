@@ -1,6 +1,8 @@
 <?php
 session_start();
-require "functions.php";
+require "../functions.php";
+require "../../conf.inc.php";
+
 
 if( count($_POST) != 7
 	|| empty($_POST["pseudo"])
@@ -25,6 +27,17 @@ $listOfErrors = [];
 $pattern = "#^[a-z0-9-_]{3,30}$#i";
 if(!preg_match($pattern, $_POST['pseudo'])) {
     $listOfErrors[] = ["pseudo", "Pseudonyme incorrect : Entre 3 et 30 caractères, pas de caractères spéciaux (à part - et _)"];
+}else{
+    $connection = connectDB();
+    $queryPrepared = $connection->prepare("SELECT * FROM ".DB_PREFIX."USER WHERE pseudo=:pseudo");
+    $queryPrepared->execute([
+        "pseudo"=>$_POST['pseudo']
+    ]);
+    $result = $queryPrepared->fetch();
+
+    if(!empty($result)){
+        $listOfErrors[] = ["pseudo", "Pseudo déjà existant"];
+    }
 }
 
 $birthdaySeparate = explode("-", $_POST['birthday']);
@@ -64,9 +77,9 @@ if(!preg_match($pattern, $_POST['cp'])) {
 if(empty($listOfErrors)){
     $_SESSION['form2'] = $_POST;
 	$_SESSION['register'] = 3;
-    header("Location: ../pages/register3.php");
+    header("Location: ../../pages/register_login/register3.php");
 }else{
     $_SESSION['errors']= $listOfErrors;
-    header("Location: ../pages/register2.php");
+    header("Location: ../../pages/register_login/register2.php");
 }
 ?>

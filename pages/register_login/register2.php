@@ -6,11 +6,11 @@
   $_SESSION['register'] = 2;
 ?>
 
-<?php require '../conf.inc.php'; ?>
-<?php require 'templates/head.php'; ?>
-<link rel='stylesheet' href='../css/templates/register.css'>
-<link rel='stylesheet' href='../css/registers/register2.css'>
-<?php require 'templates/navbar.php'; ?>
+<?php require '../../conf.inc.php'; ?>
+<?php require '../templates/head.php'; ?>
+<link rel='stylesheet' href='../../css/templates/register.css'>
+<link rel='stylesheet' href='../../css/registers/register2.css'>
+<?php require '../templates/navbar.php'; ?>
 
 <div class="breadcrumb">
     <span class="line"></span>  
@@ -39,9 +39,9 @@
     <?php
         unset($_SESSION['errors']);}
     ?>
-    <form action="../core/registerUser2.php" method="POST">
+    <form action="../../core/register_login/register_user_2.php" method="POST">
         <div class="avatar field">
-            <a href=""><img src="../img/register/avatar.png" alt="avatarMenu"></a>
+            <a href=""><img src="../../img/register/avatar.png" alt="avatarMenu"></a>
         </div>
         <div class="pseudo field tiny-mt <?php echo $inputState["pseudo"]; ?>">
             <input type="text" class="inputForm" name="pseudo" id="pseudo" maxlength="30" placeholder="Pseudonyme" required>

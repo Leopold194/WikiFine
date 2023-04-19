@@ -1,6 +1,7 @@
 <?php
 session_start();
-require "functions.php";
+require "../functions.php";
+require "../../conf.inc.php";
 
 if(!isset($_POST["cgu"]))
 {
@@ -36,10 +37,10 @@ if(empty($listOfErrors)){
         //"avatar"=>
     ]);
     unset($_SESSION['register']);
-    header("Location: ../pages/login.php");
+    header("Location: ../../pages/register_login/login.php");
 }else{
     $_SESSION['errors']= $listOfErrors;
-    header("Location: ../pages/register3.php");
+    header("Location: ../../pages/register_login/register3.php");
 }
 
 ?>

@@ -1,13 +1,13 @@
 <?php 
     session_start();
-    require '../core/functions.php';
+    require '../../core/functions.php';
 ?>
 
-<?php require '../conf.inc.php'; ?>
-<?php require 'templates/head.php'; ?>
-<link rel='stylesheet' href='../css/templates/register.css'>
-<link rel='stylesheet' href='../css/registers/login.css'>
-<?php require 'templates/navbar.php'; ?>
+<?php require '../../conf.inc.php'; ?>
+<?php require '../templates/head.php'; ?>
+<link rel='stylesheet' href='../../css/templates/register.css'>
+<link rel='stylesheet' href='../../css/registers/login.css'>
+<?php require '../templates/navbar.php'; ?>
 
 <div class="formTitle">
     <h1 class="title">Connexion</h1>
@@ -16,21 +16,23 @@
 <div class="loginForm">
     
     <?php
-        if(!empty($_POST['pwd']) && !empty($_POST['email'])){
-					
-            $email = cleanEmail($_POST['email']);
+        if(!empty($_POST['pwd']) && !empty($_POST['id'])){
+			
+            $pseudo = $_POST['id'];
+            $email = cleanEmail($_POST['id']);
 
             $connection = connectDB();
-            $queryPrepared = $connection->prepare("SELECT password FROM ".DB_PREFIX."USER WHERE email=:email");
+            $queryPrepared = $connection->prepare("SELECT password, email FROM ".DB_PREFIX."USER WHERE (email=:email OR pseudo=:pseudo)");
             $queryPrepared->execute([
-                "email"=>$email
+                "email"=>$email,
+                "pseudo"=>$pseudo
             ]);
             $result = $queryPrepared->fetch();
 
             if(!empty($result) && password_verify($_POST['pwd'], $result['password'])){
-                $_SESSION['email'] = $email;
+                $_SESSION['id'] = $result["email"];
                 $_SESSION['login'] = 1;
-                header('Location: ../index.php');
+                header('Location: ../../index.php');
             }else{
     ?>
     <div class="alert">
@@ -43,7 +45,7 @@
     ?>
     <form method="POST">
         <div class="email field">
-            <input type="email" class="inputForm" name="email" placeholder="Email ou Pseudonyme" required>
+            <input type="text" class="inputForm" name="id" placeholder="Email ou Pseudonyme" required>
             <label class="placeholderLabel">Email ou Pseudonyme</label>
         </div>
         <div class="pwd field mt">

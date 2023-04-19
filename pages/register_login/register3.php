@@ -8,11 +8,11 @@
   $_SESSION['register'] = 3;
 ?>
 
-<?php require '../conf.inc.php'; ?>
-<?php require 'templates/head.php'; ?>
-<link rel='stylesheet' href='../css/templates/register.css'>
-<link rel='stylesheet' href='../css/registers/register3.css'>
-<?php require 'templates/navbar.php'; ?>
+<?php require '../../conf.inc.php'; ?>
+<?php require '../templates/head.php'; ?>
+<link rel='stylesheet' href='../../css/templates/register.css'>
+<link rel='stylesheet' href='../../css/registers/register3.css'>
+<?php require '../templates/navbar.php'; ?>
 
 <div class="breadcrumb">
     <span class="line"></span>  
@@ -40,7 +40,7 @@
         unset($_SESSION['errors']);}
     ?>
     <h2 class="formContentTitle"><u>Selectionnez au moins 3 centres d'intérêts :</u></h2>
-    <form action="../core/registerUser3.php" method="POST">
+    <form action="../../core/register_login/register_user_3.php" method="POST">
         <div class="hobbiesForm">
             <input class="" type="checkbox" id="0" name="interest[]" value="0">
             <label for="0">Histoire</label>
@@ -80,7 +80,7 @@
             <a href="">
                 <div class="captchaButton">
                     <p>Captcha</p>
-                    <img src="../img/register/tete_robot.svg" alt="">
+                    <img src="../../img/register/tete_robot.svg" alt="">
                 </div>
             </a>
             <button type="submit" id="registerButton" class="registerButtonInactive" disabled>S'inscrire</button>

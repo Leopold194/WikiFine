@@ -5,7 +5,8 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
 session_start();
-require "functions.php";
+require "../functions.php";
+require "../../conf.inc.php";
 
 if( count($_POST) != 7
 	|| empty($_POST["firstname"])
@@ -22,7 +23,6 @@ if( count($_POST) != 7
 $_POST["lastname"] = cleanLastname($_POST["lastname"]);
 $_POST["firstname"] = cleanFirstname($_POST["firstname"]);
 $_POST["email"] = cleanEmail($_POST["email"]);
-
 
 $listOfErrors = [];
 
@@ -81,9 +81,9 @@ if(empty($listOfErrors)){
         $validateCode .= strval(rand(0, 9));
     }
 
-	require 'vendor/autoload.php';
+	require '../vendor/autoload.php';
 	
-	$data = file_get_contents('../../secrets/secrets.json');
+	$data = file_get_contents('../../../secrets/secrets.json');
 	$obj = json_decode($data);
 
 	$mail = new PHPMailer(true);
@@ -122,9 +122,9 @@ if(empty($listOfErrors)){
     $_POST["pwd"] = password_hash($_POST["pwd"], PASSWORD_DEFAULT);
     $_SESSION['form1'] = $_POST;
 	$_SESSION['register'] = 1;
-    header("Location: ../pages/emailconfirm.php");
+    header("Location: ../../pages/register_login/email_confirm.php");
 }else{
     $_SESSION['errors']= $listOfErrors;
-    header("Location: ../pages/register1.php");
+    header("Location: ../../pages/register_login/register1.php");
 }
 ?>
