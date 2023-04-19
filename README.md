@@ -19,6 +19,7 @@ Après cette étape vous serez prêt à développer !
 ### Importer les templates
 **Créer un nouveau fichier .php dans le dossier pages**</br></br>
 *Ajouter en haut du nouveau fichier :*</br></br>
+`<?php require '../conf.inc.php'; ?>`</br>
 `<?php require 'templates/head.php'; ?>`</br>
 Ajouter entre les deux, les balises link pour lier le fichier CSS utilisé pour uniquement votre page</br>
 `<?php require 'templates/navbar.php'; ?>`</br></br>
