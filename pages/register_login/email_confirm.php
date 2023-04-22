@@ -1,11 +1,12 @@
 <?php 
   session_start();
-  if($_SESSION['register'] < 1){
+  if($_SESSION['register'] < 1 && !isset($_SESSION['modify_account_data'])){
     header('Location: register1.php');
   }
 ?>
 
 <?php require '../../conf.inc.php'; ?>
+<?php require '../../core/functions.php'; ?>
 <?php require '../templates/head.php'; ?>
 <link rel='stylesheet' href='../../css/templates/register.css'>
 <link rel='stylesheet' href='../../css/registers/emailconfirm.css'>
@@ -41,18 +42,26 @@
                 </div>
                 <?php
             }else{
+
                 $userCode = $_POST['0'].$_POST['1'].$_POST['2'].$_POST['3'].$_POST['4'].$_POST['5'];
-                if($_SESSION['form1']['validateCode'] == $userCode){
-                    $_SESSION['register'] = 2;
-                    unset($_SESSION['form1']['validateCode']);
-                    header('Location: register2.php');
+                if(!isset($_SESSION['modify_account_data'])){
+                    if($_SESSION['form1']['validateCode'] == $userCode){
+                        $_SESSION['register'] = 2;
+                        unset($_SESSION['form1']['validateCode']);
+                        header('Location: register2.php');
+                    }
                 }else{
-                    ?>
+                    if($_SESSION['validateCode'] == $userCode){
+                        $_SESSION['modify_account_data'] = 1;
+                        unset($_SESSION['validateCode']);
+                        header('Location: ../../core/user/modify_user.php');
+                    }
+                }
+                ?>
                     <div class="alert">
                         <li>Code de Validation incorrect.</li>
                     </div>
-                    <?php
-                }
+                <?php
             }
         }
     ?>

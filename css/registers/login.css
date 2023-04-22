@@ -54,11 +54,11 @@ form {
 .link a {
     text-decoration: none;
     color: #5F85DB;
+    transition: all 0.3s ease-in-out;
 }
 
 .link a:hover {
     color: black;
-    transition: all 0.3s ease-in-out;
 }
 
 .formTitle h1 {

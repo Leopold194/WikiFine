@@ -47,6 +47,18 @@
         return ($result['verify'] == 1) ? true : false;
     }
 
+    function getData($data, $email) {
+        $connection = connectDB();
+        $query = $connection->query("SELECT * FROM ".DB_PREFIX."USER WHERE email='".$email."';");
+        $result = $query->fetch();
+
+        $wantedData = [];
+        foreach($data as $dataType){
+            $wantedData[] = $result[$dataType];
+        }
+        return $wantedData;
+    }
+
     function sendMail($recipient, $subject, $body){
         
         require 'vendor/autoload.php';
