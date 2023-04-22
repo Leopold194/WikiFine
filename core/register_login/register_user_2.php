@@ -18,9 +18,9 @@ if( count($_POST) != 7
 
 $_POST['pseudo'] = trim($_POST['pseudo']);
 $_POST["adress"] = trim($_POST["adress"]);
-$_POST["country"] = trim($_POST["country"]);
+$_POST["country"] = trim(strtolower($_POST["country"]));
 $_POST["cp"] = trim($_POST["cp"]);
-$_POST["city"] = trim($_POST["city"]);
+$_POST["city"] = trim(strtolower($_POST["city"]));
 
 $listOfErrors = [];
 
