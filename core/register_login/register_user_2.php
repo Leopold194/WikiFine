@@ -57,7 +57,7 @@ if(!preg_match($pattern, $_POST['adress'])) {
     $listOfErrors[] = ["adress", "Adresse incorrect, doit être au format : 47, rue du 14 Juillet"];
 }
 
-$pattern = "#^[a-z\s]{4,40}$#i";
+$pattern = "#^[a-z\s-]{4,40}$#i";
 if(!preg_match($pattern, $_POST['country'])) {
     $listOfErrors[] = ["country", "Pays incorrect"];
 }

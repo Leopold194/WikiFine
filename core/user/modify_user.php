@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 require "../functions.php";
 require "../../conf.inc.php";
@@ -126,7 +125,6 @@ if(empty($listOfErrors)){
             $columns = substr($columns, 0, -2);
 
             $connect = connectDB();
-            //".$columns."
             $queryPrepared = $connect->prepare("UPDATE ".DB_PREFIX."USER SET ".$columns." WHERE email=:email");
             $queryPrepared->execute([
                 "email"=>$_SESSION['id']
