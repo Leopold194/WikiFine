@@ -10,3 +10,23 @@ header{
     height: 80px;
     background-color: #DEDEDE;
 }
+
+.profileBlockConnected {
+    display: flex;
+    position: absolute;
+    margin-right: 10px;
+    top: 0;
+    right: 0;
+    padding: 10px;
+}
+
+.avatar {
+    width: 60px;
+}
+
+.verif {
+    width: 25px;
+    position: absolute;
+    right: 0;
+    bottom: 7px;
+}

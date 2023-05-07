@@ -153,3 +153,29 @@ header{
     right: 0;
     bottom: 7px;
 }
+
+.writeArticle {
+    margin-top: 18px;
+    margin-right: 50px;
+    background-color: #5F85DB;
+    width: 42px;
+    height: 42px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.writeArticle img {
+    width: 22px;
+}
+
+.writeArticle:hover {
+    background-color: rgba(244, 244, 242, 1);
+    border: #5F85DB 2px solid;
+}
+
+.writeArticle:hover img {
+    filter: invert(49%) sepia(72%) saturate(436%) hue-rotate(184deg) brightness(91%) contrast(89%);
+}
