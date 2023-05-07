@@ -6,18 +6,9 @@
         <a href=<?php echo FILE_PREFIX."index.php";?>><img class="logoNebula" src=<?php echo FILE_PREFIX."img\logos\\nebulaColorFull.png"; ?> alt="logo"></a>
     </div>
     <?php
-        if(!empty($_SESSION['login']) && $_SESSION['login'] == 1) {
+        if(!empty($_SESSION['super_login']) && $_SESSION['super_login'] == 1) {
     ?>
     <div class="profileBlockConnected">
-        <a href="">
-            <img src=<?php echo FILE_PREFIX."img/page_logos/clock.svg"; ?> alt="Last" class="pageLogos clock">
-        </a>
-        <a href="">
-            <img src=<?php echo FILE_PREFIX."img/page_logos/bell.svg"; ?> alt="Notifications" class="pageLogos">
-        </a>
-        <a href="">
-            <img src=<?php echo FILE_PREFIX."img/page_logos/moon.svg"; ?> alt="Dark Mode" class="pageLogos">
-        </a>
         <div class="avatarDiv">
             <a href="<?php echo FILE_PREFIX."pages/user/user_main.php";?>">
                 <img src=<?php 
