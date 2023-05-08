@@ -33,7 +33,7 @@
                 $_SESSION['id'] = $result["email"];
                 $_SESSION['super_login'] = 1;
                 $_SESSION['currentPage'] = 1;
-                header('Location: dashboard.php');
+                header('Location: userslist.php');
             }else{
     ?>
     <div class="alert">
