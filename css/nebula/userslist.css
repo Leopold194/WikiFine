@@ -1,0 +1,130 @@
+.pageBody {
+    position: absolute;
+    left: 17%;
+    width: 83%;
+}
+
+.pageTitle {
+    margin-top: 10px;
+    margin-left: 25px;
+    font-family: 'Gotham';
+    font-size: 40px;
+}
+
+.searchBar {
+    margin-left: 25px;
+    margin-top: 20px;
+    border-radius: 10px;
+    border: black solid 0.5px;
+    text-indent: 10px;
+    height: 32px;
+}
+
+.searchBar:focus {
+    outline: none;
+}
+
+.pageBodyHeader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: max-content;
+}
+
+.userTable {
+    margin-left: 25px;
+    margin-top: 20px;
+    width: 96%;
+}
+
+.userTableHeader ul {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    list-style-type: none;
+    border-bottom: black 2px solid;
+}
+
+.userTableHeader ul li {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.userTableRow {
+    display: flex;
+    align-items: center;
+    height: 45px;
+    border-bottom: black 1px solid;
+}
+
+.userTableRow .verify {
+    padding-left: 20px;
+}
+
+.userTableRow .role select {
+    width: 80%;
+    height: 33px;
+    border-radius: 10px;
+    border: 1px solid black;
+    text-indent: 5px;
+}
+
+.userTableRow .action input {
+    height: 33px;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    background-color: #EE3939;
+    cursor: pointer;
+}
+
+.lastname, .pseudo {
+    width: 13%;
+}
+
+.firstname {
+    width: 13%;
+}
+
+.email {
+    width: 30%;
+}
+
+.verify {
+    width: 11%;
+}
+
+.action {
+    width: 10%;
+}
+
+.role {
+    width: 10%;
+}
+
+.arrowChangePage {
+    margin-top: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.arrowChangePage img {
+    height: 20px;
+}
+
+.arrowChangePage p {
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.arrowChangePage input {
+    position: absolute;
+    height: 20px;
+    margin-left: -3px;
+    background: transparent;
+    border: none;
+    z-index: 10;
+}

@@ -1,6 +1,6 @@
-<?php 
-    session_start();
-    require '../core/functions.php';
+<?php
+session_start();
+require '../core/functions.php';
 ?>
 
 <?php require '../conf.inc.php'; ?>
@@ -8,153 +8,92 @@
 <link rel='stylesheet' href='../css/nebula/dashboard.css'>
 <?php require 'templates/navbar.php'; ?>
 <?php require 'templates/sidebar.php'; ?>
+<?php
+function generateLineChart($dataPoints, $color)
+{
+    $graphWidth = 580;
+    $graphHeight = 210;
+    $margin = 20;
 
-<?php 
+    $xInterval = ($graphWidth - 2 * $margin) / (count($dataPoints) - 1);
+    $yMax = max($dataPoints);
+    $yMin = min($dataPoints);
+    $yScale = $graphHeight / ($yMax - $yMin);
 
-    $connect = connectDB();
-    $results = $connect->query("SELECT id, lastname, firstname, pseudo, email, verify, status FROM ".DB_PREFIX."USER");
-    $listOfUsers = $results->fetchAll();
-
-    $maxPage = ceil(count($listOfUsers) / 10);
-
-    if(isset($_GET['id'])){
-        $connect = connectDB();
-        $queryPrepared = $connect->prepare("DELETE FROM ".DB_PREFIX."USER WHERE id=:id");
-        $queryPrepared->execute(['id'=>$_GET['id']]);
+    $points = '';
+    $lines = '';
+    foreach ($dataPoints as $index => $value) {
+        $x = $margin + $index * $xInterval;
+        $y = ($yMax - $value) * $yScale;
+        $points .= "<circle cx='{$x}' cy='{$y}' r='5' fill='{$color}' />";
+        if ($index > 0) {
+            $xPrev = $margin + ($index - 1) * $xInterval;
+            $yPrev = ($yMax - $dataPoints[$index - 1]) * $yScale;
+            $lines .= "<line x1='{$xPrev}' y1='{$yPrev}' x2='{$x}' y2='{$y}' stroke='{$color}' stroke-width='4' />";
+        }
     }
 
-    if(isset($_POST['arrowLeft']) && $_SESSION['currentPage'] > 1){
-        $_SESSION['currentPage']--;
-        echo $_SESSION['currentPage'];
-        unset($_POST['arrowLeft']);
-        header('Location: dashboard.php');
-    }
+    $axes = "<line x1='{$margin}' y1='0' x2='{$margin}' y2='{$graphHeight}' stroke='black' stroke-width='4' />
+             <line x1='{$margin}' y1='{$graphHeight}' x2='" . ($graphWidth - $margin) . "' y2='{$graphHeight}' stroke='black' stroke-width='4' />";
 
-    if(isset($_POST['arrowRight']) && $_SESSION['currentPage'] < $maxPage){
-        $_SESSION['currentPage']++;
-        echo $_SESSION['currentPage'];
-        unset($_POST['arrowRight']);
-        header('Location: dashboard.php');
-    }
+    return $axes . $lines . $points;
+}
 
+$dataPoints = [60, 20, 30, 20, 40, 50];
+$color = "#5F85DB";
+$chartContent = generateLineChart($dataPoints, $color);
 ?>
 
-<div class="pageBody">
-    <div class="pageBodyHeader">
-        <h1 class="pageTitle">Liste des Utilisateurs :</h1>
-        <input type="text" placeholder="Rechercher ..." class="searchBar">
+<div class="contentBody">
+    <div class="dashboardCardsWrapper">
+        <div class="dashboardCard">
+            <div class="cardContent">
+                <h3 class="cardTitle">Articles</h3>
+                <p class="cardNumber articles">491</p>
+            </div>
+        </div>
+        <div class="dashboardCard">
+            <div class="cardContent">
+                <h3 class="cardTitle">Reports</h3>
+                <p class="cardNumber reports">6</p>
+            </div>
+        </div>
+        <div class="dashboardCard">
+            <div class="cardContent">
+                <h3 class="cardTitle">New articles</h3>
+                <p class="cardNumber newArticles">12</p>
+            </div>
+        </div>
+        <div class="dashboardCard">
+            <div class="cardContent">
+                <h3 class="cardTitle">Delete articles</h3>
+                <p class="cardNumber deleteArticles">2</p>
+            </div>
+        </div>
     </div>
-
-    <div class="userTable">
-        <div class="userTableHeader">
-            <ul>
-                <li class="lastname">Nom</li>
-                <li class="firstname">Prénom</li>
-                <li class="pseudo">Pseudo</li>
-                <li class="email">Email</li>
-                <li class="verify">Vérifié</li>
-                <li class="role">Rôle</li>
-                <li class="action">Action</li>
-            </ul>
-        </div>
-
-        <?php 
-            $connect = connectDB();
-	        $results = $connect->query("SELECT id, lastname, firstname, pseudo, email, verify, status FROM ".DB_PREFIX."USER");
-	        $listOfUsers = $results->fetchAll();
-
-            $tempListOfUsers = array_slice($listOfUsers, 10 * ($_SESSION['currentPage'] - 1), 10);
-
-            foreach($tempListOfUsers as $user) {
-        ?>
-
-        <div class="userTableRow">
-            <div class="lastname"><?php echo strtoupper($user["lastname"]); ?></div>
-            <div class="firstname"><?php echo ucwords($user["firstname"]); ?></div>
-            <div class="pseudo"><?php echo $user["pseudo"]; ?></div>
-            <div class="email"><?php echo $user["email"]; ?></div>
-            <div class="verify"><input type="checkbox" value="<?php echo $user['id']; ?>" class="checkboxVerify"
-            <?php 
-                if($user["verify"] == 1) {
-                    echo 'checked';
-                } 
-            ?>>
-            </div>
-            <div class="role">
-                <select class="selectRole" name="role">
-                    <option value="2|<?php echo $user['id']; ?>" <?php echo ($user['status'] == 2)?"selected":""; ?>>Admin</option>
-                    <option value="1|<?php echo $user['id']; ?>" <?php echo ($user['status'] == 1)?"selected":""; ?>>Modo</option>
-                    <option value="0|<?php echo $user['id']; ?>" <?php echo ($user['status'] == 0)?"selected":""; ?>>Lecteur</option>
-                </select>
-            </div>
-            <form>
-                <div class="action">
-                    <input type="hidden" name="id" value=<?php echo $user["id"]; ?>>
-                    <input type="submit" value="Supprimer">
-                </div>
-            </form>
-        </div>
-
-    <?php } 
-    if(count($listOfUsers) > 10){
-    ?>
-        <form method="POST"> 
-            <div class="arrowChangePage">
-                <div class="arrowLeft">
-                    <input type="submit" name="arrowLeft" value="">
-                    <img src="../img/other/arrow_left.png" alt="Page précédente" id="previous">
-                </div>
-                <p><?php echo $_SESSION['currentPage']; ?> / <?php echo $maxPage; ?></p>
-                <div class="arrowRight">
-                    <input type="submit" name="arrowRight" value="">
-                    <img src="../img/other/arrow_right.png" alt="Page suivante" id="next">
-                </div>
-            </div>
-        </form>
     <?php
-    }
+    $chartContent = generateLineChart($dataPoints, $color);
     ?>
-
+    <div class="dashboardGraphWrapper">
+        <div class="dashboardCardGraph">
+            <div class="chartContainer">
+                <svg class="lineChart" width="90%" height="90%" viewBox="0 0 580 210">
+                    <?= $chartContent ?>
+                </svg>
+            </div>
+        </div>
+        <div class="dashboardCardGraph">
+            <div class="chartContainer">
+                <svg class="lineChart" width="90%" height="90%" viewBox="0 0 580 210">
+                    <?= $chartContent ?>
+                </svg>
+            </div>
+        </div>
     </div>
 
+    <div class="dashboardCardList"></div>
 </div>
 
-<script>
-    const select = document.getElementsByClassName('selectRole')
-    const checkbox = document.getElementsByClassName('checkboxVerify')
-
-    for (let i = 0; i < select.length; i++) {
-        select[i].addEventListener('change', (event) => {
-            const xhr = new XMLHttpRequest();
-            xhr.open('POST', '../core/nebula/modifyRole.php');
-            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-            xhr.onload = function() {
-                if (xhr.status === 200) {
-                    console.log(xhr.responseText);
-                } else {
-                    console.error(xhr.statusText);
-                }
-            };
-            xhr.send('choice=' + event.target.value);
-        });
-    }
-
-    for (let i = 0; i < checkbox.length; i++) {
-        checkbox[i].addEventListener('change', (event) => {
-            const xhr = new XMLHttpRequest();
-            xhr.open('POST', '../core/nebula/modifyRole.php');
-            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-            xhr.onload = function() {
-                if (xhr.status === 200) {
-                    console.log(xhr.responseText);
-                } else {
-                    console.error(xhr.statusText);
-                }
-            };
-            xhr.send('verify=' + event.target.value);
-        });
-    }
-</script>
-
 </body>
+
 </html>
