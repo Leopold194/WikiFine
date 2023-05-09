@@ -7,3 +7,4 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' href=<?php echo FILE_PREFIX.'css/templates/navbar.css'; ?>>
     <link rel='stylesheet' href=<?php echo FILE_PREFIX.'css/templates/style.css'; ?>>
+    <script src=<?php echo FILE_PREFIX.'js/search_bar.js'; ?> defer></script>

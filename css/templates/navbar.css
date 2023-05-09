@@ -132,6 +132,10 @@ header{
     padding: 10px;
 }
 
+a {
+    text-decoration: none;
+}
+
 .avatar {
     width: 80px;
 }
@@ -174,8 +178,29 @@ header{
 .writeArticle:hover {
     background-color: rgba(244, 244, 242, 1);
     border: #5F85DB 2px solid;
+    width: 190px;
 }
 
 .writeArticle:hover img {
     filter: invert(49%) sepia(72%) saturate(436%) hue-rotate(184deg) brightness(91%) contrast(89%);
+    margin-left: 7px;
+    overflow: hidden;
 }
+
+@keyframes fadein {
+    0% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+}
+
+.writeArticle:hover::before {
+    content: "Écrire un article";
+    width: 130px;
+    color: #5F85DB;
+    font-weight: bold;
+    animation: fadein 1s;
+}
+
