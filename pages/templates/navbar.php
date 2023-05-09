@@ -5,14 +5,14 @@
     <div class="logoBlock">
         <a href=<?php echo FILE_PREFIX."index.php";?>><img class="logo" src=<?php echo FILE_PREFIX."img\logos\wikifineColorFull.png"; ?> alt="logo"></a>
         <div class="searchBarBlock">
-            <input class="searchBar" type="text" name="search" placeholder="Search articles..">
+            <input class="searchBar" type="text" name="search" placeholder="Search articles.." id="searchBar">
         </div>
     </div>
     <?php
         if(!empty($_SESSION['login']) && $_SESSION['login'] == 1) {
     ?>
     <div class="profileBlockConnected">
-        <a href="">
+        <a href="<?php echo FILE_PREFIX."pages\articles\write_article.php";?>">
             <div class="writeArticle"><img src=<?php echo FILE_PREFIX."img/other/pencil.svg"; ?> alt="Ecrire un article"></div>
         </a>
         <a href="">
