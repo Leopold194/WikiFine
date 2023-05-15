@@ -26,7 +26,7 @@ function generateLineChart($dataPoints, $color)
     foreach ($dataPoints as $index => $value) {
         $x = $margin + $index * $xInterval;
         $y = ($yMax - $value) * $yScale;
-        $points .= "<circle cx='{$x}' cy='{$y}' r='5' fill='{$color}' />";
+        $points .= "<circle cx='{$x}' cy='{$y}' r='0' fill='{$color}' />";
         if ($index > 0) {
             $xPrev = $margin + ($index - 1) * $xInterval;
             $yPrev = ($yMax - $dataPoints[$index - 1]) * $yScale;
@@ -40,7 +40,7 @@ function generateLineChart($dataPoints, $color)
     return $axes . $lines . $points;
 }
 
-$dataPoints = [60, 20, 30, 20, 40, 50];
+$dataPoints = [5, 20, 30, 20, 40, 50];
 $color = "#5F85DB";
 $chartContent = generateLineChart($dataPoints, $color);
 ?>
@@ -92,7 +92,9 @@ $chartContent = generateLineChart($dataPoints, $color);
         </div>
     </div>
 
-    <div class="dashboardCardList"></div>
+    <div class="dashboardCardList">
+        <h2 class="dashboardCardListTitle">Dernières modifications</h2>
+    </div>
 </div>
 
 </body>

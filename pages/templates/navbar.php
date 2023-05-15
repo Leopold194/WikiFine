@@ -5,7 +5,7 @@
     <div class="logoBlock">
         <a href=<?php echo FILE_PREFIX."index.php";?>><img class="logo" src=<?php echo FILE_PREFIX."img\logos\wikifineColorFull.png"; ?> alt="logo"></a>
         <div class="searchBarBlock">
-            <input class="searchBar" type="text" name="search" placeholder="Search articles.." id="searchBar">
+            <input class="searchBar" type="text" name="search" placeholder="Chercher un article" id="searchBar">
         </div>
     </div>
     <?php
