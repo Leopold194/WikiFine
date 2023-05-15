@@ -8,81 +8,6 @@
 <link rel='stylesheet' href='../../css/user/user.css'>
 <?php require '../templates/navbar.php'; ?>
 
-<!--<div class="pwd_modify_close" id="popup">
-    <form method="POST">
-        <?php 
-            
-            $inputState = ["previousPwd"=>"", "password"=>"", "confirmPwd"=>""];
-            unset($_POST);
-            /*
-            if(count($_POST) == 3
-                && !empty($_POST['previousPwd']) 
-                && !empty($_POST['password']) 
-                && !empty($_POST['confirmPwd']))
-            {
-                
-                $listOfErrors = [];
-
-                if( strlen($_POST["password"])<8
-                    || !preg_match("#[a-z]#", $_POST["password"])
-                    || !preg_match("#[A-Z]#", $_POST["password"])
-                    || !preg_match("#[?!._&]#", $_POST["password"])
-                    || !preg_match("#[0-9]#", $_POST["password"]))
-                {
-                    $inputState['password'] = "error";
-                }
-
-                if($_POST["password"] != $_POST["confirmPwd"]){
-                    $inputState['confirmPwd'] = "error";
-                }
-                
-                $connection = connectDB();
-                $queryPrepared = $connection->prepare("SELECT password FROM ".DB_PREFIX."USER WHERE email=:email");
-                $queryPrepared->execute([
-                    "email"=>$_SESSION['id'],
-                ]);
-                $result = $queryPrepared->fetch();
-
-                if(empty($result) && !password_verify($_POST['previousPwd'], $result['password'])){
-                    $inputState['previousPwd'] = "error";
-                }
-                   
-
-                if(empty($listOfErrors)){
-                    $queryPrepared = $connection->prepare("UPDATE ".DB_PREFIX."USER SET password=:previousPwd WHERE email=:email");
-                    $queryPrepared->execute([
-                        "previousPwd"=>password_hash($_POST['password'], PASSWORD_DEFAULT),
-                    ]);
-                    $result = $queryPrepared->fetch();
-                    unset($RELOAD);
-                    unset($listOfErrors);
-                }else{
-                    $RELOAD = true;
-                }
-            }*/
-        ?>
-        <img src="../../img/other/cross.png" alt="Fermer" class="closePopup" id="closePopupId">
-        <p class="popupTitle">Changer de mot de passe</p>
-        <div class="inputColumnPwd <?php echo $inputState['previousPwd']; ?>">
-            <label for="previousPwd">Ancien mot de passe</label>
-            <input type="password" id="previousPwd" name="previousPwd">
-            <span class="tooltiptext">8 caractères<br>&bull;Majuscules<br>&bull; Minuscules<br>&bull; Chiffres<br>&bull; Caractères spéciaux</span>
-            <a href="../register_login/reset_password.php">Mot de passe oublié</a>
-        </div>
-        <div class="inputColumnPwd <?php echo $inputState['password']; ?>">
-            <label for="password">Nouveau mot de passe</label>
-            <input type="password" id="password" name="password">
-        </div>
-        <div class="inputColumnPwd <?php echo $inputState['confirmPwd']; ?>">
-            <label for="confirmPwd">Confirmation</label>
-            <input type="password" id="confirmPwd" name="confirmPwd">
-        </div>
-        <div class="saveButton saveButtonPwd">
-            <button type="submit">Modifier</button>
-        </div>
-    </form>
-</div>-->
-
 <div class="navbarUser">
     <ul>
         <li><a href="">Mon compte</a></li>
@@ -201,12 +126,6 @@
         </div>
     </div>
 </form>
-
-<!--
-<div class="editButton editPwd" id="editPwdId">
-    <img src="../../img/other/pencil.svg" alt="Modify">
-</div>
--->
 
 </body>
 </html>

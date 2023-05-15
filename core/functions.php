@@ -59,6 +59,12 @@
         return $wantedData;
     }
 
+    function redirectIfNotConnectedNebula() {
+        if(!(isset($_SESSION['super_login']) && $_SESSION['super_login'] == 1)) {
+            header('Location: ../nebula/index.php');
+        }
+    }
+
     function sendMail($recipient, $subject, $body){
         
         require 'vendor/autoload.php';

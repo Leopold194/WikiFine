@@ -70,12 +70,12 @@ const passwordField = document.getElementById("pwd");
 
 eye0.addEventListener("click", () => {
   if(eye0.classList.contains('open_eye')){
-    eye0.src = "../../img/register/close_eye.svg";
+    eye0.src = "../img/register/close_eye.svg";
     passwordField.type = "text";
     eye0.classList.add('close_eye');
     eye0.classList.remove('open_eye');
   }else{
-    eye0.src = "../../img/register/open_eye.svg";
+    eye0.src = "../img/register/open_eye.svg";
     passwordField.type = "password";
     eye0.classList.add('open_eye');
     eye0.classList.remove('close_eye');
