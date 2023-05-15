@@ -13,6 +13,7 @@
         <li><a href="">Mon compte</a></li>
         <li><a href="">Mes articles</a></li>
         <li><a href="">Messagerie</a></li>
+        <li><a href="../../nebula/index.php">NEBULA</a></li>
     </ul>
 </div>
 
