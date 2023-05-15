@@ -1,6 +1,7 @@
 <?php
-session_start();
-require '../core/functions.php';
+    session_start();
+    require '../core/functions.php';
+    redirectIfNotConnectedNebula();
 ?>
 
 <?php require '../conf.inc.php'; ?>

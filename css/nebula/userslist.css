@@ -57,6 +57,13 @@
     border-bottom: black 1px solid;
 }
 
+.lastname, .firstname, .pseudo, .email {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 10px;
+}
+
 .userTableRow .verify {
     padding-left: 20px;
 }
@@ -127,4 +134,5 @@
     background: transparent;
     border: none;
     z-index: 10;
+    cursor: pointer;
 }
