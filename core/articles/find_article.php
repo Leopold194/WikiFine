@@ -10,6 +10,6 @@
     $query = $connection->query("SELECT title FROM ".DB_PREFIX."ARTICLE WHERE LOWER(title) LIKE '".$searchValue."%'");
     $articles = $query->fetchAll();
 
-    echo json_encode("test");
+    echo json_encode($articles);
 
 ?>
