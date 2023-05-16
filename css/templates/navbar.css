@@ -24,22 +24,6 @@ header{
     /* background-color: aqua; */
 }
 
-.searchBarBlock {
-    position: absolute;
-    top: 60px;
-    left: 120px;
-}
-
-.searchBar {
-    height: 35px;
-    width: 250px;
-    padding: 15px;
-    border-style: solid;
-    border-width: 3px;
-    border-radius: 10px;
-    background-color: rgba(217, 217, 217, 1)
-}
-
 .profileBlock {
     display: flex;
     position: absolute;
@@ -204,3 +188,46 @@ a {
     animation: fadein 1s;
 }
 
+.searchBarBlock {
+    position: absolute;
+    top: 60px;
+    left: 120px;
+}
+
+.searchBar {
+    height: 35px;
+    width: 250px;
+    padding: 15px;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 7px;
+    background-color: rgb(240, 240, 240);
+}
+.searchBar:focus {
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.suggestion-container {
+    position: absolute;
+    background-color: rgb(240, 240, 240);
+    border: 2px solid #000000;
+    border-top: none;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    display: none;
+    z-index: 1000;
+    top: 32px;
+  }
+  
+  .suggestion-item {
+    padding: 8px 16px;
+    cursor: pointer;
+  }
+  
+  .suggestion-item:hover {
+    background-color: rgb(233, 233, 233);
+  }
