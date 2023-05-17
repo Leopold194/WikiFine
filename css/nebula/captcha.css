@@ -1,0 +1,64 @@
+.pageBody {
+    position: absolute;
+    left: 17%;
+    width: 83%;
+    padding-left: 25px;
+}
+
+.pageTitle {
+    margin-top: 10px;
+    font-family: 'Gotham';
+    font-size: 40px;
+}
+
+.summaryImg {
+    width: 360px;
+    height: 360px;
+    background-color: rgba(217, 217, 217, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: black 1px solid;
+}
+
+.summaryImg input {
+    display: none;
+}
+
+.summaryImg label {
+    cursor: pointer;
+    background-color: white;
+    padding: 5px 25px 5px 25px;
+    font-size: 45px;
+    border-radius: 15px;
+}
+
+.previousCaptcha {
+    width: 360px;
+    height: 360px;
+}
+
+.container {
+    margin-top: 50px;
+    display: flex;
+}
+
+.newCaptchaDiv, .previousCaptchaDiv {
+    width: 360px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.newCaptchaDiv {
+    margin-right: 120px;
+}
+
+.desc {
+    font-size: 20px;
+}
+
+.warning {
+    font-style: italic;
+    color: #EE3939;
+}

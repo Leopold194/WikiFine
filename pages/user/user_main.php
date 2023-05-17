@@ -10,9 +10,9 @@
 
 <div class="navbarUser">
     <ul>
-        <li><a href="">Mon compte</a></li>
+        <li><a href="#">Mon compte</a></li>
         <li><a href="">Mes articles</a></li>
-        <li><a href="">Messagerie</a></li>
+        <li><a href="user_mess.php">Messagerie</a></li>
     </ul>
 </div>
 
