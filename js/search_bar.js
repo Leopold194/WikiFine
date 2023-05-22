@@ -33,7 +33,7 @@ searchBar.addEventListener("input", function() {
     return;
   }
 
-  fetch(`/WikiFine/core/articles/find_article.php?search=${encodeURIComponent(searchValue)}`)
+  fetch(`/core/articles/find_article.php?search=${encodeURIComponent(searchValue)}`)
     .then(response => response.text()) // Changez ici json() en text()
     .then(text => {
         console.log(text); // Affichez le texte de la réponse
