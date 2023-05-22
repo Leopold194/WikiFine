@@ -4,7 +4,7 @@ function showSuggestions(articles) {
   const suggestionsDiv = document.getElementById('searchSuggestions');
   suggestionsDiv.innerHTML = '';
   suggestionsDiv.style.display = 'block';
-  let maxArticles = 4; // Si plus de 6 alors scroll
+  let maxArticles = 6; // Si plus de 6 alors scroll
 
   articles.slice(0, maxArticles).forEach(article => {
     const suggestionItem = document.createElement('div');
