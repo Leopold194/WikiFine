@@ -7,6 +7,7 @@
 <?php require '../templates/head.php'; ?>
 <link rel='stylesheet' href='../../css/templates/register.css'>
 <link rel='stylesheet' href='../../css/registers/register1.css'>
+<script src=<?php echo FILE_PREFIX.'js/see_password.js'; ?> defer></script>
 <?php require '../templates/navbar.php'; ?>
 
 <div class="breadcrumb">
@@ -61,54 +62,16 @@
         </div>
         <div class="pwd field mt <?php echo $inputState["pwd"]; ?>">
             <input type="password" class="inputForm" id="pwd" name="pwd" placeholder="Mot de passe" required>
-            <img src="../../img/register/open_eye.svg" class="eye open_eye" id="eye0">
+            <img src="../../img/register/open_eye.png" class="eye open_eye" id="eye0">
             <label class="placeholderLabel">Mot de passe</label>
         </div>
         <div class="pwdConfirm field mt <?php echo $inputState["pwdConfirm"]; ?>">
             <input type="password" class="inputForm" id="pwdConfirm" name="pwdConfirm" placeholder="Confirmation" required>
-            <img src="../../img/register/open_eye.svg" class="eye open_eye" id="eye1">
+            <img src="../../img/register/open_eye.png" class="eye open_eye" id="eye1">
             <label class="placeholderLabel">Confirmation</label>
         </div>
-        <div class="submit field">
-            <button type="submit">CONTINUER</button>
-        </div>    
+        <button type="submit" class="submit submitActive field" id="connBtn">CONTINUER</button>
     </form> 
 </div>
-<script>
-
-const eye0 = document.getElementById("eye0");
-const eye1 = document.getElementById("eye1");
-const passwordField = document.getElementById("pwd");
-const passwordConfirmField = document.getElementById("pwdConfirm");
-
-eye0.addEventListener("click", () => {
-  if(eye0.classList.contains('open_eye')){
-    eye0.src = "../../img/register/close_eye.svg";
-    passwordField.type = "text";
-    eye0.classList.add('close_eye');
-    eye0.classList.remove('open_eye');
-  }else{
-    eye0.src = "../../img/register/open_eye.svg";
-    passwordField.type = "password";
-    eye0.classList.add('open_eye');
-    eye0.classList.remove('close_eye');
-  }
-});
-
-eye1.addEventListener("click", () => {
-  if(eye1.classList.contains('open_eye')){
-    eye1.src = "../../img/register/close_eye.svg";
-    passwordConfirmField.type = "text";
-    eye1.classList.add('close_eye');
-    eye1.classList.remove('open_eye');
-  }else{
-    eye1.src = "../../img/register/open_eye.svg";
-    passwordConfirmField.type = "password";
-    eye1.classList.add('open_eye');
-    eye1.classList.remove('close_eye');
-  }
-});
-
-</script>
 </body>
 </html>

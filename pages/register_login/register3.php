@@ -1,10 +1,10 @@
 <?php 
   session_start();
-  if($_SESSION['register'] < 2){
+  /*if($_SESSION['register'] < 2){
     header('Location: register1.php');
   }else if($_SESSION['register'] < 3){
     header('Location: register2.php');
-  }
+  }*/
   $_SESSION['register'] = 3;
 ?>
 
@@ -12,7 +12,10 @@
 <?php require '../templates/head.php'; ?>
 <link rel='stylesheet' href='../../css/templates/register.css'>
 <link rel='stylesheet' href='../../css/registers/register3.css'>
+<link rel='stylesheet' href='../../css/templates/captcha_buttons.css'>
+<script src=<?php echo FILE_PREFIX.'js/captcha.js'; ?> defer></script>
 <?php require '../templates/navbar.php'; ?>
+<?php require '../templates/captcha.php'; ?>
 
 <div class="breadcrumb">
     <span class="line"></span>  
@@ -40,7 +43,7 @@
         unset($_SESSION['errors']);}
     ?>
     <h2 class="formContentTitle"><u>Selectionnez au moins 3 centres d'intérêts :</u></h2>
-    <form action="../../core/register_login/register_user_3.php" method="POST">
+    <form action="../../core/register_login/register_user_3.php" method="POST" id="loginFormData">
         <div class="hobbiesForm">
             <input class="" type="checkbox" id="0" name="interest[]" value="0">
             <label for="0">Histoire</label>
@@ -76,30 +79,13 @@
             <input type="checkbox" id="cguCheck" name="cgu" onClick="changeClass()">
             <label for="cguCheck">J’accepte les <a href="google.fr" class="cguLink">Conditions Générales d’Utilisation</a></label>
         </div>
-        <div class="buttons">
-            <a href="">
-                <div class="captchaButton">
-                    <p>Captcha</p>
-                    <img src="../../img/register/tete_robot.svg" alt="">
-                </div>
-            </a>
-            <button type="submit" id="registerButton" class="registerButtonInactive" disabled>S'inscrire</button>
+        <div class="btnsContainer">
+            <div class="btns">
+                <div class="captchaBtnCheckOrUncheck captchaBtnCheck">CAPTCHA</div>
+                <div class="submit submitInactive field" id="connBtn">S'INSCRIRE</div>
+            </div>
         </div>
     </form> 
 </div>
-<script>
-function changeClass(){
-    let check = document.getElementById('cguCheck');
-    let button = document.getElementById('registerButton');
-
-    if(check.checked == true){
-        button.className = 'registerButtonActive';
-        button.disabled = false
-    }else{
-        button.className = 'registerButtonInactive';
-        button.disabled = true
-    }}
-</script>  
-
 </body>
 </html>

@@ -1,5 +1,13 @@
 const searchBar = document.getElementById("searchBar")
 
+console.log(typeof window.location.host);
+
+if(window.location.host == 'localhost'){
+  filePrefix = '/wikiFine/';
+}else{
+  filePrefix = '/';
+}
+
 function showSuggestions(articles) {
   const suggestionsDiv = document.getElementById('searchSuggestions');
   suggestionsDiv.innerHTML = '';
@@ -33,7 +41,7 @@ searchBar.addEventListener("input", function() {
     return;
   }
 
-  fetch(`/core/articles/find_article.php?search=${encodeURIComponent(searchValue)}`)
+  fetch(`${filePrefix}core/articles/find_article.php?search=${encodeURIComponent(searchValue)}`)
     .then(response => response.text()) // Changez ici json() en text()
     .then(text => {
         console.log(text); // Affichez le texte de la réponse
