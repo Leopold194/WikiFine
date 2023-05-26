@@ -13,7 +13,12 @@
         <li><a href="#">Mon compte</a></li>
         <li><a href="">Mes articles</a></li>
         <li><a href="user_mess.php">Messagerie</a></li>
-        <li><a href="../../nebula/index.php">NEBULA</a></li>
+        <?php 
+            $result = getData(Array('status'), $_SESSION['id']);
+            if(in_array($result[0], Array(1, 2))) {
+                echo "<li><a href='../../nebula/index.php'>NEBULA</a></li>";
+            }
+        ?>
     </ul>
 </div>
 

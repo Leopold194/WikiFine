@@ -3,12 +3,12 @@ session_start();
 require "../functions.php";
 require "../../conf.inc.php";
 
+$listOfErrors = [];
+
 if(!isset($_POST["cgu"]))
 {
-    die("Faire quelque chose de un minimum graphique");
+    $listOfErrors[] = "Vous devez accepter les Conditions Générales d'Utilisation";
 }
-
-$listOfErrors = [];
 
 if(!array_key_exists('interest', $_POST) || count($_POST['interest']) < 3){
     $listOfErrors[] = "Vous devez selectionnez au moins 3 centres d'intérêt dans la liste";
