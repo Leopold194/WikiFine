@@ -19,7 +19,7 @@ function showSuggestions(articles) {
     suggestionItem.addEventListener('click', () => {
       searchBar.value = article.title;
       suggestionsDiv.style.display = 'none';
-      document.location.href=`/WikiFine/pages/articles/articles.php?id=${article.id}`;
+      document.location.href=`${filePrefix}pages/articles/articles.php?id=${article.id}`;
       // Vous pouvez ajouter une autre action ici, par exemple faire une recherche
       // searchArticles();
     });
