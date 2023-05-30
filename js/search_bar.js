@@ -20,8 +20,6 @@ function showSuggestions(articles) {
       searchBar.value = article.title;
       suggestionsDiv.style.display = 'none';
       document.location.href=`${filePrefix}pages/articles/articles.php?id=${article.id}`;
-      // Vous pouvez ajouter une autre action ici, par exemple faire une recherche
-      // searchArticles();
     });
     suggestionsDiv.appendChild(suggestionItem);
   });
@@ -41,9 +39,8 @@ searchBar.addEventListener("input", function() {
   }
 
   fetch(`${filePrefix}core/articles/find_article.php?search=${encodeURIComponent(searchValue)}`)
-    .then(response => response.text()) // Changez ici json() en text()
+    .then(response => response.text()) // Change ici json() en text()
     .then(text => {
-        // Si le texte est du JSON valide, vous pouvez le convertir en objet JavaScript et afficher les suggestions
         const data = JSON.parse(text);
         showSuggestions(data);
     })
