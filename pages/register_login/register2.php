@@ -78,9 +78,7 @@
             <input type="text" class="inputForm" name="city" placeholder="Ville" required>
             <label class="placeholderLabel">Ville</label>
         </div>
-        <div class="submit field">
-            <button type="submit">CONTINUER</button>
-        </div>    
+        <button type="submit" class="submit submitActive field" id="connBtn">CONTINUER</button>   
     </form> 
 </div>
 </body>
