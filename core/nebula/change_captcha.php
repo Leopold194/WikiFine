@@ -2,13 +2,11 @@
     session_start();
 
     $cpt = 0;
-    $move = "/WikiFine/img/captcha";
-
+    $move = FILE_PREFIX."img/captcha";
 
     if($_FILES["captcha"]["size"] > 0){
         $extension_upload = strtolower(substr(strrchr($_FILES['captcha']['name'], '.'), 1));
         $picture = imagecreatefromstring(file_get_contents($_FILES['captcha']["tmp_name"]));
-
         $new_height = 900;
         $new_width = 900;
         $new_image = imagecreatetruecolor($new_width, $new_height);
@@ -27,12 +25,9 @@
             }
         }
 
-
         imagedestroy($picture);
         
     }
-
-
 
     header("Location: ../../nebula/captcha.php");
 
