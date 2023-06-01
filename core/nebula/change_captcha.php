@@ -1,4 +1,5 @@
 <?php
+    require '../../conf.inc.php';
     session_start();
 
     $cpt = 0;
