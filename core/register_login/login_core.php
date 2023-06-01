@@ -9,14 +9,14 @@
         $email = cleanEmail($_POST['id']);
 
         $connection = connectDB();
-        $queryPrepared = $connection->prepare("SELECT password, email FROM ".DB_PREFIX."USER WHERE (email=:email OR pseudo=:pseudo)");
+        $queryPrepared = $connection->prepare("SELECT password, email, status FROM ".DB_PREFIX."USER WHERE (email=:email OR pseudo=:pseudo)");
         $queryPrepared->execute([
             "email"=>$email,
             "pseudo"=>$pseudo
         ]);
         $result = $queryPrepared->fetch();
 
-        if(!empty($result) && password_verify($_POST['pwd'], $result['password'])){
+        if(!empty($result) && password_verify($_POST['pwd'], $result['password']) && $result['status'] != 3){
             $_SESSION['id'] = $result["email"];
             $_SESSION['login'] = 1;
             header('Location: ../../index.php');

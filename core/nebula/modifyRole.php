@@ -16,14 +16,12 @@
 
     if(isset($_POST["verify"])){
         
-        if(isVerify($_SESSION['id'])) {
+        if(isVerify($_POST['verify'], "id")) {
             $verify = 0;
         }else{
             $verify = 1;
         }
         
-        echo $verify;
-
         $connect = connectDB();
         $queryPrepared = $connect->prepare("UPDATE ".DB_PREFIX."USER SET verify=:verify WHERE id=:id");
         $queryPrepared->execute([

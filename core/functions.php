@@ -36,11 +36,11 @@
         return (!empty($result)) ? true : false;
     }
 
-    function isVerify($email) {
+    function isVerify($id, $type = "email") {
         $connection = connectDB();
-        $query = $connection->prepare("SELECT verify FROM ".DB_PREFIX."USER WHERE email=:email");
+        $query = $connection->prepare("SELECT verify FROM ".DB_PREFIX."USER WHERE ".$type."=:id");
         $query->execute([
-            "email"=>$email
+            "id"=>$id
         ]);
         $result = $query->fetch();
 

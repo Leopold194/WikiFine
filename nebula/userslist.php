@@ -32,7 +32,11 @@
 
     if(isset($_GET['id'])){
         $connect = connectDB();
-        $queryPrepared = $connect->prepare("DELETE FROM ".DB_PREFIX."USER WHERE id=:id");
+        if($_GET['action'] == "Supprimer"){
+            $queryPrepared = $connect->prepare("DELETE FROM ".DB_PREFIX."USER WHERE id=:id");
+        }elseif($_GET['action'] == "Bannir"){
+            $queryPrepared = $connect->prepare("UPDATE ".DB_PREFIX."USER SET status=3 WHERE id=:id");
+        }
         $queryPrepared->execute(['id'=>$_GET['id']]);
     }
 
@@ -90,6 +94,7 @@
             </div>
             <div class="role">
                 <select class="selectRole" name="role">
+                    <option value="3|<?php echo $user['id']; ?>" <?php echo ($user['status'] == 3)?"selected":""; ?>>Banni</option>
                     <option value="2|<?php echo $user['id']; ?>" <?php echo ($user['status'] == 2)?"selected":""; ?>>Admin</option>
                     <option value="1|<?php echo $user['id']; ?>" <?php echo ($user['status'] == 1)?"selected":""; ?>>Modo</option>
                     <option value="0|<?php echo $user['id']; ?>" <?php echo ($user['status'] == 0)?"selected":""; ?>>Lecteur</option>
@@ -98,8 +103,8 @@
             <form>
                 <div class="action">
                     <input type="hidden" name="id" value=<?php echo $user["id"]; ?>>
-                    <input type="submit" value="Supprimer">
-                    <input type="submit" value="Bannir">
+                    <input type="submit" name="action" value="Supprimer">
+                    <input type="submit" name="action" value="Bannir">
                 </div>
             </form>
         </div>
@@ -129,6 +134,41 @@
 
 </div>
 <script>
+    const select = document.getElementsByClassName('selectRole')
+    const checkbox = document.getElementsByClassName('checkboxVerify')
+
+    for (let i = 0; i < select.length; i++) {
+        select[i].addEventListener('change', (event) => {
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', '../core/nebula/modifyRole.php');
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    console.log(xhr.responseText);
+                } else {
+                    console.error(xhr.statusText);
+                }
+            };
+            xhr.send('choice=' + event.target.value);
+        });
+    }
+
+    for (let i = 0; i < checkbox.length; i++) {
+        checkbox[i].addEventListener('change', (event) => {
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', '../core/nebula/modifyRole.php');
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    console.log(xhr.responseText);
+                } else {
+                    console.error(xhr.statusText);
+                }
+            };
+            xhr.send('verify=' + event.target.value);
+        });
+    }
+
     const headerDivs = document.querySelectorAll('.userTableHeader p');
 
     headerDivs.forEach(div => {
