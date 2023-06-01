@@ -6,9 +6,13 @@
 - [x] Faire que le chemin absolu marche dans les fichiers JS
 - [x] Mettre le captcha dans un template html
 - [x] Faire qu'on puisse cliquer dans le dropdown de la barre de recherche
+- [x] Réparer CAPTCHA sur le serveur
+- [x] Ajouter le tri dans userlist
+- [x] Mettre en responsive userlist --> [] Le faire encore pour petit ordinateur
 - [] Gérer le unset de la variable de session avec les erreurs
 - [] Ajouter un BAN dans NEBULA
-- [] Optimiser le fichiers CSS
+- [] Optimiser les fichiers CSS
 - [] Mettre tous les registers sur une seule page
 - [] Brouiller noms des images de captcha
 - [] Gérer les images dans les articles (BDD)
+- [] Rajouter l'auteur dans les articles
