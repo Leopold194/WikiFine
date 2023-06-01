@@ -37,17 +37,38 @@
     width: 96%;
 }
 
-.userTableHeader ul {
+.userTableHeader {
     display: flex;
     align-items: center;
-    padding: 0;
-    list-style-type: none;
+    height: 45px;
     border-bottom: black 2px solid;
+    position: relative;
 }
 
-.userTableHeader ul li {
-    font-size: 15px;
+.userTableHeader p {
+    font-size: 16px;
     font-weight: bold;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.userTableHeader .action {
+    cursor: default;
+}
+
+.userTableHeader p::before {
+    content:"";
+    display:inline-block;
+    width:15px;
+    height:15px;
+    background:url('../../img/other/filter.png') no-repeat;
+    background-size:100%;
+    margin-right: 5px;
+}
+
+.userTableHeader .action::before {
+    display: none;
 }
 
 .userTableRow {
@@ -62,10 +83,6 @@
     overflow: hidden;
     text-overflow: ellipsis;
     padding-right: 10px;
-}
-
-.userTableRow .verify {
-    padding-left: 20px;
 }
 
 .userTableRow .role select {
@@ -83,30 +100,39 @@
     color: white;
     background-color: #EE3939;
     cursor: pointer;
+    margin-right: 20px;
 }
 
-.lastname, .pseudo {
-    width: 13%;
-}
-
-.firstname {
-    width: 13%;
+.lastname, .pseudo, .firstname {
+    width: 12%;
 }
 
 .email {
-    width: 30%;
+    width: 24%;
 }
 
 .verify {
-    width: 11%;
+    width: 6%;
+    margin-right: 5%;
 }
 
+.userTableRow .verify input {
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+
+
 .action {
-    width: 10%;
+    width: 18%;
+}
+
+.userTableRow .action {
+    display: flex;
 }
 
 .role {
-    width: 10%;
+    width: 11%;
 }
 
 .arrowChangePage {

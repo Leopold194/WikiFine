@@ -12,9 +12,21 @@
 
 <?php 
 
-    $connect = connectDB();
-    $results = $connect->query("SELECT id, lastname, firstname, pseudo, email, verify, status FROM ".DB_PREFIX."USER");
-    $listOfUsers = $results->fetchAll();
+    if(!isset($_GET['filter'])) {
+        $connect = connectDB();
+        $results = $connect->query("SELECT id, lastname, firstname, pseudo, email, verify, status FROM ".DB_PREFIX."USER");
+        $listOfUsers = $results->fetchAll();
+        if(isset($_SESSION['previousGet'])){
+            unset($_SESSION['previousGet']);
+        }
+    }else{
+        if(isset($_SESSION['previousGet']) && $_SESSION['previousGet'][0] == $_GET['filter'] && $_SESSION['previousGet'][0] != "") {
+            $order = ($_SESSION['previousGet'][1] == 'ASC') ? 'DESC' : 'ASC';
+        }
+        $_SESSION['previousGet'] = Array($_GET['filter']);
+        $_SESSION['previousGet'][1] = (isset($order)) ? $order : 'ASC';
+        $listOfUsers = filterRequestUsers($_GET['filter'], $_SESSION['previousGet'][1]);
+    }
 
     $maxPage = ceil(count($listOfUsers) / 10);
 
@@ -48,22 +60,17 @@
 
     <div class="userTable">
         <div class="userTableHeader">
-            <ul>
-                <li class="lastname">Nom</li>
-                <li class="firstname">Prénom</li>
-                <li class="pseudo">Pseudo</li>
-                <li class="email">Email</li>
-                <li class="verify">Vérifié</li>
-                <li class="role">Rôle</li>
-                <li class="action">Action</li>
-            </ul>
+            <p class="lastname">Nom</p>
+            <p class="firstname">Prénom</p>
+            <p class="pseudo">Pseudo</p>
+            <p class="email">Email</p>
+            <p class="verify">Vérifié</p>
+            <p class="role">Rôle</p>
+            <p class="action">Action</p>
         </div>
 
         <?php 
-            $connect = connectDB();
-	        $results = $connect->query("SELECT id, lastname, firstname, pseudo, email, verify, status FROM ".DB_PREFIX."USER");
-	        $listOfUsers = $results->fetchAll();
-
+            
             $tempListOfUsers = array_slice($listOfUsers, 10 * ($_SESSION['currentPage'] - 1), 10);
 
             foreach($tempListOfUsers as $user) {
@@ -92,12 +99,14 @@
                 <div class="action">
                     <input type="hidden" name="id" value=<?php echo $user["id"]; ?>>
                     <input type="submit" value="Supprimer">
+                    <input type="submit" value="Bannir">
                 </div>
             </form>
         </div>
 
-    <?php } 
-    if(count($listOfUsers) > 10){
+    <?php 
+        } 
+        if(count($listOfUsers) > 10){
     ?>
         <form method="POST"> 
             <div class="arrowChangePage">
@@ -119,7 +128,20 @@
     </div>
 
 </div>
+<script>
+    const headerDivs = document.querySelectorAll('.userTableHeader p');
 
-
+    headerDivs.forEach(div => {
+        let className = div.classList[0];
+        div.addEventListener('click', () => {
+            if(className == 'role'){
+                className = 'status';
+            }
+            if(className !== 'action'){
+                document.location.href = `userslist.php?filter=${className}`;
+            }
+        })
+    })
+</script>
 </body>
 </html>
