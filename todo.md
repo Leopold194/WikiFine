@@ -9,8 +9,8 @@
 - [x] Réparer CAPTCHA sur le serveur
 - [x] Ajouter le tri dans userlist
 - [x] Mettre en responsive userlist --> [] Le faire encore pour petit ordinateur
+- [x] Ajouter un BAN dans NEBULA
 - [] Gérer le unset de la variable de session avec les erreurs
-- [] Ajouter un BAN dans NEBULA
 - [] Optimiser les fichiers CSS
 - [] Mettre tous les registers sur une seule page
 - [] Brouiller noms des images de captcha
