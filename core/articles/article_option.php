@@ -10,7 +10,13 @@
 
     }elseif(isset($_POST['report'])){
         $result = getData(Array('id'), $_SESSION['id']);
-        $query = $connect->query("INSERT INTO ".DB_PREFIX."REPORTING (article, title, content, author) VALUES (".$_SESSION['articleId'].", '".$_POST['title']."', '".$_POST['content']."', ".$result[0].")");
+        $query = $connect->prepare("INSERT INTO ".DB_PREFIX."REPORTING (article, title, content, author) VALUES (:article, :title, :content, :author)");
+        $query->execute([
+            "article"=>$_SESSION['articleId'],
+            "title"=>$_POST['title'],
+            "content"=>$_POST['content'],
+            "author"=>$result[0]
+        ]);
     }elseif(isset($_POST['like'])){
         $queryForLikeNb = $connect->query("SELECT like_nb FROM ".DB_PREFIX."ARTICLE WHERE id=".$_SESSION['articleId']);
         $likeNb = $queryForLikeNb->fetch();
