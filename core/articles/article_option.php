@@ -9,6 +9,12 @@
     if(isset($_POST['edit'])){
 
     }elseif(isset($_POST['report'])){
+        
+        if(!isset($_SESSION['id'])) {
+            header('Location: ../../pages/register_login/login.php');
+            exit();
+        }
+        
         $result = getData(Array('id'), $_SESSION['id']);
         $query = $connect->prepare("INSERT INTO ".DB_PREFIX."REPORTING (article, title, content, author) VALUES (:article, :title, :content, :author)");
         $query->execute([
@@ -24,6 +30,6 @@
         $query = $connect->query("UPDATE ".DB_PREFIX."ARTICLE SET like_nb=".$newLikeNb." WHERE id=".$_SESSION['articleId']);
     }
 
-    header('Location: ../../pages/articles/articles.php?id='.$_SESSION['articleId'])
+    header('Location: ../../pages/articles/articles.php?id='.$_SESSION['articleId']);
 
 ?>

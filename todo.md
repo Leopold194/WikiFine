@@ -16,9 +16,9 @@
 - [] Brouiller noms des images de captcha
 - [] Gérer les images dans les articles (BDD)
 - [] Rajouter l'auteur dans les articles
-
+- [] Faire en sorte qu'on ne puisse like un article qu'une fois chacun et que ça se voit quand c'est fait
 
 PROBLEMES :
 
-- [] BUG QUAND SIGNALEMENT EN ÉTANT PAS CONNECTÉ
-- [] FAIRE QU'ON PUISSE SUPPRIMER UN USER QUI A ECRIT DES ARTICLES
+- [x] BUG QUAND SIGNALEMENT EN ÉTANT PAS CONNECTÉ
+- [x] FAIRE QU'ON PUISSE SUPPRIMER UN USER QUI A ECRIT DES ARTICLES
