@@ -99,6 +99,9 @@ input {
     border: #8ca7e2 2px solid;
     transition: all 0.5s;
 }
+.registerButtonActive :hover{
+    cursor: pointer;
+}
 
 .captchaButton img {
     margin-top: -12px;

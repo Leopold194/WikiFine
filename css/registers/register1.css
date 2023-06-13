@@ -66,6 +66,10 @@ form {
     grid-area: 5 / 3 / 6 / 5;
     place-self: center;
     border-radius: 20px;
+
+}
+.submit :hover{
+    cursor: pointer;
 }
 
 .field {

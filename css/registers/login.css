@@ -28,7 +28,9 @@ form {
     margin-top: 35px;
     border-radius: 20px;
 }
-
+.submit :hover{
+    cursor: pointer;
+}
 .link {
     text-align: center;
 }

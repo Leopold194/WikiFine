@@ -92,7 +92,9 @@ form {
     place-self: center;
     border-radius: 20px;
 }
-
+.submit :hover{
+    cursor: pointer;
+}
 .field {
     position: relative;
 }
