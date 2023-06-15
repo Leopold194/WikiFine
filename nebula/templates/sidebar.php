@@ -6,6 +6,7 @@
         <li class=""><a href="">Bannissements</a></li><br>
         <li class=""><a href="reporting.php">Modération</a></li><br>
         <li class=""><a href="">Candidatures</a></li><br>
+        <li class=""><a href="auto_publish_article.php">Publication Automatique</a></li><br>
         <li class=""><a href="captcha.php">Captcha</a></li><br>
     </ul>
 </nav>

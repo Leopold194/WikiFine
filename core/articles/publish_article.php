@@ -8,7 +8,7 @@
         || empty($_POST["content"])
         || empty($_POST["poster"]))
     {
-        die("Faire quelque chose de un minimum graphique");
+        die("Une erreur est survenue");
     }
 
     $listOfErrors = [];

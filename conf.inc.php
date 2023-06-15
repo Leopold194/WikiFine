@@ -3,7 +3,7 @@
 $prefix = ($_SERVER['HTTP_HOST'] == 'localhost') ? ("/WikiFine/") : ("/");
 define("FILE_PREFIX", $prefix);
 
-$secret_prefix = ($_SERVER['HTTP_HOST'] == 'localhost') ? ("C:/xampp/htdocs/") : ("/var/www/");
+$secret_prefix = ($_SERVER['HTTP_HOST'] == 'localhost') ? ("C:/Code/xampp/htdocs/") : ("/var/www/"); //("C:/Code/xampp/htdocs/")
 $data = file_get_contents($secret_prefix.'secrets/secrets.json');
 $obj = json_decode($data);
 
