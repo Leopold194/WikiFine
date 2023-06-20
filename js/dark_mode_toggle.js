@@ -41,8 +41,8 @@ const switchStyles = () => {
     const logo = document.querySelector('.logo');
     const modeSelector = document.getElementById('modeSelector');
     const svgIcons = document.querySelectorAll('.pageLogos');
-    let newModeSelector = darkMode ? "/WikiFine/img/page_logos/sun.svg" : "/WikiFine/img/page_logos/moon.svg";
-    let newLogo = darkMode ? "/WikiFine/img/logos/wikifinedarkmode.png" : "/WikiFine/img/logos/wikifineColorFull.png";      
+    let newModeSelector = darkMode ? "img\page_logos\sun.svg" : "img\page_logos\moon.svg";
+    let newLogo = darkMode ? "img\logos\wikifinedarkmode.png" : "img\logos\wikifineColorFull.png";      
     logo.src = newLogo;
     modeSelector.src = newModeSelector;
 
