@@ -8,3 +8,4 @@
     <link rel='stylesheet' href=<?php echo FILE_PREFIX.'css/templates/navbar.css'; ?>>
     <link rel='stylesheet' href=<?php echo FILE_PREFIX.'css/templates/style.css'; ?>>
     <script src=<?php echo FILE_PREFIX.'js/search_bar.js'; ?> defer></script>
+    <script src=<?php echo FILE_PREFIX.'js/dark_mode_toggle.js'?> defer></script>

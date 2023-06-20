@@ -24,7 +24,7 @@
                     <img src=<?php echo FILE_PREFIX . "img/page_logos/bell.svg"; ?> alt="Notifications" class="pageLogos">
                 </a>
                 <a href="">
-                    <img src=<?php echo FILE_PREFIX . "img/page_logos/moon.svg"; ?> alt="Dark Mode" class="pageLogos">
+                    <img src=<?php echo FILE_PREFIX . "img/page_logos/moon.svg"; ?> alt="Dark Mode" class="pageLogos" id="modeSelector">
                 </a>
                 <div class="avatarDiv">
                     <a href="<?php echo FILE_PREFIX . "pages/user/user_main.php"; ?>">
@@ -42,7 +42,7 @@
                     ?>
                 </div>
             </div>
-        <?php
+            <?php
         } else {
             ?>
             <div class="profileBlock">
@@ -57,7 +57,7 @@
                     </a>
                 </div>
             </div>
-        <?php
+            <?php
         }
         ?>
     </header>
