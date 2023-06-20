@@ -1,6 +1,6 @@
 .navbarUser {
     position: absolute;
-    background-color: #E9E8E8;
+    background-color: #353941;
     top: 122px;
     left: 0;
     width: 16%;
@@ -23,7 +23,7 @@
 
 .navbarUser a {
     text-decoration: none;
-    color: black;
+    color: #F4F4F2;
     position: relative;
 }
 
@@ -92,7 +92,7 @@
 }
 
 .buttonToModify {
-    background-color: #E9E8E8;
+    background-color: #353941;
     width: 257px;
     text-align: center;
     margin-top: 25px;
@@ -104,7 +104,7 @@
 
 .buttonToModify a {
     text-decoration: none;
-    color: black;
+    color: #F4F4F2;
     transition: all 0.2s ease-in;
 }
 
@@ -118,6 +118,7 @@
 }
 
 .description {
+    background-color: #353941;
     margin-left: 0px;
     margin-top: 30px;
     justify-content: center;
@@ -162,7 +163,7 @@
     margin-left: 33px;
     height: 250px;
     width: 95%;
-    background-color: rgb(233, 232, 232);
+    background-color: #353941;
     border-radius: 10px;
 }
 
@@ -304,7 +305,7 @@
 }
 
 .saveButton button::before, .saveButton button::after {
-    background: #F4F4F2;
+    background: #353941;
     border-radius: 18px;
 }
 

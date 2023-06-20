@@ -1,0 +1,39 @@
+.sideNavBar {
+    position: absolute;
+    background-color: rgb(53, 57, 65);
+    top: 180px;
+    left: 0;
+    width: 300px;
+    height: 100vh;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.sideNavBar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sideNavBar li {
+    margin-bottom: 10px;
+}
+
+a {
+    color: #F4F4F2;
+}
+
+.navTitle {
+    color: #F4F4F2;
+    font-size: 30px;
+    border-bottom: 2px solid #F4F4F2;
+}
+
+.navSubTitle {
+    color: #F4F4F2;
+    font-size: 20px;
+    margin-left: 20px;
+    margin-bottom: 5px;
+}
+
+
+

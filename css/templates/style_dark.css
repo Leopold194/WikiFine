@@ -47,6 +47,7 @@ h4,
 h5,
 h6 {
     overflow-wrap: break-word;
+    color: #F4F4F2;
 }
 
 #root,
@@ -67,6 +68,6 @@ h6 {
 }
 
 body{
-    background-color: rgb(244, 244, 242);
+    background-color: rgb(38, 40, 43);
     font-family: 'GothamBook';
 }
