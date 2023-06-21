@@ -5,6 +5,12 @@ if (document.cookie.indexOf('darkMode') == -1 ) {
     darkMode = document.cookie.replace(/(?:(?:^|.*;\s*)darkMode\s*\=\s*([^;]*).*$)|^.*$/, "$1") === 'true';
 }
 
+if(window.location.host == 'localhost'){
+    filePrefix = '/wikiFine/';
+}else{
+    filePrefix = '/';
+}
+
 const stylesheetsMap = {
     "articles.css": "articles_dark.css",
     "write_articles.css": "write_articles_dark.css",
@@ -41,8 +47,8 @@ const switchStyles = () => {
     const logo = document.querySelector('.logo');
     const modeSelector = document.getElementById('modeSelector');
     const svgIcons = document.querySelectorAll('.pageLogos');
-    let newModeSelector = darkMode ? "img\page_logos\sun.svg" : "img\page_logos\moon.svg";
-    let newLogo = darkMode ? "img\logos\wikifinedarkmode.png" : "img\logos\wikifineColorFull.png";      
+    let newModeSelector = darkMode ? `${filePrefix}img/page_logos/sun.svg` : `${filePrefix}img/page_logos/moon.svg`;
+    let newLogo = darkMode ? `${filePrefix}img/logos/wikifinedarkmode.png` : `${filePrefix}img/logos/wikifineColorFull.png`;      
     logo.src = newLogo;
     modeSelector.src = newModeSelector;
 
@@ -66,7 +72,7 @@ const switchStyles = () => {
 };
 
 
-document.getElementById('modeSelector').addEventListener('click', function() {
+document.getElementById('modeSelector').addEventListener('click', function(event) {
     event.preventDefault();
     darkMode = !darkMode;
     switchStyles();

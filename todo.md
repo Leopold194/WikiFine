@@ -21,6 +21,7 @@
 - [] Ajouter le fait de pouvoir mettre plusieurs images dans le captcha
 - [] Vérifier que je ne suis pas né dans le futur
 - [] Remplir les formulaires d'inscription si on revient en arrière
+- [] Ajouter le darkmode quand on n'est pas encore connecté
 
 PROBLEMES :
 
