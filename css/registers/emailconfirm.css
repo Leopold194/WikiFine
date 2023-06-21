@@ -3,10 +3,7 @@
 }
 
 .formContentTitle {
-    margin-top: 50px;
     margin-bottom: 20px;
-    font-weight: normal;
-    font-size: 30px;
 }
 
 .frame {
@@ -113,9 +110,4 @@
 
 .inputDigit5 {
     margin-left: 9px;
-}
-
-.submit {
-    margin-top: 66px;
-    border-radius: 20px;
 }

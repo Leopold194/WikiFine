@@ -4,7 +4,6 @@
     redirectIfNotConnectedNebula();
 ?>
 
-<?php require '../conf.inc.php'; ?>
 <?php require 'templates/head.php'; ?>
 <link rel='stylesheet' href='../css/nebula/userslist.css'>
 <?php require 'templates/navbar.php'; ?>
@@ -40,6 +39,7 @@
             $queryPrepared = $connect->prepare("UPDATE ".DB_PREFIX."USER SET status=3 WHERE id=:id");
         }
         $queryPrepared->execute(['id'=>$_GET['id']]);
+        header("Location: userslist.php");
     }
 
     if(isset($_POST['arrowLeft']) && $_SESSION['currentPage'] > 1){

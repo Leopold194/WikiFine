@@ -1,20 +1,14 @@
 <?php 
     session_start();
     require '../../core/functions.php';
+    redirectIfNotConnected();
 ?>
 
 <?php require '../../conf.inc.php'; ?>
 <?php require '../templates/head.php'; ?>
 <link rel='stylesheet' href='../../css/user/user.css'>
 <?php require '../templates/navbar.php'; ?>
-
-<div class="navbarUser">
-    <ul>
-        <li><a href="">Mon compte</a></li>
-        <li><a href="">Mes articles</a></li>
-        <li><a href="">Messagerie</a></li>
-    </ul>
-</div>
+<?php require '../templates/user_sidebar.php'; ?>
 
 <form action="../../core/user/modify_user.php" method="POST" class="" id="dataForm">
     <div class="userProfil">

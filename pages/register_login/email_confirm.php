@@ -1,22 +1,32 @@
 <?php 
   session_start();
   if($_SESSION['register'] < 1 && !isset($_SESSION['modify_account_data'])){
-    header('Location: register1.php');
+    header('Location: register.php');
   }
 ?>
 
 <?php require '../../conf.inc.php'; ?>
 <?php require '../../core/functions.php'; ?>
 <?php require '../templates/head.php'; ?>
-<link rel='stylesheet' href='../../css/templates/register.css'>
+<link rel='stylesheet' href='../../css/registers/register.css'>
+<link rel='stylesheet' href='../../css/templates/captcha_buttons.css'>
 <link rel='stylesheet' href='../../css/registers/emailconfirm.css'>
 <?php require '../templates/navbar.php'; ?>
 
+<?php 
+    if(isset($_GET['registerStep']) && $_GET['registerStep'] < $_SESSION['register']) {
+        $_SESSION['register'] = $_GET['registerStep'];
+        header("Location: register.php");
+    }
+?>
+
 <div class="breadcrumb">
-    <span class="line"></span>  
-    <div class="circle1 circles activeCircle"><a class="breadcrumbCircle" href="register1.php"><p>1</p></a></div>
-    <div class="circle2 circles"><a class="breadcrumbCircle" href="register2.php"><p>2</p></a></div>
-    <div class="circle3 circles"><a class="breadcrumbCircle" href="register3.php"><p>3</p></a></div>
+    <span class="line"></span>
+    <form class="circlesForm">
+        <div class="circle1 circles <?php echo ($_SESSION['register'] == 0) ? 'activeCircle' : '' ?>"><button name="registerStep" value="0" class="breadcrumbCircle"><p>1</p></button></div>
+        <div class="circle2 circles <?php echo ($_SESSION['register'] == 2) ? 'activeCircle' : '' ?>"><button name="registerStep" value="2" class="breadcrumbCircle"><p>2</p></button></div>
+        <div class="circle3 circles <?php echo ($_SESSION['register'] == 3) ? 'activeCircle' : '' ?>"><button name="registerStep" value="3" class="breadcrumbCircle"><p>3</p></button></div>
+    </form>
 </div>
 
 <div class="formTitle">
@@ -48,7 +58,7 @@
                     if($_SESSION['form1']['validateCode'] == $userCode){
                         $_SESSION['register'] = 2;
                         unset($_SESSION['form1']['validateCode']);
-                        header('Location: register2.php');
+                        header('Location: register.php');
                     }
                 }else{
                     if($_SESSION['validateCode'] == $userCode){
@@ -87,8 +97,8 @@
                 </div>
             </div>
         </div>
-        <div class="submit field">
-            <button type="submit">CONTINUER</button>
+        <div class="rowCenter mt mb">
+            <button type="submit" class="submit submitActive field">CONTINUER</button>
         </div> 
     </form>
 </div>
