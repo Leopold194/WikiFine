@@ -8,11 +8,8 @@
     border-radius: 15px;
     font-size: 20px;
     font-weight: bold;
-    margin-bottom: 60px;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
-    margin-right: 40px;
-    margin-top: 35px;
 }
 
 .captchaBtnCheckOrUncheck:hover {
@@ -63,8 +60,10 @@
 }
 
 .submit {
-    margin-top: 35px;
     border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .submitInactive {
@@ -72,7 +71,6 @@
     font-size: 20px;
     font-weight: bold;
     color: #F4F4F2;
-    margin-bottom: 60px;
     background-color: #c1c1c0;
     border: #c1c1c0 2px solid;
 }
@@ -84,9 +82,7 @@
     font-weight: bold;
     color: #F4F4F2;
     border: #8ca7e2 2px solid;
-    margin-bottom: 60px;
     cursor: pointer;
-    border-radius: 15px;
 }
 
 .submitActive, .submitActive::after {

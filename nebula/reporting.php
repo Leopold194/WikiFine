@@ -4,7 +4,6 @@
     redirectIfNotConnectedNebula();
 ?>
 
-<?php require '../conf.inc.php'; ?>
 <?php require 'templates/head.php'; ?>
 <link rel='stylesheet' href='../css/nebula/reporting.css'>
 <?php require 'templates/navbar.php'; ?>

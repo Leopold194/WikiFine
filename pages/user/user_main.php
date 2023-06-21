@@ -1,26 +1,13 @@
 <?php 
     session_start();
     require '../../core/functions.php';
+    redirectIfNotConnected();
 ?>
 
-<?php require '../../conf.inc.php'; ?>
 <?php require '../templates/head.php'; ?>
 <link rel='stylesheet' href='../../css/user/user.css'>
 <?php require '../templates/navbar.php'; ?>
-
-<div class="navbarUser">
-    <ul>
-        <li><a href="#">Mon compte</a></li>
-        <li><a href="">Mes articles</a></li>
-        <li><a href="user_mess.php">Messagerie</a></li>
-        <?php 
-            $result = getData(Array('status'), $_SESSION['id']);
-            if(in_array($result[0], Array(1, 2))) {
-                echo "<li><a href='../../nebula/index.php'>NEBULA</a></li>";
-            }
-        ?>
-    </ul>
-</div>
+<?php require '../templates/user_sidebar.php'; ?>
 
 <div class="userProfil">
     <div class="avatarAndNames">

@@ -1,7 +1,9 @@
 <?php 
 
 $prefix = ($_SERVER['HTTP_HOST'] == 'localhost') ? ("/WikiFine/") : ("/");
+$link = ($_SERVER['HTTP_HOST'] == 'localhost') ? ("http://localhost/WikiFine/") : ("https://wikifine.org/");
 define("FILE_PREFIX", $prefix);
+define("LINK_PREFIX", $link);
 
 $secret_prefix = ($_SERVER['HTTP_HOST'] == 'localhost') ? ("C:/xampp/htdocs/") : ("/var/www/");
 $data = file_get_contents($secret_prefix.'secrets/secrets.json');

@@ -5,7 +5,7 @@
 
 <?php require '../conf.inc.php'; ?>
 <?php require 'templates/head.php'; ?>
-<link rel='stylesheet' href='../css/templates/register.css'>
+<link rel='stylesheet' href='../css/registers/register.css'>
 <link rel='stylesheet' href='../css/registers/login.css'>
 <link rel='stylesheet' href='../css/templates/captcha_buttons.css'>
 <script src=<?php echo FILE_PREFIX.'js/see_password.js'; ?> defer></script>
@@ -42,9 +42,9 @@
         <div class="link mt">
             <a href="reset_password.php">Mot de passe oublié</a>
         </div>
-        <div class="btns">
-            <div class="captchaBtnCheckOrUncheck captchaBtnCheck">CAPTCHA</div>
-            <div class="submit submitInactive field" id="connBtn">CONNEXION</div>
+        <div class="rowCenter mt mb">
+            <div class="captchaBtnCheckOrUncheck captchaBtnCheck tiny-mr">CAPTCHA</div>
+            <div class="submit submitInactive field tiny-ml" id="connBtn">CONNEXION</div>
         </div>
     </form> 
 </div>

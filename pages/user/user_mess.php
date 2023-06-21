@@ -1,6 +1,7 @@
 <?php 
     session_start();
     require '../../core/functions.php';
+    redirectIfNotConnected();
 ?>
 
 <?php require '../../conf.inc.php'; ?>
@@ -8,14 +9,9 @@
 <link rel='stylesheet' href='../../css/user/user.css'>
 <link rel='stylesheet' href='../../css/user/messages.css'>
 <?php require '../templates/navbar.php'; ?>
+<?php require '../templates/user_sidebar.php'; ?>
 
-<div class="navbarUser">
-    <ul>
-        <li><a href="user_main.php">Mon compte</a></li>
-        <li><a href="">Mes articles</a></li>
-        <li><a href="#">Messagerie</a></li>
-    </ul>
-</div>
+
 
 <div class="container">
     <form method="POST" action="../../core/user/send_message.php">

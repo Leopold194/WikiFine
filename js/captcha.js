@@ -63,6 +63,7 @@ function dragDrop(event) {
         puzzleImgContainer.setAttribute("style", "display: none; transition: all 0.3s;");
         captchaBtn.classList.toggle('captchaBtnDisabled');
         connBtn.classList.replace('submitInactive', 'submitActive');
+        document.documentElement.style.overflow = 'auto';
     }
 }
 

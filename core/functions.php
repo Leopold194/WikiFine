@@ -60,8 +60,16 @@
     }
 
     function redirectIfNotConnectedNebula() {
+        require '../conf.inc.php'; 
         if(!(isset($_SESSION['super_login']) && $_SESSION['super_login'] == 1)) {
-            header('Location: ../nebula/index.php');
+            header('Location: '.FILE_PREFIX.'nebula/index.php');
+        }
+    }
+
+    function redirectIfNotConnected() {
+        require '../../conf.inc.php'; 
+        if(!(isset($_SESSION['login']) && $_SESSION['login'] == 1)) {
+            header('Location: '.FILE_PREFIX.'index.php');
         }
     }
 

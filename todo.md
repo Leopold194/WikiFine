@@ -10,13 +10,17 @@
 - [x] Ajouter le tri dans userlist
 - [x] Mettre en responsive userlist --> [] Le faire encore pour petit ordinateur
 - [x] Ajouter un BAN dans NEBULA
+- [x] Ajouter bouton se déconnecter
+- [x] Mettre tous les registers sur une seule page
 - [] Gérer le unset de la variable de session avec les erreurs
 - [] Optimiser les fichiers CSS
-- [] Mettre tous les registers sur une seule page
 - [] Brouiller noms des images de captcha
 - [] Gérer les images dans les articles (BDD)
 - [] Rajouter l'auteur dans les articles
 - [] Faire en sorte qu'on ne puisse like un article qu'une fois chacun et que ça se voit quand c'est fait
+- [] Ajouter le fait de pouvoir mettre plusieurs images dans le captcha
+- [] Vérifier que je ne suis pas né dans le futur
+- [] Remplir les formulaires d'inscription si on revient en arrière
 
 PROBLEMES :
 

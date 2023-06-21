@@ -252,27 +252,6 @@
     width: 595px;
 }
 
-/*
-.editPwd {
-    margin-top: 6px;
-}
-
-.editButton {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #5F85DB;
-    border-radius: 50%;
-    width: 35px;
-    height: 35px;
-    cursor: pointer;
-}
-
-.editButton img {
-    width: 15px;
-    height: 15px;
-}*/
-
 .saveButton button {
     margin-left: 280px;
     padding: 10px 20px 10px 20px;
@@ -323,40 +302,6 @@
     width: 100%;
 }
 
-/*
-.filter::after {
-    content:"";
-    position:absolute;
-    left:0;
-    right:0;
-    top:0;
-    bottom:0;
-    background:rgba(0,0,0,0.7);
-}
-
-.pwd_modify_open {
-    position: absolute;
-    width: 600px;
-    height: 600px;
-
-    left: 50%;
-    top: 50%;
-    transform: translateX(-50%) translateY(-50%);
-
-    border-radius: 50px;
-    border: #5F85DB 5px solid;
-    background-color: #F4F4F2;
-    z-index: 20;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.pwd_modify_close {
-    display: none;
-}*/
-
 .resetPwd {
     text-decoration: none;
     color: #5F85DB;
@@ -368,67 +313,26 @@
     color: black;
 }
 
-/*
-.popupTitle {
-    margin-top: 40px;
-    margin-bottom: 45px;
-    text-decoration: underline  ;
-    font-weight: bold;
-    font-size: 30px;
-    text-align: center;
-}
-*/
-
-/*
-.inputColumnPwd {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 35px;
-    position: relative;
-}
-
-.saveButtonPwd {
-    margin-top: 55px;
-    display: flex;
-    justify-content: center;
-}
-
-.saveButtonPwd button {
-    width: 50%;
-    margin-left: 0;
-}*/
-
-/*
-.closePopup {
-    width: 25px;
-    position: absolute;
-    right: 25px;
-    top: 20px;
-    cursor: pointer;
-}
-
-.closePopup:hover {
-    filter: invert(59%) sepia(53%) saturate(3310%) hue-rotate(199deg) brightness(91%) contrast(88%);
-}
-*/
-
 .error input {
     outline: none;
     border: 2px solid #d94c42;
     box-shadow: 0 0 10px #f07d7d;
 }
 
-
-
-
-
-
-
-
-
-
-
+.disconnectBtn {
+    background-color: #EE3939;
+    font-size: 20px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 40px;
+}
 
 @media (max-width: 1580px) {
     .description {
