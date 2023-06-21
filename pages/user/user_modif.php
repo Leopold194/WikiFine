@@ -4,7 +4,6 @@
     redirectIfNotConnected();
 ?>
 
-<?php require '../../conf.inc.php'; ?>
 <?php require '../templates/head.php'; ?>
 <link rel='stylesheet' href='../../css/user/user.css'>
 <?php require '../templates/navbar.php'; ?>
