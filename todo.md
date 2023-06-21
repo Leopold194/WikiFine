@@ -12,6 +12,7 @@
 - [x] Ajouter un BAN dans NEBULA
 - [x] Ajouter bouton se déconnecter
 - [x] Mettre tous les registers sur une seule page
+- [x] Faire l'article au hasard
 - [] Gérer le unset de la variable de session avec les erreurs
 - [] Optimiser les fichiers CSS
 - [] Brouiller noms des images de captcha
@@ -22,6 +23,9 @@
 - [] Vérifier que je ne suis pas né dans le futur
 - [] Remplir les formulaires d'inscription si on revient en arrière
 - [] Ajouter le darkmode quand on n'est pas encore connecté
+- [] Créer tout le systeme de catégorie :
+    - [] Ajouter un dropdown dans la creation d'articles
+    - [] Ajouter la possiblité d'en créer dans le back
 
 PROBLEMES :
 
