@@ -52,7 +52,7 @@
                     </a>
                 </div>
                 <div class="register button">
-                    <a href=<?php echo FILE_PREFIX . "pages/register_login/register1.php"; ?>>
+                    <a href=<?php echo FILE_PREFIX . "pages/register_login/register.php"; ?>>
                         <p>S'inscrire</p>
                     </a>
                 </div>

@@ -41,7 +41,7 @@
             <label class="placeholderLabel">Mot de passe</label>
         </div>
         <div class="link mt">
-            <a href="register1.php">Vous n’avez pas de compte ? Inscrivez vous dès maintenant !</a><br>
+            <a href="register.php">Vous n’avez pas de compte ? Inscrivez vous dès maintenant !</a><br>
             <a href="reset_password.php">Mot de passe oublié</a>
         </div>
         <div class="rowCenter mt mb">
