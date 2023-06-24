@@ -24,7 +24,10 @@
         }
         $_SESSION['previousGet'] = Array($_GET['filter']);
         $_SESSION['previousGet'][1] = (isset($order)) ? $order : 'ASC';
-        $listOfUsers = filterRequestUsers($_GET['filter'], $_SESSION['previousGet'][1]);
+        
+        $connect = connectDB();
+        $results = $connect->query("SELECT id, lastname, firstname, pseudo, email, verify, status FROM ".DB_PREFIX."USER ORDER BY ".$_GET['filter']." ".$_SESSION['previousGet'][1]);
+        $listOfUsers = $results->fetchAll();
     }
 
     $maxPage = ceil(count($listOfUsers) / 10);

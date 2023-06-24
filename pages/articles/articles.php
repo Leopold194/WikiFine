@@ -18,9 +18,9 @@
     $query = $connect->query("SELECT * FROM ".DB_PREFIX."ARTICLE WHERE id=".$id);
     $result = $query->fetch();
 ?>
-    <form method="POST" action="../../core/articles/article_option.php">
-
-<div class="popup popupClose" id="popupId">
+    
+<form method="POST" action="../../core/articles/article_option.php">
+    <div class="popup popupClose" id="popupId">
         <img src="../../img/other/cross.png" alt="Fermer" class="closePopup" id="closePopupId">
         <p class="popupTitle">Signaler cet article :</p>
         <div class="inputColumn">
@@ -34,7 +34,7 @@
         <div class="sendBtn">
             <button type="submit" name="report">Envoyer</button>
         </div>
-</div>
+    </div>
 </form>
 
 <div class="article">

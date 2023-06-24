@@ -55,6 +55,25 @@ h6 {
     isolation: isolate;
 }
 
+.mt {
+    margin-top: 40px;
+}
+
+.mb {
+    margin-bottom: 40px;
+}
+
+.tiny-ml {
+    margin-left: 20px;
+}
+
+.tiny-mr {
+    margin-right: 20px;
+}
+
+.tiny-mt {
+    margin-top: 23px;
+}
 
 /*-----------------end of normalize css------------------*/
 @font-face {
