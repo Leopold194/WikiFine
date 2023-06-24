@@ -13,19 +13,26 @@
 - [x] Ajouter bouton se déconnecter
 - [x] Mettre tous les registers sur une seule page
 - [x] Faire l'article au hasard
+- [x] Faire le truc d'écriture d'article
+- [x] Gérer les images dans les articles (BDD)
 - [] Gérer le unset de la variable de session avec les erreurs
 - [] Optimiser les fichiers CSS
 - [] Brouiller noms des images de captcha
-- [] Gérer les images dans les articles (BDD)
-- [] Rajouter l'auteur dans les articles
+- [] Rajouter l'auteur dans les articles + image de couverture
 - [] Faire en sorte qu'on ne puisse like un article qu'une fois chacun et que ça se voit quand c'est fait
 - [] Ajouter le fait de pouvoir mettre plusieurs images dans le captcha
 - [] Vérifier que je ne suis pas né dans le futur
 - [] Remplir les formulaires d'inscription si on revient en arrière
+- [] Créer la newsletter 
 - [] Ajouter le darkmode quand on n'est pas encore connecté
+- [] Faire des vérifications dans popup de signalement d'articles et de creation de categorie
 - [] Créer tout le systeme de catégorie :
-    - [] Ajouter un dropdown dans la creation d'articles
+    - [x] Ajouter un dropdown dans la creation d'articles
     - [] Ajouter la possiblité d'en créer dans le back
+        - [x] Pouvoir trier par nombre d'articles
+        - [] Pouvoir editer une catégorie
+- [] Vérifier le format de l'image upload dans la création d'article
+- [x] Vérifier que le titre d'un article est unique et mettre des erreurs si on ne remplit pas tous les champs
 
 PROBLEMES :
 

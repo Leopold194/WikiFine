@@ -50,22 +50,6 @@
     position: relative;
 }
 
-.mt {
-    margin-top: 40px;
-}
-
-.mb {
-    margin-bottom: 40px;
-}
-
-.tiny-ml {
-    margin-left: 20px;
-}
-
-.tiny-mr {
-    margin-right: 20px;
-}
-
 .eye {
     height: 20px;
     right: 10px;
@@ -114,10 +98,6 @@
 .submit {
     border-radius: 20px;
     width: 19%;
-}
-
-.tiny-mt {
-    margin-top: 23px;
 }
 
 .formContentTitle {

@@ -73,13 +73,6 @@
         }
     }
 
-    function filterRequestUsers($filter, $order) {
-        $connect = connectDB();
-        $results = $connect->query("SELECT id, lastname, firstname, pseudo, email, verify, status FROM ".DB_PREFIX."USER ORDER BY ".$filter." ".$order);
-        $listOfUsers = $results->fetchAll();
-        return $listOfUsers;
-    }
-
     function sendMail($recipient, $subject, $body){
         
         require 'vendor/autoload.php';

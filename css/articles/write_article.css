@@ -57,13 +57,14 @@
     width: 100%;
 }
 
-.textareaDiv textarea {
+.textareaDiv iframe {
     width: 100%;
     min-width: 100%;
     max-width: 100%;
     min-height: 40px;
-    border-top: 1px solid black;
     height: 250px;
+    background-color: white;
+    border:  1px solid black;
 }
 
 .utils {
@@ -82,7 +83,10 @@
     text-align: center;
     width: 8%;
     font-size: 25px;
+    background: none;
+    border: none;
     border-right: 1px solid black;
+    cursor: pointer;
 }
 
 .color, .puces, .numbers, .img, .link {
@@ -144,7 +148,42 @@
     border-radius: 20px;
     height: 100%;
     display: flex;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.summaryCtgTitle {
+    margin-top: 30px;
+    font-size: 25px;
+}
+
+.summaryCtgSubTitle {
+    font-size: 15px;
+}
+
+.selectsCtg {
+    height: 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.selectsCtg select {
+    height: 35px;
+    border-radius: 15px;
+    outline: none;
+    text-indent: 5px;
+    text-overflow: ellipsis;
+}
+
+.alert {
+    background-color: rgba(252,102,102,0.5);
+    color: black;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    border-radius: 15px;
+    padding: 10px 20px 10px 20px;
+    width: 860px;
 }
 
 .summaryImg {
@@ -169,7 +208,7 @@
     border-radius: 15px;
 }
 
-button {
+.publishBtn {
     padding: 7px 15px 7px 15px;
     background-color: #8ca7e2;
     border-radius: 15px;
@@ -183,41 +222,50 @@ button {
     left: 33%;
 }
 
-button, button::after {
+.publishBtn, .publishBtn::after {
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     -o-transition: all 0.3s;
     transition: all 0.3s;
 }
       
-button {
+.publishBtn {
     position: relative;
     z-index: 1;
 }
 
-button::before, button::after {
+.publishBtn::before, .publishBtn::after {
     border-radius: 8px;
     content: "";
     position: absolute;
     z-index: -1;
 }
 
-button::before, button::after {
+.publishBtn::before, .publishBtn::after {
     background: #F4F4F2;
     border-radius: 12px;
 }
 
-button:hover {
+.publishBtn:hover {
     color: #5F85DB;
 }
 
-button::after {
+.publishBtn::after {
     height: 100%;
     left: 0;
     top: 0;
     width: 0;
 }
 
-button:hover:after {
+.publishBtn:hover:after {
     width: 100%;
+}
+  
+.color input[type="color"] {
+    appearance: none;
+    background-color: transparent;
+    width: 45%;
+    height: 85%;
+    border: none;
+    cursor: pointer;
 }
