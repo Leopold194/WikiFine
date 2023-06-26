@@ -554,3 +554,17 @@
     }
 }
 
+.disconnectBtn {
+    background-color: #EE3939;
+    font-size: 20px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 40px;
+}
