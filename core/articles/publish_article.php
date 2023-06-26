@@ -46,7 +46,10 @@
         $listOfErrors[] = ['poster', 'Vous devez fournir une image de couverture à votre article'];
     }
 
-    if($_POST['selectCtg0'] == $_POST['selectCtg1'] || $_POST['selectCtg0'] == $_POST['selectCtg2'] || $_POST['selectCtg2'] == $_POST['selectCtg1']) {
+    if((!empty($_POST['selectCtg0']) && $_POST['selectCtg0'] === $_POST['selectCtg1']) || 
+        (!empty($_POST['selectCtg0']) && $_POST['selectCtg0'] === $_POST['selectCtg2']) || 
+        (!empty($_POST['selectCtg2']) && $_POST['selectCtg2'] === $_POST['selectCtg1']))
+    {
         $listOfErrors[] = ['categories', 'Vous avez renseigné plusieurs fois la même catégorie'];
     }
 
@@ -59,7 +62,7 @@
 
         unset($_SESSION['articleData']);
 
-        $result = getData(Array('id'), $_SESSION['id']);
+        $resultId = getData(Array('id'), $_SESSION['id']);
 
         $pattern0 = '/base64,([^\'"]+)/';
         $pattern1 = '/image\/([^;]+)/';
@@ -148,7 +151,7 @@
                 "title"=>$_POST['title'],
                 "content"=>$_POST['content'],
                 "img"=>$poster,
-                "author"=>$result[0]
+                "author"=>$resultId[0]
             ]);
 
             $query=$connect->query('SELECT id FROM '.DB_PREFIX.'ARTICLE WHERE LOWER(title)="'.strtolower($_POST["title"]).'"');

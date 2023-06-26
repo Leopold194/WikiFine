@@ -48,8 +48,37 @@
         </div>
     </form>
     <section class="articleSummary">
-        <img src="<?php echo $result['img'] ?>" alt="Image de couverture">
-        
+        <img src="<?php echo $result['img'] ?>" alt="Image de couverture" class="summaryImg">
+        <div class="categories">
+            <p class="ctgTitle">Catégories Associées :</p>
+            <?php 
+                $query = $connect->query("SELECT category FROM ".DB_PREFIX."BELONGTO WHERE article=".$id);
+                $ctgs = $query->fetchAll();
+
+                echo "<ul>";
+                foreach($ctgs as $ctg) {
+                    $query = $connect->query("SELECT logo, title FROM ".DB_PREFIX."CATEGORY WHERE id=".$ctg['category']);
+                    $ctgData = $query->fetch();
+                    ?>
+                        <li><img src="<?php echo $ctgData['logo'] ?>" alt="Icone de la catégorie"><?php echo $ctgData['title'] ?></li>
+                    <?php
+                }
+                echo "</ul>"
+            ?>
+            <p class="ctgTitle">Auteur :</p>
+            <p><?php 
+
+                if(empty($result['author'])) {
+                    echo "Anonyme";
+                }else {
+                    $query = $connect->query("SELECT pseudo FROM ".DB_PREFIX."USER WHERE id=".$result['author']);
+                    $author = $query->fetch();
+
+                    echo $author['pseudo'];
+                }
+            ?></p>
+        </div>
+
     </section>
 </div>
 
