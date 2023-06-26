@@ -1,31 +1,31 @@
-name: Upload
-
-on: push
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
+runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
 
-      - name: Remove not-wanted files in server
+      - name: Remove unwanted files in server
         run: "rm -r README.md .git .github"
 
+      - name: Exclude unwanted directory
+        run: |
+          # Excluding the 'unwanted_directory' from the copy
+          shopt -s extglob
+          rsync -av --exclude='vendor' ./ /tmp/repo
+          
       - uses: actions/upload-artifact@v3
         name: Upload Artifact
         with:
           name: WikiFine
-          path: "./*"
+          path: "/tmp/repo/*"
 
       - name: Copy repository contents
         uses: wangyucode/sftp-upload-action@v1.4.9
         with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
+Expand All
+	@@ -25,7 +31,7 @@ jobs:
           port: ${{ secrets.PORT }}
           privateKey: ${{ secrets.SSHKEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
-          localDir: "./"
+          localDir: "/tmp/repo"
           remoteDir: "/var/www/WikiFine"
           dryRun: false
           forceUpload: true
