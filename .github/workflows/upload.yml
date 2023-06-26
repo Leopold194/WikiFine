@@ -14,7 +14,6 @@ jobs:
           # Excluding the 'unwanted_directory' from the copy
           shopt -s extglob
           rsync -av --exclude='vendor' ./ /tmp/repo
-	  
       - uses: actions/upload-artifact@v3
         name: Upload Artifact
         with:
