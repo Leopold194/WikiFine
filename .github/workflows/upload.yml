@@ -1,4 +1,8 @@
-runs-on: ubuntu-latest
+name: Upload
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
 
@@ -10,7 +14,7 @@ runs-on: ubuntu-latest
           # Excluding the 'unwanted_directory' from the copy
           shopt -s extglob
           rsync -av --exclude='vendor' ./ /tmp/repo
-          
+	  
       - uses: actions/upload-artifact@v3
         name: Upload Artifact
         with:
@@ -20,8 +24,8 @@ runs-on: ubuntu-latest
       - name: Copy repository contents
         uses: wangyucode/sftp-upload-action@v1.4.9
         with:
-Expand All
-	@@ -25,7 +31,7 @@ jobs:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
           port: ${{ secrets.PORT }}
           privateKey: ${{ secrets.SSHKEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
