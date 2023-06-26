@@ -319,24 +319,46 @@
     box-shadow: 0 0 10px #f07d7d;
 }
 
-.disconnectBtn {
-    background-color: #EE3939;
-    font-size: 20px;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 20px;
+.btnForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     position: absolute;
     bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
     width: 80%;
+}
+
+.btnForm button {
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    width: 100%;
     height: 40px;
+}
+
+.disconnectBtn {
+    background-color: #EE3939;
+    font-size: 20px;
+}
+
+.extractBtn {
+    background-color: #5F85DB;
+    font-size: 17px;
+    margin-bottom: 20px;
 }
 
 @media (max-width: 1580px) {
     .description {
         width: 500px;
+    }
+}
+
+@media (max-width: 1500px) {
+    .extractBtn {
+        font-size: 15px;
     }
 }
 
@@ -396,6 +418,16 @@
     }
 }
 
+@media (max-width: 1350px) {
+    .disconnectBtn {
+        font-size: 17px;
+    }
+
+    .extractBtn {
+        font-size: 14px;
+    }
+}
+
 @media (max-width: 1300px) {
     .articleContainer {
         display: flex;
@@ -428,11 +460,24 @@
     .userData {
         left: 47%;
     }
+}
 
-    
+@media (max-width: 1250px) {
+    .extractBtn {
+        font-size: 11px;
+    }
+
+    .disconnectBtn {
+        font-size: 15px;
+    }
 }
 
 @media (max-width: 1150px) {
+
+    .disconnectBtn {
+        font-size: 13px;
+    }
+
     .small {
         width: 149px;
         margin-right: 10px;

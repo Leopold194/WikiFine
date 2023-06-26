@@ -15,15 +15,15 @@
 - [x] Faire l'article au hasard
 - [x] Faire le truc d'écriture d'article
 - [x] Gérer les images dans les articles (BDD)
+- [x] Rajouter l'auteur dans les articles + image de couverture
+- [x] Créer la newsletter 
 - [] Gérer le unset de la variable de session avec les erreurs
 - [] Optimiser les fichiers CSS
 - [] Brouiller noms des images de captcha
-- [] Rajouter l'auteur dans les articles + image de couverture
 - [] Faire en sorte qu'on ne puisse like un article qu'une fois chacun et que ça se voit quand c'est fait
 - [] Ajouter le fait de pouvoir mettre plusieurs images dans le captcha
 - [] Vérifier que je ne suis pas né dans le futur
 - [] Remplir les formulaires d'inscription si on revient en arrière
-- [] Créer la newsletter 
 - [] Ajouter le darkmode quand on n'est pas encore connecté
 - [] Faire des vérifications dans popup de signalement d'articles et de creation de categorie
 - [] Créer tout le systeme de catégorie :

@@ -88,7 +88,7 @@
                                 $required = ($cpt == 0) ? 'required' : '';
                                 echo "<select name='selectCtg".$cpt."' ".$required."><option value=''>--------</option>";
                                     foreach($results as $ctg) {
-                                        $default = ($_SESSION['articleData']['selectCtg'.$cpt] == $ctg['id']) ? 'selected' : '';
+                                        $default = (isset($_SESSION['articleData']) && $_SESSION['articleData']['selectCtg'.$cpt] == $ctg['id']) ? 'selected' : '';
                                         echo '<option value="'.$ctg['id'].'" '.$default.'>'.$ctg['title'].'</option>';
                                     }
                                 echo "</select>";
