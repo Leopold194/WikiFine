@@ -75,6 +75,7 @@
     align-items: center;
     height: 100px;
     border-bottom: black 1px solid;
+    position: relative;
 }
 
 .title, .description {
@@ -88,7 +89,9 @@
 }
 
 .logo img {
-    width: 80%;
+    max-width: 80%;
+    max-height: 80%;
+
 }
 
 .title {

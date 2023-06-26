@@ -27,7 +27,6 @@
         
         $connect = connectDB();
         if($_GET['filter'] == 'articles') {
-            //$results = $connect->query("SELECT c.id, c.title, c.description, c.logo, COUNT(b.article) AS article_count FROM ".DB_PREFIX."CATEGORY c JOIN ".DB_PREFIX."BELONGTO b ON c.id = b.category GROUP BY c.id, c.title, c.description, c.logo ORDER BY COUNT(b.article) ".$_SESSION['previousGet'][1]);
             $results = $connect->query("SELECT WF_CATEGORY.id, WF_CATEGORY.title, WF_CATEGORY.description, WF_CATEGORY.logo, category, COUNT(article) FROM WF_BELONGTO RIGHT JOIN WF_CATEGORY ON WF_BELONGTO.category = WF_CATEGORY.id GROUP BY category ORDER BY COUNT(article) DESC;");
 
         }else{

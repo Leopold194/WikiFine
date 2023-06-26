@@ -47,7 +47,10 @@
             <button type="submit" class="like" name="like"><img src="../../img/other/like.svg" alt="Aimer l'article"></button>
         </div>
     </form>
-    <section class="articleSummary"></section>
+    <section class="articleSummary">
+        <img src="<?php echo $result['img'] ?>" alt="Image de couverture">
+        
+    </section>
 </div>
 
 <script>

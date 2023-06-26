@@ -7,7 +7,6 @@
 
     use Aws\S3\S3Client;
 
-
     if(count($_POST) != 2
         || empty($_FILES["logo"]["name"])
         || empty($_POST["title"])
@@ -50,7 +49,8 @@
                 $result = $s3->putObject([ 
                     'Bucket' => $bucket, 
                     'Key'    => $file_name, 
-                    'SourceFile' => $file_temp_src 
+                    'SourceFile' => $file_temp_src ,
+                    'ContentType' => 'image/'.$file_type
                 ]); 
                 $result_arr = $result->toArray(); 
                  

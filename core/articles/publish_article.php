@@ -1,4 +1,5 @@
 <?php
+
     session_start();
     require '../functions.php';
     require '../../conf.inc.php';
@@ -45,11 +46,17 @@
         $listOfErrors[] = ['poster', 'Vous devez fournir une image de couverture à votre article'];
     }
 
+    if($_POST['selectCtg0'] == $_POST['selectCtg1'] || $_POST['selectCtg0'] == $_POST['selectCtg2'] || $_POST['selectCtg2'] == $_POST['selectCtg1']) {
+        $listOfErrors[] = ['categories', 'Vous avez renseigné plusieurs fois la même catégorie'];
+    }
+
     if(!empty($listOfErrors)) {
         $_SESSION['errors'] = $listOfErrors;
         header("Location: ../../pages/articles/write_article.php");
     }else{
         
+        $ctgsIds = [$_POST['selectCtg0'], $_POST['selectCtg1'], $_POST['selectCtg2']];
+
         unset($_SESSION['articleData']);
 
         $result = getData(Array('id'), $_SESSION['id']);
@@ -72,17 +79,19 @@
         $file_type = pathinfo($file_name, PATHINFO_EXTENSION);
 
         $allowTypes = Array('jpg', 'png', 'jpeg');
-
+        
         if(in_array($file_type, $allowTypes)) {
             $file_temp_src = $_FILES['poster']['tmp_name'];
-    
+            print_r($_FILES);
+            
             if(is_uploaded_file($file_temp_src)) {
 
                 try { 
                     $result = $s3->putObject([ 
                         'Bucket' => $bucket, 
                         'Key'    => time()."_".uniqid().".".$file_type, 
-                        'Body' => $file_temp_src
+                        'SourceFile' => $file_temp_src,
+                        'ContentType' => 'image/'.$file_type
                     ]); 
                     $result_arr = $result->toArray(); 
                     
@@ -96,7 +105,7 @@
                 }
             }
         }
-
+        
         $poster = $s3_file_link;
 
         for($cpt = 0; $cpt < count($matches0[1]); $cpt++) {
@@ -141,12 +150,20 @@
                 "img"=>$poster,
                 "author"=>$result[0]
             ]);
+
+            $query=$connect->query('SELECT id FROM '.DB_PREFIX.'ARTICLE WHERE LOWER(title)="'.strtolower($_POST["title"]).'"');
+            $result = $query->fetch();
+
+            foreach($ctgsIds as $id) {
+                if(!empty($id)) {
+                    $query = $connect->query("INSERT INTO ".DB_PREFIX."BELONGTO (article, category) VALUES (".$result['id'].", ".$id.")");
+                }
+            }
+
+            header("Location: ../../pages/articles/articles.php?id=".$result['id']);
+
+        }else{
+            echo "Error";
         }
-
-        $connect = connectDB();
-        $query=$connect->query('SELECT id FROM '.DB_PREFIX.'ARTICLE WHERE LOWER(title)="'.strtolower($_POST["title"]).'"');
-        $id = $query->fetch();
-
-        /*header("Location: ../../pages/articles/articles.php?id=".$id['id']);*/
     }
 ?>
