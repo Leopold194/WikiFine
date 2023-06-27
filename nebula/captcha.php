@@ -38,7 +38,6 @@
             </div>
             <?php
         }
-        
     }
 
     if(isset($_POST['arrowLeft']) && $_SESSION['currentPage'] > 1){

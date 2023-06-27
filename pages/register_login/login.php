@@ -13,7 +13,6 @@
 <?php require '../templates/navbar.php'; ?>
 <?php require '../templates/captcha.php'; ?>
 
-
 <div class="formTitle">
     <h1 class="title">Connexion</h1>
 </div>
