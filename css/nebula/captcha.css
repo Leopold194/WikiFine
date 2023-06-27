@@ -2,30 +2,115 @@
     position: absolute;
     left: 17%;
     width: 83%;
-    padding-left: 25px;
 }
 
 .pageTitle {
-    margin-top: 10px;
     font-family: 'Gotham';
     font-size: 40px;
 }
 
-.summaryImg {
-    width: 360px;
-    height: 360px;
+.pageBodyHeader {
+    display: flex;
+    align-items: center;
+    margin: 10px 0 0 25px;
+}
+
+.userTable {
+    margin-left: 25px;
+    margin-top: 20px;
+    width: 96%;
+}
+
+.userTableHeader {
+    display: flex;
+    align-items: center;
+    height: 45px;
+    border-bottom: black 2px solid;
+    position: relative;
+}
+
+.userTableHeader p {
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.userTableHeader .action {
+    cursor: default;
+}
+
+.userTableRow {
+    display: flex;
+    align-items: center;
+    height: 100px;
+    border-bottom: black 1px solid;
+    position: relative;
+}
+
+.name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 10px;
+}
+
+.number {
+    width: 7%;
+}
+
+.name {
+    width: 50%;
+}
+
+.author {
+    width: 23%;
+}
+
+.action {
+    width: 20%;
+}
+
+.userTableRow .action input {
+    height: 33px;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.userTableRow .action .del {
+    background-color: #EE3939;
+}
+
+.userTableRow .action .see {
+    background-color: #5F85DB;
+}
+
+.userTableRow .number {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.userTableRow .action {
+    display: flex;
+}
+
+.imgPopup {
+    margin-top: 40px;
     background-color: rgba(217, 217, 217, 1);
+    height: 300px;
+    width: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: black 1px solid;
 }
 
-.summaryImg input {
+.imgPopup input {
     display: none;
 }
 
-.summaryImg label {
+.imgPopup label {
     cursor: pointer;
     background-color: white;
     padding: 5px 25px 5px 25px;
@@ -33,32 +118,192 @@
     border-radius: 15px;
 }
 
-.previousCaptcha {
-    width: 360px;
-    height: 360px;
-}
 
-.container {
-    margin-top: 50px;
+.arrowChangePage {
+    margin-top: 28px;
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.newCaptchaDiv, .previousCaptchaDiv {
-    width: 360px;
+.arrowChangePage img {
+    height: 20px;
+}
+
+.arrowChangePage p {
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.arrowChangePage input {
+    position: absolute;
+    height: 20px;
+    margin-left: -3px;
+    background: transparent;
+    border: none;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.margin {
+    margin-left: 25px;
+    margin-top: 20px;
+}
+
+.row {
+    display: flex;
+    position: relative;
+    width: 100%;
+}
+
+.addCaptcha {
+    background-color: #5F85DB;
+    border: #5F85DB solid 2px;
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    margin-left: 30px;
+    margin-top: 7px;
+}
+
+.addCategory:hover {
+    border: 2px solid #5F85DB;
+    background-color: white;
+    color: #5F85DB;
+}
+
+.popup {
+    background-color: #ECEBEB;
+    border-style: solid;
+    border-width: 5px;
+    border-image: linear-gradient(45deg, #5F85DB, #EE3939) 1 round;
+    z-index: 10;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 80%;
+    width: 30%;
+    transform: translateX(-50%) translateY(-50%);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.closePopup {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20px;
+    cursor: pointer;
+}
+
+.popupTitle {
+    font-size: 40px;
+    font-weight: bold;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: 'Montserrat';
+    margin-top: 20px;
+    text-decoration-color: #5F85DB;
+    text-decoration-line: underline;
+}
+
+.inputColumn {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.newCaptchaDiv {
-    margin-right: 120px;
+.namePopup {
+    width: 60%;
 }
 
-.desc {
+.textInput {
+    border-radius: 15px;
+    border: none;
+    height: 35px;
+    text-indent: 5px;
+    transition: all 0.2s ease-in-out;
+    margin-top: 15px;
+}
+
+.namePopup {
+    margin-top: 20px;
+}
+
+.namePopup label {
     font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.warning {
-    font-style: italic;
-    color: #EE3939;
+.namePopup input:focus {
+    box-shadow: 0 0 10px #719ECE;
+    outline: none;
+}
+
+.sendBtn button {
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    background-color: #719ECE;
+    outline: none;
+    border: none;
+    color: #ECEBEB;
+    border-radius: 20px;
+    width: 25%;
+    height: 7%;
+    font-size: 20px;
+    cursor: pointer;
+    margin-top: 40px;
+}
+
+.popupClose {
+    display: none;
+}
+
+.alert {
+    background-color: rgba(252,102,102,0.5);
+    color: black;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 25px;
+    border-radius: 15px;
+    padding: 10px 20px 10px 20px;
+    width: fit-content;
+}
+
+.captchaPreview {
+    top: 0;
+    position: absolute;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.previewClose {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    height: 40px !important;
+    width: 40px !important;
+}
+
+.captchaPreview img {
+    width: 400px;
+    height: 400px;
 }

@@ -4,7 +4,7 @@
     top: 80px;
     left: 0;
     width: 17%;
-    height: 100vh;
+    height: calc(100vh - 80px);
     padding: 10px;
 }
 

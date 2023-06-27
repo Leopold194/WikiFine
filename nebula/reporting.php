@@ -76,6 +76,7 @@
 
     <?php 
         }
+        if(count($listOfUsers) > 10){
     ?>
     <form method="POST"> 
         <div class="arrowChangePage">
@@ -90,6 +91,9 @@
             </div>
         </div>
     </form>
+    <?php
+        }
+    ?>
 </div>
 
 
