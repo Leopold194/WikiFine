@@ -150,7 +150,7 @@
 
 </div>
 <script>
-    const addCategoryBtn = document.querySelector('.addCategory');
+    const addCategoryBtn = document.querySelector('.addCaptcha');
     const popup = document.querySelector('.popup');
 
     addCategoryBtn.addEventListener('click', () => {
