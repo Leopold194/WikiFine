@@ -76,7 +76,7 @@
 
     <?php 
         }
-        if(count($listOfUsers) > 10){
+        if(count($listOfReports) > 10){
     ?>
     <form method="POST"> 
         <div class="arrowChangePage">

@@ -40,12 +40,14 @@
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
 }
+
 .cardTitle {
     font-size: 24px;
     font-weight: bold;
     margin: 16px 16px;
     text-align: left;
 }
+
 .cardImage {
     width: 60px;
     height: 60px;
@@ -55,6 +57,7 @@
     top: 16px;
     right: 16px;
 }
+
 .cardContent {
     font-size: 16px;
     text-align: justify;

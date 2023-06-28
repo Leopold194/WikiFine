@@ -51,5 +51,89 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+
 }
 
+.findUser {
+    margin-top: 20px;
+    width: 80%;
+    height: 40px;
+    border-radius: 7px;
+    border: black solid 2px;
+    text-indent: 10px;
+}
+
+.findUser:focus {
+    outline: none;
+}
+
+.suggestion-user-container {
+    position: absolute;
+    background-color: white;
+    border: 2px solid #000000;
+    border-top: none;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    width: 80%;
+    max-height: 300px;
+    overflow-y: auto;
+    display: none;
+    z-index: 1000;
+    top: 53px;
+}
+
+.suggestion-item {
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+.suggestion-item:hover {
+    background-color: rgb(233, 233, 233);
+}
+
+span {
+    margin-top: 20px;
+    background-color: #000000;
+    height: 2px;
+    width: 100%;
+}
+
+.contactForm {
+    width: 100%;
+}
+
+.profil {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+
+.active {
+    background-color: #5F85DB;
+}
+
+.profil img {
+    height: 70%;
+    margin-left: 20px;
+}
+
+.profil p {
+    font-size: 20px;
+    font-weight: bold;
+    color: #5F85DB;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-left: 20px;
+}
+
+.active p {
+    color: white;
+}
+
+.profil:hover {
+    background-color: rgb(203, 202, 202);
+}

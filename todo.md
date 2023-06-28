@@ -17,11 +17,11 @@
 - [x] Gérer les images dans les articles (BDD)
 - [x] Rajouter l'auteur dans les articles + image de couverture
 - [x] Créer la newsletter 
+- [x] Ajouter le fait de pouvoir mettre plusieurs images dans le captcha
 - [] Gérer le unset de la variable de session avec les erreurs
 - [] Optimiser les fichiers CSS
 - [] Brouiller noms des images de captcha
 - [] Faire en sorte qu'on ne puisse like un article qu'une fois chacun et que ça se voit quand c'est fait
-- [] Ajouter le fait de pouvoir mettre plusieurs images dans le captcha
 - [] Vérifier que je ne suis pas né dans le futur
 - [] Remplir les formulaires d'inscription si on revient en arrière
 - [] Ajouter le darkmode quand on n'est pas encore connecté
