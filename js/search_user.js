@@ -12,7 +12,7 @@ function showSuggestions(users) {
   suggestionsDiv.style.display = 'block';
   let maxUsers = 6; // Si plus de 6 alors scroll
 
-  users.slice(0, maxUsers).forEach(article => {
+  users.slice(0, maxUsers).forEach(users => {
     const suggestionItem = document.createElement('div');
     suggestionItem.classList.add('suggestion-item');
     suggestionItem.textContent = users.pseudo;

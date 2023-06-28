@@ -1,17 +1,16 @@
-<?php 
-
+<?php
     session_start();
     require '../functions.php';
     require "../../conf.inc.php";
-
+    $authorId = getData(Array('id'), $_SESSION['id'])[0];
     if(isset($_POST['content'])) {
         $connect = connectDB();
-        $query = $connect->prepare("INSERT INTO ".DB_PREFIX."MESSAGE (content, author, recipient) VALUES (content=:content, author=:author, recipient=:recipient)");
+        $query = $connect->prepare("INSERT INTO ".DB_PREFIX."MESSAGE (content, author, recipient) VALUES (:content, :author, :recipient)");
         $query->execute([
             "content" => $_POST['content'],
-            "author" => getData(Array('id'), $_SESSION['id']),
-            "recipient" => ""
+            "author" => $authorId,
+            "recipient" => $_POST['recipient']
         ]);
     }
-
+    header("Location: ../../pages/user/user_mess.php?recipientId=".$_POST['recipient']);
 ?>
