@@ -6,11 +6,12 @@ if(window.location.host == 'localhost'){
   filePrefix = '/';
 }
 
-function showSuggestions(articles) {
+function showSuggestionsArticles(articles) {
   const suggestionsDiv = document.getElementById('searchSuggestions');
   suggestionsDiv.innerHTML = '';
   suggestionsDiv.style.display = 'block';
   let maxArticles = 6; // Si plus de 6 alors scroll
+  console.log(articles);
 
   articles.slice(0, maxArticles).forEach(article => {
     const suggestionItem = document.createElement('div');
@@ -25,7 +26,7 @@ function showSuggestions(articles) {
   });
 }
 
-function hideSuggestions() {
+function hideSuggestionsArticles() {
   const suggestionsDiv = document.getElementById('searchSuggestions');
   suggestionsDiv.style.display = 'none';
 }
@@ -34,7 +35,7 @@ searchBar.addEventListener("input", function() {
   const searchValue = searchBar.value;
 
   if (searchValue.length === 0) {
-    hideSuggestions();
+    hideSuggestionsArticles();
     return;
   }
 
@@ -42,7 +43,7 @@ searchBar.addEventListener("input", function() {
     .then(response => response.text()) // Change ici json() en text()
     .then(text => {
         const data = JSON.parse(text);
-        showSuggestions(data);
+        showSuggestionsArticles(data);
     })
     .catch(error => {
         console.error('Erreur:', error);
@@ -51,6 +52,6 @@ searchBar.addEventListener("input", function() {
 
 document.addEventListener('click', function(event) {
   if (event.target.id !== 'searchBar') {
-    hideSuggestions();
+    hideSuggestionsArticles();
   }
 });

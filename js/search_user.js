@@ -6,7 +6,7 @@ if(window.location.host == 'localhost'){
   filePrefix = '/';
 }
 
-function showSuggestions(users) {
+function showSuggestionsUsers(users) {
   const suggestionsDiv = document.getElementById('searchUsers');
   suggestionsDiv.innerHTML = '';
   suggestionsDiv.style.display = 'block';
@@ -14,18 +14,18 @@ function showSuggestions(users) {
 
   users.slice(0, maxUsers).forEach(users => {
     const suggestionItem = document.createElement('div');
-    suggestionItem.classList.add('suggestion-item');
+    suggestionItem.classList.add('suggestion-user');
     suggestionItem.textContent = users.pseudo;
     suggestionItem.addEventListener('click', () => {
       findUser.value = users.pseudo;
       suggestionsDiv.style.display = 'none';
-      document.location.href=`${filePrefix}core/user/send_message.php?id=${users.id}`;
+      document.location.href=`${filePrefix}pages/user/user_mess.php?recipientId=${users.id}`;
     });
     suggestionsDiv.appendChild(suggestionItem);
   });
 }
 
-function hideSuggestions() {
+function hideSuggestionsUsers() {
   const suggestionsDiv = document.getElementById('searchUsers');
   suggestionsDiv.style.display = 'none';
 }
@@ -34,7 +34,8 @@ findUser.addEventListener("input", function() {
   const searchValue = findUser.value;
 
   if (searchValue.length === 0) {
-    hideSuggestions();
+    console.log("oui");
+    hideSuggestionsUsers();
     return;
   }
 
@@ -42,7 +43,7 @@ findUser.addEventListener("input", function() {
     .then(response => response.text()) // Change ici json() en text()
     .then(text => {
         const data = JSON.parse(text);
-        showSuggestions(data);
+        showSuggestionsUsers(data);
     })
     .catch(error => {
         console.error('Erreur:', error);
@@ -51,6 +52,6 @@ findUser.addEventListener("input", function() {
 
 document.addEventListener('click', function(event) {
   if (event.target.id !== 'findUser') {
-    hideSuggestions();
+    hideSuggestionsUsers();
   }
 });

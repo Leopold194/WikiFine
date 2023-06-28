@@ -16,4 +16,6 @@ define("DB_USER", $obj[0]->DB_USER);
 define("DB_PWD", $obj[0]->DB_PWD);
 define("DB_PREFIX", $obj[0]->DB_PREFIX);
 
+date_default_timezone_set('Europe/Paris');
+
 ?>
