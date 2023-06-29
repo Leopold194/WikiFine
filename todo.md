@@ -18,6 +18,9 @@
 - [x] Rajouter l'auteur dans les articles + image de couverture
 - [x] Créer la newsletter 
 - [x] Ajouter le fait de pouvoir mettre plusieurs images dans le captcha
+- [x] Index dynamique
+- [] Dashboard dynamique
+- [] Pouvoir modifier un article
 - [] Gérer le unset de la variable de session avec les erreurs
 - [] Optimiser les fichiers CSS
 - [] Brouiller noms des images de captcha

@@ -1,6 +1,6 @@
 <?php
-session_start();
-require 'core/functions.php';
+    session_start();
+    require 'core/functions.php';
 ?>
 
 <?php require 'conf.inc.php'; ?>
@@ -14,43 +14,47 @@ require 'core/functions.php';
 <body>
     <div class="contentIndex">
         <div class="welcomeTitle">
-            <h1>Ravi de votre retour sur Wikifine !</h1>
+            <h1>Amuses-toi bien sur Wikifine !</h1>
         </div>
-        <h1 class="recommendationsTitle">Recommandations</h1>
+        <h1 class="recommendationsTitle">Les articles les plus likés</h1>
         <div class="recommendationFrame">
+            <?php 
+                $connect = connectDB();
+                $query = $connect->query("SELECT * FROM ".DB_PREFIX."ARTICLE ORDER BY like_nb DESC LIMIT 3");
+                $articles = $query->fetchAll();
+
+                foreach($articles as $article) {
+            ?>
             <div class="recommendationCard">
-                <img class="cardImage" src="img/cards_logos/Burj.png" alt="Burj Khalifa">
-                <h2 class="cardTitle">Burj Khalifa</h2>
-                <p class="cardContent">Burj Khalifa fait partie d’un vaste projet urbanistique, immobilier et architectural couvrant une superficie de 2 km2. Il s’agit de créer un nouveau quartier, Downtown Dubai, un peu au sud du centre historique de Dubaï aux Émirats arabes unis...</p>
+                <div class="cardHead">
+                    <h2 class="cardTitle"><a class="cardTitleLink" href="pages/articles/articles.php?id=<?php echo $article['id'] ?>"><?php echo $article['title'] ?></a></h2>
+                    <img class="cardImage" src="<?php echo $article['img'] ?>" alt="Image de couverture">
+                </div>
+                <div class="cardContentContainer"><p class="cardContent"><?php echo $article['content'] ?></p></div>
             </div>
-            <div class="recommendationCard">
-                <img class="cardImage" src="img/cards_logos/Eiffel.jpg" alt="Tour Eiffel">
-                <h2 class="cardTitle">Tour Eiffel</h2>
-                <p class="cardContent">La Tour Eiffel est une tour de fer puddlé de 324 mètres de hauteur située à Paris, à l’extrémité nord-ouest du parc du Champ-de-Mars en bordure de la Seine dans le 7ᵉ arrondissement...</p>
-            </div>
-            <div class="recommendationCard">
-                <img class="cardImage" src="img/cards_logos/colisee.jpg" alt="Colisée">
-                <h2 class="cardTitle">Le Colisée</h2>
-                <p class="cardContent">Le Colisée, à l'origine amphithéâtre Flavien, est un immense amphithéâtre ovoïde situé dans le centre de la ville de Rome, entre l'Esquilin et le Caelius, le plus grand jamais construit dans l'Empire romain...</p>
-            </div>
+            <?php
+                }
+            ?>
         </div>
         <h1 class="recommendationsTitle">Les derniers articles publiés</h1>
         <div class="recommendationFrame">
+            <?php 
+                $connect = connectDB();
+                $query = $connect->query("SELECT * FROM ".DB_PREFIX."ARTICLE ORDER BY date DESC LIMIT 3");
+                $articles = $query->fetchAll();
+
+                foreach($articles as $article) {
+            ?>
             <div class="recommendationCard">
-                <img class="cardImage" src="img/cards_logos/Burj.png" alt="Burj Khalifa">
-                <h2 class="cardTitle">Burj Khalifa</h2>
-                <p class="cardContent">Burj Khalifa fait partie d’un vaste projet urbanistique, immobilier et architectural couvrant une superficie de 2 km2. Il s’agit de créer un nouveau quartier, Downtown Dubai, un peu au sud du centre historique de Dubaï aux Émirats arabes unis...</p>
+                <div class="cardHead">
+                    <h2 class="cardTitle"><a class="cardTitleLink" href="pages/articles/articles.php?id=<?php echo $article['id'] ?>"><?php echo $article['title'] ?></a></h2>
+                    <img class="cardImage" src="<?php echo $article['img'] ?>" alt="Image de couverture">
+                </div>
+                <div class="cardContentContainer"><p class="cardContent"><?php echo $article['content'] ?></p></div>
             </div>
-            <div class="recommendationCard">
-                <img class="cardImage" src="img/cards_logos/Eiffel.jpg" alt="Tour Eiffel">
-                <h2 class="cardTitle">Tour Eiffel</h2>
-                <p class="cardContent">La Tour Eiffel est une tour de fer puddlé de 324 mètres de hauteur située à Paris, à l’extrémité nord-ouest du parc du Champ-de-Mars en bordure de la Seine dans le 7ᵉ arrondissement...</p>
-            </div>
-            <div class="recommendationCard">
-                <img class="cardImage" src="img/cards_logos/colisee.jpg" alt="Colisée">
-                <h2 class="cardTitle">Le Colisée</h2>
-                <p class="cardContent">Le Colisée, à l'origine amphithéâtre Flavien, est un immense amphithéâtre ovoïde situé dans le centre de la ville de Rome, entre l'Esquilin et le Caelius, le plus grand jamais construit dans l'Empire romain...</p>
-            </div>
+            <?php
+                }
+            ?>
         </div>
     </div>
 </body>
