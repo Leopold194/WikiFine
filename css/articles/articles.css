@@ -15,7 +15,8 @@
 
 .articleContent {
     margin-top: 20px;
-    width: 60%
+    width: 60%;
+    margin-bottom: 20px;
 }
 
 .articleSummary {
@@ -137,6 +138,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.alert {
+    background-color: rgba(252,102,102,0.5);
+    color: black;
+    margin-top: 25px;
+    border-radius: 15px;
+    padding: 10px 20px 10px 20px;
+    width: fit-content;
+}
+
+.alert a {
+    text-decoration: underline;
 }
 
 .categories {

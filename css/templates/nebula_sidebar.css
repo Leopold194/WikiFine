@@ -1,11 +1,13 @@
 .sideNavBar {
-    position: absolute;
+    position: fixed;
     background-color: #DEDEDE;
-    top: 80px;
+    top: 0;
     left: 0;
     width: 17%;
     height: calc(100vh - 80px);
+    height: 100vh;
     padding: 10px;
+    padding-top: 80px;
 }
 
 .sideNavBar ul {

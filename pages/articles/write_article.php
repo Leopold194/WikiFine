@@ -3,7 +3,12 @@
     require '../../core/functions.php';
     redirectIfNotConnected();
 
-    if (!isset($_SERVER['HTTP_REFERER']) || ($_SERVER['HTTP_REFERER'] !== LINK_PREFIX.'pages/articles/write_article.php')) {
+    $pattern0 = '/^http\:\/\/localhost\/wikiFine\/pages\/articles\/articles\.php\?id\=\d+$/';
+    $pattern1 = '/^https\:\/\/wikifine.org\/pages\/articles\/articles\.php\?id\=\d+$/';
+
+    if (!isset($_SERVER['HTTP_REFERER']) && $_SERVER['HTTP_REFERER'] !== LINK_PREFIX.'pages/articles/write_article.php' && $_SERVER['HTTP_REFERER'] !== LINK_PREFIX.'core/articles/article_option.php' && $_SERVER['HTTP_REFERER'] !== LINK_PREFIX.'core/articles/publish_article.php' && !preg_match($pattern0, $_SERVER['HTTP_REFERER']) && !preg_match($pattern1, $_SERVER['HTTP_REFERER'])) {
+        echo "oui";
+        echo $_SERVER['HTTP_REFERER'];
         unset($_SESSION['articleData']);
     }
 ?>
@@ -23,7 +28,7 @@
     </div>
 
     <div class="articleCreation">
-        <form method="POST" action="../../core/articles/publish_article.php" enctype="multipart/form-data">
+        <form id="form" method="POST" action="../../core/articles/publish_article.php" enctype="multipart/form-data">
             <?php 
                 if(!empty($_SESSION['errors'])){
             ?>
@@ -40,7 +45,7 @@
             <div class="articleTitle">
                 <p class="desc">Tout d’abord, de quoi souhaites tu parler ?</p>
                 <div class="inputDiv">
-                    <input type="text" value='<?php echo $_SESSION['articleData']['title'] ?? ""; ?>' placeholder="Titre de l'article" name="title" maxlength="50" required>
+                    <input type="text" value='<?php echo $_SESSION['articleData']['title'] ?? ""; ?>' placeholder="Titre de l'article" name="title" maxlength="50" required <?php echo (isset($_SESSION['action']) && $_SESSION['action'] == 'modif') ? 'readonly' : '' ?>>
                     <p>0/50</p>
                 </div>
             </div>
@@ -75,7 +80,7 @@
             <div class="articleSummary">
                 <p class="desc">Fiche descriptive :</p>
                 <div class="container">
-                    <div class="summaryImg"><input type='file' name='poster' id="poster"><label for="poster" id="posterLabel">+</label></div>
+                    <div class="summaryImg"><input type='file' name='poster' id="poster" value=""><label for="poster" id="posterLabel">+</label></div>
                     <p class="summaryCtgTitle">Catégories :</p>
                     <p class="summaryCtgSubTitle">Min. 1 & Max. 3</p>
                     <div class="selectsCtg">
@@ -109,6 +114,22 @@
     const preview = document.querySelector(".summaryImg");
     const label = document.getElementById("posterLabel");
 
+    console.log(input);
+
+    if(input.defaultValue != '') {
+        console.log("ouiu");
+        const file = input.defaultValue;
+
+        preview.style.backgroundImage = "url('" + file + "')";
+        preview.style.backgroundSize = "contain";
+        preview.style.backgroundPosition = "center";
+        preview.style.backgroundRepeat = "no-repeat";
+        preview.style.backgroundColor = "#ffffff";
+        label.style.display = "none";
+
+
+    }
+
     input.addEventListener("change", function () {
         const file = this.files[0];
         
@@ -132,7 +153,7 @@
 
     editorIframe.contentDocument.designMode = 'on';
     editorIframe.contentDocument.body.style.fontFamily = "Montserrat";
-    editorIframe.contentDocument.body.innerHTML = '<?php echo $_SESSION['articleData']['content'] ?? ""; ?>';
+    editorIframe.contentDocument.body.innerHTML = "<?php echo $_SESSION['articleData']['content'] ?? ""; ?>";
     
     function formatText(command) {
         editorIframe.contentDocument.execCommand(command, false, null);
