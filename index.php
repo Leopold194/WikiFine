@@ -20,7 +20,7 @@
         <div class="recommendationFrame">
             <?php 
                 $connect = connectDB();
-                $query = $connect->query("SELECT * FROM ".DB_PREFIX."ARTICLE ORDER BY like_nb DESC LIMIT 3");
+                $query = $connect->query("SELECT A1.* FROM ".DB_PREFIX."ARTICLE A1 JOIN (SELECT title, MAX(version) as max_version FROM ".DB_PREFIX."ARTICLE GROUP BY title) A2 ON A1.title=A2.title AND A1.version=A2.max_version ORDER BY like_nb DESC LIMIT 3");
                 $articles = $query->fetchAll();
 
                 foreach($articles as $article) {
@@ -40,7 +40,7 @@
         <div class="recommendationFrame">
             <?php 
                 $connect = connectDB();
-                $query = $connect->query("SELECT * FROM ".DB_PREFIX."ARTICLE ORDER BY date DESC LIMIT 3");
+                $query = $connect->query("SELECT A1.* FROM ".DB_PREFIX."ARTICLE A1 JOIN (SELECT title, MAX(version) as max_version FROM ".DB_PREFIX."ARTICLE GROUP BY title) A2 ON A1.title=A2.title AND A1.version=A2.max_version ORDER BY date DESC LIMIT 3");
                 $articles = $query->fetchAll();
 
                 foreach($articles as $article) {
