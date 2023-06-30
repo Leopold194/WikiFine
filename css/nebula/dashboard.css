@@ -1,36 +1,56 @@
 .contentBody {
+    margin-top: 10px;
+    margin-left: 25px;
     position: absolute;
-    left: 325px;
-    width: calc(100% - 325px);
-    padding-left: 15px;
+    left: 17%;
+    width: calc(83% - 25px);
     display: flex;
     flex-wrap: wrap;
-    gap: 40px;
     justify-content: flex-start;
+}
+
+.pageTitle {
+    font-family: 'Gotham';
+    font-size: 40px;
+}
+
+.pageBodyHeader {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
 .dashboardCardsWrapper {
     display: flex;
-    gap: 40px;
-    width: 100%;
-    padding: 40px;
+    width: 98%;
+    justify-content: space-between;
+}
+
+.tinyContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 48%;
 }
 
 .dashboardCard {
-    width: 310px;
-    height: 310px;
+    width: 17.5vw;
+    height: 17.5vw;
     background: #D9D9D9;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 5px;
 }
 
+.dashboardContainer {
+    display: flex;
+    width: 98%;
+    justify-content: space-between;
+}
+
 .dashboardGraphWrapper {
     display: flex;
     flex-direction: column;
-    gap: 40px;
-    padding-left: 40px;
-    width: 695px;
-    margin-right: 40px; 
+    width: 48%;
+
 }
 
 .dashboardCardGraph {
@@ -42,16 +62,20 @@
 }
 
 .dashboardCardList {
-    width: 620px;
-    height: 660px;
+    width: 48%;
+    height: 730px;
     background: #D9D9D9;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 5px;
+    margin-top: 40px;
 }
+
 .dashboardCardListTitle{
     font-size: 32px;
-    margin: 15px 0px 0px 15px;
+    margin: 15px 0px 30px 0px;
+    text-align: center;
 }
+
 .cardContent {
     display: flex;
     flex-direction: column;
@@ -96,4 +120,47 @@
     align-items: center;
     width: 100%;
     height: 100%;
+}
+
+.graphTitle {
+    font-family: 'Gotham';
+    font-size: 1.8vw;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.profilPseudo {
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.profilDate {
+    color: #5F85DB;
+    width: 30%;
+    text-align: end;
+    font-size: 90%;
+}
+
+.profilColumn {
+    display: flex;
+    align-items: center;
+    height: 60px;
+    width: 70%;
+}
+
+.profilColumn img {
+    height: 80%;
+    margin-right: 15px;
+}
+
+.userRow {
+    position: relative;
+    display: flex;
+    padding: 0 15px 0 15px;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 25px;
+    height: 60px;
 }

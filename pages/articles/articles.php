@@ -17,6 +17,7 @@
     $connect = connectDB();
     $query = $connect->query("SELECT * FROM ".DB_PREFIX."ARTICLE WHERE id=".$id);
     $result = $query->fetch();
+
 ?>
     
 <form method="POST" action="../../core/articles/article_option.php">
@@ -38,7 +39,20 @@
 </form>
 
 <div class="article">
+    
     <h1 class="articleTitle"><?php echo $result['title'] ?></h1>
+    <?php 
+        $query = $connect->query('SELECT id, version FROM '.DB_PREFIX.'ARTICLE WHERE title="'.$result['title'].'"');
+        $articles = $query->fetchAll();
+
+        if(count($articles) > 1) {
+            if($result['version'] != $articles[array_key_last($articles)]['version']) {
+                echo '<div class="alert">';
+                echo "<li>Attention, ceci est l'ancienne version de <a href='articles.php?id=".$articles[array_key_last($articles)]['id']."'>cet article</a></li>";
+                echo '</div>';
+            }
+        }
+    ?>
     <article class="articleContent"><?php echo $result['content'] ?></article>
     <form method="POST" action="../../core/articles/article_option.php">
         <div class="articleOption">

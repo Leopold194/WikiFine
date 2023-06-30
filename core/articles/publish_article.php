@@ -19,6 +19,7 @@
     $statusMsg = '';
     $status = 'danger';
     $_SESSION['articleData'] = $_POST;
+    
 
     $listOfErrors = [];
 
@@ -26,7 +27,7 @@
     $query = $connection->query('SELECT title FROM '.DB_PREFIX.'ARTICLE WHERE LOWER(title)="'.strtolower($_POST['title']).'"');
     $result = $query->fetch();
 
-    if(!empty($result)) {
+    if(!empty($result) && !(isset($_SESSION['action']) && $_SESSION['action'] == 'modif')) {
         $listOfErrors[] = ["title", "Un article possède déjà ce titre"];
     } 
 
@@ -85,7 +86,6 @@
         
         if(in_array($file_type, $allowTypes)) {
             $file_temp_src = $_FILES['poster']['tmp_name'];
-            print_r($_FILES);
             
             if(is_uploaded_file($file_temp_src)) {
 
@@ -146,16 +146,37 @@
             $statusMsg = "File was uploaded to the S3 bucket successfully!"; 
             
             $connect = connectDB();
-            $query=$connect->prepare("INSERT INTO ".DB_PREFIX."ARTICLE (title, content, img, author) VALUES (:title, :content, :img, :author)");
-            $query->execute([
-                "title"=>$_POST['title'],
-                "content"=>$_POST['content'],
-                "img"=>$poster,
-                "author"=>$resultId[0]
-            ]);
+            if(isset($_SESSION['action']) && $_SESSION['action'] == 'modif'){
 
-            $query=$connect->query('SELECT id FROM '.DB_PREFIX.'ARTICLE WHERE LOWER(title)="'.strtolower($_POST["title"]).'"');
-            $result = $query->fetch();
+                $query = $connection->query('SELECT version FROM '.DB_PREFIX.'ARTICLE WHERE LOWER(title)="'.strtolower($_POST['title']).'" GROUP BY version ORDER BY version DESC');
+                $result = $query->fetch();
+
+
+                $query=$connect->prepare("INSERT INTO ".DB_PREFIX."ARTICLE (title, content, img, author, version) VALUES (:title, :content, :img, :author, :version)");
+                $query->execute([
+                    "title"=>$_POST['title'],
+                    "content"=>$_POST['content'],
+                    "img"=>$poster,
+                    "author"=>$resultId[0],
+                    "version"=>$result['version']+1
+                ]);
+
+                $query = $connection->query('SELECT id FROM '.DB_PREFIX.'ARTICLE WHERE LOWER(title)="'.strtolower($_POST['title']).'" GROUP BY id ORDER BY version DESC');
+                $result = $query->fetch();
+                unset($_SESSION['action']);
+
+            }else{
+                $query=$connect->prepare("INSERT INTO ".DB_PREFIX."ARTICLE (title, content, img, author) VALUES (:title, :content, :img, :author)");
+                $query->execute([
+                    "title"=>$_POST['title'],
+                    "content"=>$_POST['content'],
+                    "img"=>$poster,
+                    "author"=>$resultId[0]
+                ]);
+
+                $query=$connect->query('SELECT id FROM '.DB_PREFIX.'ARTICLE WHERE LOWER(title)="'.strtolower($_POST["title"]).'"');
+                $result = $query->fetch();
+            }
 
             foreach($ctgsIds as $id) {
                 if(!empty($id)) {
