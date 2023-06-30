@@ -2,9 +2,6 @@
 </head>
 <body>
 <header>
-    <div class="logoBlock">
-        <a href=<?php echo FILE_PREFIX."index.php";?>><img class="logoNebula" src=<?php echo FILE_PREFIX."img\logos\\nebulaColorFull.png"; ?> alt="logo"></a>
-    </div>
     <?php
         if(!empty($_SESSION['super_login']) && $_SESSION['super_login'] == 1) {
     ?>
