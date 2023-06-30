@@ -37,6 +37,8 @@
         if($_GET['action'] == "Supprimer"){
             $queryArticlesPrepared = $connect->prepare("UPDATE ".DB_PREFIX."ARTICLE SET author=NULL WHERE author=:id");
             $queryArticlesPrepared->execute(['id'=>$_GET['id']]);
+            $queryPrepared = $connect->prepare("DELETE FROM ".DB_PREFIX."REPORTING WHERE author=:id");
+            $queryPrepared->execute(['id'=>$_GET['id']]);
             $queryPrepared = $connect->prepare("DELETE FROM ".DB_PREFIX."USER WHERE id=:id");
         }elseif($_GET['action'] == "Bannir"){
             $queryPrepared = $connect->prepare("UPDATE ".DB_PREFIX."USER SET status=3 WHERE id=:id");

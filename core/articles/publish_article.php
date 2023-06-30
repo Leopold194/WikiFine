@@ -148,17 +148,18 @@
             $connect = connectDB();
             if(isset($_SESSION['action']) && $_SESSION['action'] == 'modif'){
 
-                $query = $connection->query('SELECT version FROM '.DB_PREFIX.'ARTICLE WHERE LOWER(title)="'.strtolower($_POST['title']).'" GROUP BY version ORDER BY version DESC');
+                $query = $connection->query('SELECT version, like_nb FROM '.DB_PREFIX.'ARTICLE WHERE LOWER(title)="'.strtolower($_POST['title']).'" GROUP BY version ORDER BY version DESC');
                 $result = $query->fetch();
 
 
-                $query=$connect->prepare("INSERT INTO ".DB_PREFIX."ARTICLE (title, content, img, author, version) VALUES (:title, :content, :img, :author, :version)");
+                $query=$connect->prepare("INSERT INTO ".DB_PREFIX."ARTICLE (title, content, img, author, version, like_nb) VALUES (:title, :content, :img, :author, :version, :like_nb)");
                 $query->execute([
                     "title"=>$_POST['title'],
                     "content"=>$_POST['content'],
                     "img"=>$poster,
                     "author"=>$resultId[0],
-                    "version"=>$result['version']+1
+                    "version"=>$result['version']+1,
+                    "like_nb"=>$result['like_nb']
                 ]);
 
                 $query = $connection->query('SELECT id FROM '.DB_PREFIX.'ARTICLE WHERE LOWER(title)="'.strtolower($_POST['title']).'" GROUP BY id ORDER BY version DESC');

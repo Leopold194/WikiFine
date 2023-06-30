@@ -1,0 +1,147 @@
+.pageBody {
+    position: absolute;
+    left: 17%;
+    width: 83%;
+}
+
+.pageTitle {
+    margin-top: 10px;
+    margin-left: 25px;
+    font-family: 'Gotham';
+    font-size: 40px;
+}
+
+.searchBar {
+    margin-left: 25px;
+    margin-top: 20px;
+    border-radius: 10px;
+    border: black solid 0.5px;
+    text-indent: 10px;
+    height: 32px;
+}
+
+.searchBar:focus {
+    outline: none;
+}
+
+.pageBodyHeader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: max-content;
+}
+
+.userTable {
+    margin-left: 25px;
+    margin-top: 20px;
+    width: 96%;
+}
+
+.userTableHeader {
+    display: flex;
+    align-items: center;
+    height: 45px;
+    border-bottom: black 2px solid;
+    position: relative;
+}
+
+.userTableHeader p {
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.userTableHeader .action {
+    cursor: default;
+}
+
+.userTableHeader p::before {
+    content:"";
+    display:inline-block;
+    width:15px;
+    height:15px;
+    background:url('../../img/other/filter.png') no-repeat;
+    background-size:100%;
+    margin-right: 5px;
+}
+
+.userTableHeader .action::before {
+    display: none;
+}
+
+.userTableRow {
+    display: flex;
+    align-items: center;
+    height: 45px;
+    border-bottom: black 1px solid;
+}
+
+.title, .author {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 10px;
+}
+
+.userTableRow .action input {
+    height: 33px;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.del, .seeAll {
+    background-color: #EE3939;
+}
+
+.read {
+    background-color: #5F85DB;
+}
+
+.title {
+    width: 25%;
+}
+
+.date, .action, .author {
+    width: 18%;
+}
+
+.like_nb, .version {
+    width: 10%;
+}
+
+.userTableRow .action {
+    display: flex;
+}
+
+.arrowChangePage {
+    margin-top: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.arrowChangePage img {
+    height: 20px;
+}
+
+.arrowChangePage p {
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.arrowChangePage input {
+    position: absolute;
+    height: 20px;
+    margin-left: -3px;
+    background: transparent;
+    border: none;
+    z-index: 10;
+    cursor: pointer;
+}
