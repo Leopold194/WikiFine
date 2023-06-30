@@ -21,7 +21,7 @@
 - [x] Index dynamique
 - [x] Dashboard dynamique
 - [x] Pouvoir modifier un article
-- [] Créer les logs d'articles
+- [x] Créer les logs d'articles
 - [] Améliorer la partie back des signalements d'articles
 - [] Gérer le unset de la variable de session avec les erreurs
 - [] Optimiser les fichiers CSS

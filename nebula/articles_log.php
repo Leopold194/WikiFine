@@ -51,6 +51,7 @@
             $query->execute(['article'=>$_GET['id']]);
             $query = $connect->prepare('DELETE FROM '.DB_PREFIX.'REPORTING WHERE article=:article');
             $query->execute(['article'=>$_GET['id']]);
+            $query = $connect->query('UPDATE '.DB_PREFIX.'ARTICLE SET version=version-1 WHERE title="'.$_GET['title'].'" AND version>'.$_GET['version']);
             $query = $connect->prepare('DELETE FROM '.DB_PREFIX.'ARTICLE WHERE id=:id');
             $query->execute(['id'=>$_GET['id']]);
             header("Location: articles_log.php");
@@ -112,6 +113,7 @@
                 <div class="action">
                     <input type="hidden" name="title" value="<?php echo $article["title"]; ?>">
                     <input type="hidden" name="id" value=<?php echo $article["id"]; ?>>
+                    <input type="hidden" name="version" value=<?php echo $article["version"]; ?>>
                     <?php 
                         if(!isset($_GET['title'])) {
                     ?>
