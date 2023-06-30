@@ -25,7 +25,7 @@
     ];
     
     $connection = connectDB();
-    $query = $connection->query("SELECT id, title, content, img, author FROM ".DB_PREFIX."ARTICLE");
+    $query = $connect->query("SELECT A1.id FROM ".DB_PREFIX."ARTICLE A1 JOIN (SELECT title, MAX(version) as max_version FROM ".DB_PREFIX."ARTICLE GROUP BY title) A2 ON A1.title=A2.title AND A1.version=A2.max_version");
     $articles = $query->fetchAll();
 
     $articlesId = Array();
@@ -38,10 +38,6 @@
 
     $query = $connection->query("SELECT title, content, img, author FROM ".DB_PREFIX."ARTICLE WHERE id IN (".$ids[0].", ".$ids[1].")");
     $articlesData = $query->fetchAll();
-
-    echo "<pre>";
-    print_r($articlesData);
-    echo "</pre>";
     
     foreach($result as $user) {
         $mail = new PHPMailer(true);
