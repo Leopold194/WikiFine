@@ -3,14 +3,12 @@
     require '../../core/functions.php';
     redirectIfNotConnected();
 
-    $pattern0 = '/^http\:\/\/localhost\/wikiFine\/pages\/articles\/articles\.php\?id\=\d+$/';
+    $pattern0 = '/^http\:\/\/localhost\/WikiFine\/pages\/articles\/articles\.php\?id\=\d+$/';
     $pattern1 = '/^https\:\/\/wikifine.org\/pages\/articles\/articles\.php\?id\=\d+$/';
-
-    if (!isset($_SERVER['HTTP_REFERER']) && $_SERVER['HTTP_REFERER'] !== LINK_PREFIX.'pages/articles/write_article.php' && $_SERVER['HTTP_REFERER'] !== LINK_PREFIX.'core/articles/article_option.php' && $_SERVER['HTTP_REFERER'] !== LINK_PREFIX.'core/articles/publish_article.php' && !preg_match($pattern0, $_SERVER['HTTP_REFERER']) && !preg_match($pattern1, $_SERVER['HTTP_REFERER'])) {
-        echo "oui";
-        echo $_SERVER['HTTP_REFERER'];
+    if (!(isset($_SERVER['HTTP_REFERER']) && ($_SERVER['HTTP_REFERER'] === LINK_PREFIX.'pages/articles/write_article.php' || $_SERVER['HTTP_REFERER'] === LINK_PREFIX.'core/articles/article_option.php' || $_SERVER['HTTP_REFERER'] === LINK_PREFIX.'core/articles/publish_article.php' || preg_match($pattern0, $_SERVER['HTTP_REFERER']) === 1 || preg_match($pattern1, $_SERVER['HTTP_REFERER']) === 1))) {
         unset($_SESSION['articleData']);
     }
+    
 ?>
 
 <?php require '../templates/head.php'; ?>
