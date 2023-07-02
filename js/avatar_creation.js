@@ -1,5 +1,6 @@
+const avatarParts = ["background", "ear", "face", "eyes", "eyebrows", "hair", "mouth"];
+
 window.addEventListener("DOMContentLoaded", (event) => {
-    const avatarParts = ["background", "ear", "face", "eyes", "eyebrows", "hair", "mouth"];
     const defaultColors = {
         background: '#F0CA4A',
         ear: '#F7A584',
@@ -7,7 +8,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
         eyes: '#000000',
         face: '#F58F63',
         hair: '#0B2C48',
-        mouth: '#ef4126'
     };
 
     avatarParts.forEach(part => {
@@ -24,10 +24,10 @@ window.addEventListener("DOMContentLoaded", (event) => {
         });
     });
 
-    document.querySelectorAll('.color-picker-button').forEach(button => {
-        button.addEventListener('click', function() {
-            let part = this.id.split('-')[0];
-            let color = this.style.backgroundColor;
+    document.querySelectorAll('.color-option').forEach(colorOption => {
+        colorOption.addEventListener('click', function() {
+            let part = this.id.split('-')[1];
+            let color = this.dataset.color;
             let selectedOption = document.querySelector(`#${part}-container .svg-option-selected`);
             if (selectedOption) {
                 fetchSVG(part, selectedOption.id, color);
@@ -63,7 +63,7 @@ document.querySelector('#save').addEventListener('click', function() {
     avatarParts.forEach(part => {
         let partContainer = document.querySelector(`#${part}-avatar`);
         if (partContainer) {
-            let svg = partContainer.querySelector('svg');
+            let svg = partContainer.querySelector('svg'); // Sélectionne le SVG spécifique à chaque partContainer
             if (svg) {
                 avatarSvg += serializer.serializeToString(svg);
             }
@@ -71,12 +71,14 @@ document.querySelector('#save').addEventListener('click', function() {
     });
 
     let xhr = new XMLHttpRequest();
-    xhr.open("POST", "save_avatar.php", true);
+    xhr.open("POST", "../../core/save_avatar.php", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.onreadystatechange = function() {
         if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
             console.log(this.responseText);
+            window.location.href = 'register.php';
         }
     }
-    xhr.send("svg=" + encodeURIComponent(avatarSvg));
+    xhr.send("svgAvatar=" + encodeURIComponent(avatarSvg));
 });
+
