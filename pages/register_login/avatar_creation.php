@@ -4,6 +4,7 @@
         <title>Créateur d'Avatar</title>
         <link rel="stylesheet" href="../../css/registers/avatar.css">
         <script src="../../js/avatar_creation.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/3.1.1/svg.min.js"></script>
     </head>
     <body>
         <div id="menu">

@@ -60,18 +60,22 @@ document.querySelector('#save').addEventListener('click', function() {
     let avatarContainer = document.querySelector('#preview');
     let serializer = new XMLSerializer();
     let avatarSvg = '';
+    let combinedSvg = SVG().size(102, 102);
     avatarParts.forEach(part => {
         let partContainer = document.querySelector(`#${part}-avatar`);
         if (partContainer) {
             let svg = partContainer.querySelector('svg'); // Sélectionne le SVG spécifique à chaque partContainer
             if (svg) {
-                avatarSvg += serializer.serializeToString(svg);
+                let svgElement = SVG(svg);
+                combinedSvg.add(svgElement);
             }
         }
     });
 
+    avatarSvg = combinedSvg.svg();
+
     let xhr = new XMLHttpRequest();
-    xhr.open("POST", "../../core/save_avatar.php", true);
+    xhr.open("POST", "../../core/avatar/save_avatar.php", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.onreadystatechange = function() {
         if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
@@ -81,4 +85,7 @@ document.querySelector('#save').addEventListener('click', function() {
     }
     xhr.send("svgAvatar=" + encodeURIComponent(avatarSvg));
 });
+
+
+
 

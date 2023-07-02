@@ -39,7 +39,7 @@ searchBar.addEventListener("input", function() {
   }
 
   if (searchValue.toUpperCase() === 'RICKROLL') {
-    window.location.href = `../pages/easter_egg.php`;
+    window.location.href = `${filePrefix}pages/easter_egg.php`;
     return;
   }
 

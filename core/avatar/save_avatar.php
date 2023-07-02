@@ -1,8 +1,8 @@
 <?php
     session_start();
-    require 'functions.php';
-    require '../conf.inc.php';
-    require 'vendor/autoload.php';
+    require '../functions.php';
+    require '../../conf.inc.php';
+    require '../vendor/autoload.php';
 
     use Aws\S3\S3Client;
 
@@ -14,7 +14,7 @@
     // Enregistrez les données de l'avatar dans la session
     $_SESSION['avatar_data'] = $_POST['svgAvatar'];
 
-    $data = file_get_contents('../../secrets/secrets.json');
+    $data = file_get_contents('../../../secrets/secrets.json');
     $obj = json_decode($data);
 
     $region = 'eu-west-2';
@@ -73,5 +73,5 @@
     }
 
     // Redirigez l'utilisateur vers la page suivante de l'inscription
-    header("Location: ..pages/register_login/register.php?status=$status&message=$statusMsg");
+    header("Location: ../pages/register_login/register.php?status=$status&message=$statusMsg");
 ?>
