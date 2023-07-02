@@ -11,7 +11,7 @@
         die("Erreur lors de la réception de l'avatar.");
     }
 
-    // Enregistrez les données de l'avatar dans la session
+    // Enregistre les données de l'avatar dans la session
     $_SESSION['avatar_data'] = $_POST['svgAvatar'];
 
     $data = file_get_contents('../../../secrets/secrets.json');
@@ -72,6 +72,5 @@
         $statusMsg = $e->getMessage();
     }
 
-    // Redirigez l'utilisateur vers la page suivante de l'inscription
     header("Location: ../pages/register_login/register.php?status=$status&message=$statusMsg");
 ?>

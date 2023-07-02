@@ -64,9 +64,19 @@ document.querySelector('#save').addEventListener('click', function() {
     avatarParts.forEach(part => {
         let partContainer = document.querySelector(`#${part}-avatar`);
         if (partContainer) {
-            let svg = partContainer.querySelector('svg'); // Sélectionne le SVG spécifique à chaque partContainer
+            let svg = partContainer.querySelector('svg');
             if (svg) {
+                // Récupération de la position en pourcentage
+                let posY = window.getComputedStyle(partContainer).top;
+                let posX = window.getComputedStyle(partContainer).left;
+
+                // Conversion de pourcentage en coordonnées absolues par rapport à la taille du SVG final
+                let absX = parseFloat(posX) / 100 * 102;
+                let absY = parseFloat(posY) / 100 * 102; 
+                
                 let svgElement = SVG(svg);
+                svgElement.transform({ translateX: absX, translateY: absY });
+                
                 combinedSvg.add(svgElement);
             }
         }
@@ -85,7 +95,4 @@ document.querySelector('#save').addEventListener('click', function() {
     }
     xhr.send("svgAvatar=" + encodeURIComponent(avatarSvg));
 });
-
-
-
 
