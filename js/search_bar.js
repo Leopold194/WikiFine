@@ -1,4 +1,4 @@
-const searchBar = document.getElementById("searchBar")
+const searchBar = document.getElementById("searchBar");
 
 if(window.location.host == 'localhost'){
   filePrefix = '/wikiFine/';
@@ -11,7 +11,6 @@ function showSuggestionsArticles(articles) {
   suggestionsDiv.innerHTML = '';
   suggestionsDiv.style.display = 'block';
   let maxArticles = 6; // Si plus de 6 alors scroll
-  console.log(articles);
 
   articles.slice(0, maxArticles).forEach(article => {
     const suggestionItem = document.createElement('div');
@@ -39,8 +38,13 @@ searchBar.addEventListener("input", function() {
     return;
   }
 
+  if (searchValue.toUpperCase() === 'RICKROLL') {
+    window.location.href = `/Wikifine/pages/easter_egg.php`;
+    return;
+  }
+
   fetch(`${filePrefix}core/articles/find_article.php?search=${encodeURIComponent(searchValue)}`)
-    .then(response => response.text()) // Change ici json() en text()
+    .then(response => response.text()) 
     .then(text => {
         const data = JSON.parse(text);
         showSuggestionsArticles(data);
