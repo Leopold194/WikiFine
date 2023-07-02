@@ -2,12 +2,14 @@
     session_start();
     require '../../conf.inc.php';
     require '../templates/head.php';
+    require '../../core/functions.php';
     
     if (!isset($_SERVER['HTTP_REFERER']) || 
         ($_SERVER['HTTP_REFERER'] !== LINK_PREFIX.'core/register_login/register_user.php' 
         && $_SERVER['HTTP_REFERER'] !== LINK_PREFIX.'pages/register_login/email_confirm.php' 
         && $_SERVER['HTTP_REFERER'] !== LINK_PREFIX.'pages/register_login/register.php'
-        && $_SERVER['HTTP_REFERER'] !== LINK_PREFIX.'pages/register_login/register.php?registerStep=/^$/')) 
+        && $_SERVER['HTTP_REFERER'] !== LINK_PREFIX.'pages/register_login/register.php?registerStep=/^$/'
+        && $_SERVER['HTTP_REFERER'] !== LINK_PREFIX.'core/save_avatar.php')) 
     {
         $_SESSION['register'] = 0;
     }
@@ -127,7 +129,7 @@
         <div class="row">
             <div class="rowCenter">
                 <div class="avatar field">
-                    <a href=""><img src="../../img/register/avatar.png" alt="avatarMenu"></a>
+                    <a href="avatar_creation.php"><img src="../../img/register/avatar.png" alt="avatarMenu"></a>
                 </div>
             </div>
             <div class="column">

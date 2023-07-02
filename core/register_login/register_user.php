@@ -105,6 +105,37 @@ if($_SESSION['register'] == 0){
 
 }elseif($_SESSION['register'] == 2) {
 	
+	if (isset($_FILES['avatar'])) {
+		$avatar = $_FILES['avatar'];
+	
+		// Vérifier si le fichier est une image
+		if (!getimagesize($avatar['tmp_name'])) {
+			$listOfErrors[] = ["avatar", "Le fichier uploadé n'est pas une image"];
+		}
+	
+		// Vérifier la taille du fichier
+		if ($avatar['size'] > 500000) {  // taille max de 500 KB
+			$listOfErrors[] = ["avatar", "L'image est trop grande"];
+		}
+	
+		// Vérifier l'extension du fichier
+		$imageFileType = strtolower(pathinfo($avatar['name'], PATHINFO_EXTENSION));
+		$allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
+		if (!in_array($imageFileType, $allowedExtensions)) {
+			$listOfErrors[] = ["avatar", "Extension d'image non autorisée"];
+		}
+	
+		if (empty($listOfErrors)) {
+			$targetDir = "path/to/your/images/directory/";
+			$targetFile = $targetDir . uniqid() . '.' . $imageFileType;
+			if (move_uploaded_file($avatar['tmp_name'], $targetFile)) {
+				$_SESSION['form2']['avatar'] = $targetFile;
+			} else {
+				$listOfErrors[] = ["avatar", "Une erreur s'est produite lors de l'upload de l'image"];
+			}
+		}
+	}
+	
 	if( count($_POST) != 7
 		|| empty($_POST["pseudo"])
 		|| empty($_POST["birthday"])
@@ -188,7 +219,7 @@ if($_SESSION['register'] == 0){
 			"post_code"=>$_SESSION['form2']['cp'], 
 			"phone"=>$_SESSION['form1']['tel'], 
 			"phone_ext"=>$_SESSION['form1']['country'], 
-			//"avatar"=>
+			"avatar"=>$_SESSION['form2']['avatar'],
 		]);
 		unset($_SESSION['register']);
 		header("Location: ../../pages/register_login/login.php");
