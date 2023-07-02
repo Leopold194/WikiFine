@@ -2,6 +2,7 @@
     session_start();
     require '../../conf.inc.php';
     require '../templates/head.php';
+    require '../../core/functions.php';
     
     if (!isset($_SERVER['HTTP_REFERER']) || 
         ($_SERVER['HTTP_REFERER'] !== LINK_PREFIX.'core/register_login/register_user.php' 
