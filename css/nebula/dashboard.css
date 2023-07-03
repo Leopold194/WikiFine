@@ -152,6 +152,7 @@
 
 .profilColumn img {
     height: 80%;
+    width: auto;
     margin-right: 15px;
 }
 

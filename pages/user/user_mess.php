@@ -2,6 +2,7 @@
     session_start();
     require '../../core/functions.php';
     redirectIfNotConnected();
+    
 ?>
 
 <?php require '../templates/head.php'; ?>

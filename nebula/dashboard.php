@@ -149,22 +149,14 @@
         <div class="dashboardCardList">
             <h2 class="dashboardCardListTitle">10 derniers Inscrits</h2>
             <?php 
-                $lastRegisterUsers = $connect->query("SELECT pseudo, date_inserted, avatar FROM ".DB_PREFIX."USER ORDER BY date_inserted DESC LIMIT 10");
+                $lastRegisterUsers = $connect->query("SELECT pseudo, date_inserted, avatar_link FROM ".DB_PREFIX."USER ORDER BY date_inserted DESC LIMIT 10");
                 $lastRegisterUsers = $lastRegisterUsers->fetchAll();
-
+                
                 foreach($lastRegisterUsers as $user) {
             ?>
             <div class="userRow">
                 <div class="profilColumn">
-                    <a href="<?php echo FILE_PREFIX . "pages/user/user_main.php"; ?>">
-                        <img src="<?php
-                        $result = getData(array('id'), $_SESSION['id']);
-                        $connect = connectDB();
-                        $query = $connect->query("SELECT avatar_link FROM ".DB_PREFIX."USER WHERE id=".$result[0]);
-                        $profil_pic = $query->fetch()['avatar_link'];
-                        echo $profil_pic;
-                        ?>" alt="Avatar" class="avatar">
-                    </a>
+                    <img src="<?php echo $user['avatar_link'] ?>" alt="Avatar" class="avatar">
                     <p class="profilPseudo"><?php echo $user['pseudo'] ?></p>
                 </div>
                 <p class="profilDate"><?php echo date('d/m/Y', strtotime($user['date_inserted'])) ?></p>
