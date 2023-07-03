@@ -1,0 +1,67 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    padding: 20px;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+}
+
+#donation-form {
+    margin-top: 70px;
+    margin-left: 40px;
+    margin-right: 40px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 4px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+select,
+input[type="number"],
+button[type="submit"] {
+    width: 100%;
+    padding: 10px 20px;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}
+
+button[type="submit"] {
+    padding: 10px 20px 10px 20px;
+    background-color: #8ca7e2;
+    font-size: 20px;
+    font-weight: bold;
+    color: #F4F4F2;
+    border: #8ca7e2 2px solid;
+    cursor: pointer;
+}
+
+.custom-amount {
+    display: none;
+}
+
+.custom-amount input[type="number"] {
+    flex-basis: 60%;
+    margin-left: 20px;
+}
