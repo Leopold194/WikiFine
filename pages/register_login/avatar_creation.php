@@ -21,7 +21,7 @@
                 "eyebrows" => array("eyebrows-1", "eyebrows-2", "eyebrows-3", "eyebrows-4", "eyebrows-5", "eyebrows-6", "eyebrows-7", "eyebrows-8"),
                 "eyes" => array("eyes"),
                 "face" => array("face-1", "face-2", "face-3"),
-                "hair" => array("hair-1", "hair-2", "hair-3", "hair-4", "hair-5", "hair-6", "hair-7", "hair-8", "hair-9", "hair-10", "hair-11", "hair-12"),
+                "hair" => array("hair-1", "hair-2", "hair-3", "hair-4", "hair-5", "hair-6", "hair-7", "hair-8", "hair-9"),
                 "mouth" => array("mouth-1", "mouth-2", "mouth-3", "mouth-4", "mouth-5", "mouth-6", "mouth-7", "mouth-8", "mouth-9", "mouth-10", "mouth-11", "mouth-12"),
                 "background" => array("background"),
                 "ear" => array("ear-1", "ear-2", "ear-3")
