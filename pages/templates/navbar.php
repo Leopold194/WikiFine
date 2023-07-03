@@ -17,12 +17,12 @@
                     <div class="writeArticle"><img src=<?php echo FILE_PREFIX . "img/other/pencil.svg"; ?>
                             alt="Ecrire un article"></div>
                 </a>
-                <a href="">
+                <!-- <a href="">
                     <img src=<?php echo FILE_PREFIX . "img/page_logos/clock.svg"; ?> alt="Last" class="pageLogos clock">
                 </a>
                 <a href="">
                     <img src=<?php echo FILE_PREFIX . "img/page_logos/bell.svg"; ?> alt="Notifications" class="pageLogos">
-                </a>
+                </a> -->
                 <a href="">
                     <img src=<?php echo FILE_PREFIX . "img/page_logos/moon.svg"; ?> alt="Dark Mode" class="pageLogos" id="modeSelector">
                 </a>

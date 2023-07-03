@@ -250,7 +250,7 @@ if ($_SESSION['register'] == 0) {
             </div>
             <span class="line2"></span>
             <div class="newsletter">
-                <input class="" type="checkbox" id="newsletterCheck" name="newsletter" checked>
+                <input class="" type="checkbox" id="newsletterCheck" name="newsletter">
                 <label for="newsletterCheck">Oui, je souhaite recevoir la newsletter de WikiFine</label>
             </div>
             <div class="cgu">
