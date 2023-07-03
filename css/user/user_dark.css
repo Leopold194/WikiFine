@@ -21,6 +21,18 @@
     position: relative;
 }
 
+.avatarUser{
+    width: 200px;
+    height: 200px;
+}
+
+.verifUser{
+    width: 84px !important;
+    position: absolute;
+    right: 470px;
+    bottom: 112px;
+}
+
 .navbarUser a {
     text-decoration: none;
     color: #F4F4F2;

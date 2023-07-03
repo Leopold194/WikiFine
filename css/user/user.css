@@ -56,6 +56,17 @@
     width: 100%;
 }
 
+.avatarUser{
+    width: 200px;
+    height: 200px;
+}
+
+.verifUser{
+    width: 84px !important;
+    position: absolute;
+    right: 470px;
+    bottom: 112px;
+}
 .userProfil {
     position: absolute;
     margin-top: 10px;

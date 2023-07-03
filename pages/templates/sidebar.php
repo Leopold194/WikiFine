@@ -9,6 +9,6 @@
         <li class="navSubTitle">Aide</li>
         <li class="navSubTitle">Communauté</li>
         <li class="navSubTitle">Modifications récentes</li>
-        <li class="navSubTitle">Faire un don</li>
+        <a href=<?php echo FILE_PREFIX."pages/donate.php";?>><li class="navSubTitle">Faire un don</li></a>
     </ul>
 </nav>
