@@ -7,7 +7,7 @@
         $connect = connectDB();
         $query = $connect->prepare("INSERT INTO ".DB_PREFIX."MESSAGE (content, author, recipient) VALUES (:content, :author, :recipient)");
         $query->execute([
-            "content" => $_POST['content'],
+            "content" => htmlspecialchars($_POST['content']),
             "author" => $authorId,
             "recipient" => $_POST['recipient']
         ]);

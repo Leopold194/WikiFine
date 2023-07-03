@@ -104,9 +104,6 @@
         msgBox.scrollTop = msgBox.scrollHeight;
     } catch {}
     
-    console.log("oui");
-
-
     function update() {
         fetch(`${filePrefix}core/user/update.php`)
             .then(response => response.text())
