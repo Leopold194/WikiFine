@@ -1,3 +1,11 @@
+<?php 
+
+    if(isset($_SESSION['register']) && $_SESSION['register'] != 1) {
+        $_SESSION['register'] = 0;
+        header("Location: register.php");
+    }
+?>
+
 <!DOCTYPE html>
 <html>
     <head>

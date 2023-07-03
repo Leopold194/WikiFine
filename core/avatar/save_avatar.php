@@ -73,5 +73,5 @@
     }
 
     // Redirigez l'utilisateur vers la page suivante de l'inscription
-    header("Location: ../pages/register_login/register.php?status=$status&message=$statusMsg");
+    header("Location: ../../pages/register_login/register.php");
 ?>

@@ -3,13 +3,13 @@
     require '../../conf.inc.php';
     require '../templates/head.php';
     require '../../core/functions.php';
-    
-    if (!isset($_SERVER['HTTP_REFERER']) || 
-        ($_SERVER['HTTP_REFERER'] !== LINK_PREFIX.'core/register_login/register_user.php' 
-        && $_SERVER['HTTP_REFERER'] !== LINK_PREFIX.'pages/register_login/email_confirm.php' 
-        && $_SERVER['HTTP_REFERER'] !== LINK_PREFIX.'pages/register_login/register.php'
-        && $_SERVER['HTTP_REFERER'] !== LINK_PREFIX.'pages/register_login/register.php?registerStep=/^$/'
-        && $_SERVER['HTTP_REFERER'] !== LINK_PREFIX.'core/save_avatar.php')) 
+
+    if (!(isset($_SERVER['HTTP_REFERER']) && 
+        ($_SERVER['HTTP_REFERER'] === LINK_PREFIX.'core/register_login/register_user.php' 
+        || $_SERVER['HTTP_REFERER'] === LINK_PREFIX.'pages/register_login/email_confirm.php' 
+        || $_SERVER['HTTP_REFERER'] === LINK_PREFIX.'pages/register_login/register.php'
+        || $_SERVER['HTTP_REFERER'] === LINK_PREFIX.'pages/register_login/register.php?registerStep=/^$/'
+        || $_SERVER['HTTP_REFERER'] === LINK_PREFIX.'pages/register_login/avatar_creation.php'))) 
     {
         $_SESSION['register'] = 0;
     }
