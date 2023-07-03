@@ -203,7 +203,7 @@ if($_SESSION['register'] == 0){
 
 	if(empty($listOfErrors)){
 		$connection = connectDB();
-		$query=$connection->prepare("INSERT INTO ".DB_PREFIX."USER (pseudo, firstname, lastname, email, password, newsletter, birthday, gender, address, city, country, post_code, phone, phone_ext, avatar) VALUES (:pseudo, :firstname, :lastname, :email, :password, :newsletter, :birthday, :gender, :address, :city, :country, :post_code, :phone, :phone_ext, :avatar)");
+		$query=$connection->prepare("INSERT INTO ".DB_PREFIX."USER (pseudo, firstname, lastname, email, password, newsletter, birthday, gender, address, city, country, post_code, phone, phone_ext, avatar_link) VALUES (:pseudo, :firstname, :lastname, :email, :password, :newsletter, :birthday, :gender, :address, :city, :country, :post_code, :phone, :phone_ext, :avatar_link)");
 		$query->execute([
 			"pseudo"=>$_SESSION['form2']['pseudo'], 
 			"firstname"=>strtolower($_SESSION['form1']['firstname']), 
@@ -219,7 +219,7 @@ if($_SESSION['register'] == 0){
 			"post_code"=>$_SESSION['form2']['cp'], 
 			"phone"=>$_SESSION['form1']['tel'], 
 			"phone_ext"=>$_SESSION['form1']['country'], 
-			"avatar"=>$_SESSION['avatarRegister']
+			"avatar_link"=>$_SESSION['avatarRegister']
 		]);
 		unset($_SESSION['register']);
 		header("Location: ../../pages/register_login/login.php");
