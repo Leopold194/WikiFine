@@ -28,7 +28,7 @@
             );
 
             $colorPalettes = array(
-                "eyebrows" => array("#614335", "#A48776", "#000000", "#403221"),
+                "eyebrows" => array("#833B23", "#BA4A27", "#E83837", "#EA8723", "#0B2C48", "#F0CA4A", "#FFFFFF", "#B8BEC2"),
                 "eyes" => array("#000000", "#593C1F", "#1C1C1C", "#FFFFFF"),
                 "face" => array("#BA4A27", "#E36A41", "#F58F63", "#E87F72", "#F7A584", "#F7B1AD", "#F18C80"),
                 "hair" => array("#833B23", "#BA4A27", "#E83837", "#EA8723", "#0B2C48", "#F0CA4A", "#FFFFFF", "#B8BEC2"),
