@@ -255,7 +255,7 @@ if ($_SESSION['register'] == 0) {
             </div>
             <div class="cgu">
                 <input type="checkbox" id="cguCheck" name="cgu" onClick="changeClass()">
-                <label for="cguCheck">J’accepte les <a href="google.fr" class="cguLink">Conditions Générales
+                <label for="cguCheck">J’accepte les <a href="../../docs/CGU.pdf" target="_blank" class="cguLink">Conditions Générales
                         d’Utilisation</a></label>
             </div>
             <div class="rowCenter mt mb">
