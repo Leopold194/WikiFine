@@ -203,7 +203,7 @@ if($_SESSION['register'] == 0){
 
 	if(empty($listOfErrors)){
 		$connection = connectDB();
-		$query=$connection->prepare("INSERT INTO ".DB_PREFIX."USER (pseudo, firstname, lastname, email, password, newsletter, birthday, gender, address, city, country, post_code, phone, phone_ext) VALUES (:pseudo, :firstname, :lastname, :email, :password, :newsletter, :birthday, :gender, :address, :city, :country, :post_code, :phone, :phone_ext)");
+		$query=$connection->prepare("INSERT INTO ".DB_PREFIX."USER (pseudo, firstname, lastname, email, password, newsletter, birthday, gender, address, city, country, post_code, phone, phone_ext, avatar) VALUES (:pseudo, :firstname, :lastname, :email, :password, :newsletter, :birthday, :gender, :address, :city, :country, :post_code, :phone, :phone_ext, :avatar)");
 		$query->execute([
 			"pseudo"=>$_SESSION['form2']['pseudo'], 
 			"firstname"=>strtolower($_SESSION['form1']['firstname']), 
