@@ -11,7 +11,7 @@
         die("Erreur lors de la réception de l'avatar.");
     }
 
-    // Enregistrez les données de l'avatar dans la session
+    // Enregistre les données de l'avatar dans la session
     $_SESSION['avatar_data'] = $_POST['svgAvatar'];
 
     $data = file_get_contents('../../../secrets/secrets.json');
