@@ -46,7 +46,12 @@ window.addEventListener("DOMContentLoaded", (event) => {
         }
         avatarPartContainer.innerHTML = svgOption.innerHTML;
         setColor(avatarPartContainer, color);
+        
+        // Save the x and y positions in data attributes
+        avatarPartContainer.dataset.x = window.getComputedStyle(avatarPartContainer).left;
+        avatarPartContainer.dataset.y = window.getComputedStyle(avatarPartContainer).top;
     }
+    
 
     function setColor(container, color) {
         let paths = container.querySelectorAll('svg *');
@@ -58,31 +63,22 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
 document.querySelector('#save').addEventListener('click', function() {
     let avatarContainer = document.querySelector('#preview');
-    let serializer = new XMLSerializer();
-    let avatarSvg = '';
     let combinedSvg = SVG().size(102, 102);
+
     avatarParts.forEach(part => {
         let partContainer = document.querySelector(`#${part}-avatar`);
         if (partContainer) {
             let svg = partContainer.querySelector('svg');
             if (svg) {
-                // Récupération de la position en pourcentage
-                let posY = window.getComputedStyle(partContainer).top;
-                let posX = window.getComputedStyle(partContainer).left;
-
-                // Conversion de pourcentage en coordonnées absolues par rapport à la taille du SVG final
-                let absX = parseFloat(posX) / 100 * 102;
-                let absY = parseFloat(posY) / 100 * 102; 
-                
                 let svgElement = SVG(svg);
-                svgElement.transform({ translateX: absX, translateY: absY });
                 
-                combinedSvg.add(svgElement);
+                let svgGroup = combinedSvg.group().transform({ translateX: 0, translateY: 0 });
+                svgGroup.svg(svgElement.svg());
             }
         }
     });
 
-    avatarSvg = combinedSvg.svg();
+    let avatarSvg = combinedSvg.svg();
 
     let xhr = new XMLHttpRequest();
     xhr.open("POST", "../../core/avatar/save_avatar.php", true);
@@ -95,4 +91,3 @@ document.querySelector('#save').addEventListener('click', function() {
     }
     xhr.send("svgAvatar=" + encodeURIComponent(avatarSvg));
 });
-
