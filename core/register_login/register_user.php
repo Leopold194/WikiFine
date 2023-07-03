@@ -219,7 +219,7 @@ if($_SESSION['register'] == 0){
 			"post_code"=>$_SESSION['form2']['cp'], 
 			"phone"=>$_SESSION['form1']['tel'], 
 			"phone_ext"=>$_SESSION['form1']['country'], 
-			"avatar"=>$_SESSION['form2']['avatar'],
+			"avatar"=>$_SESSION['avatarRegister']
 		]);
 		unset($_SESSION['register']);
 		header("Location: ../../pages/register_login/login.php");

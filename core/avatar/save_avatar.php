@@ -55,15 +55,7 @@
         if (!empty($result_arr['ObjectURL'])) {
             $s3_file_link = $result_arr['ObjectURL'];
         
-            $connect = connectDB();
-            $queryPrepared = $connect->prepare("UPDATE " . DB_PREFIX . "USER SET avatar = :avatar WHERE id = :id");
-            $queryPrepared->execute([
-                "avatar" => $s3_file_link,
-                "id" => $_SESSION['user_id']
-            ]);
-        
-            $status = 'success';
-            $statusMsg = "Avatar mis à jour avec succès !";
+            $_SESSION['avatarRegister'] = $s3_file_link;
         
             echo json_encode([
                 'status' => $status,
