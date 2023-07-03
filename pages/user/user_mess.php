@@ -2,7 +2,7 @@
     session_start();
     require '../../core/functions.php';
     redirectIfNotConnected();
-    
+
 ?>
 
 <?php require '../templates/head.php'; ?>
@@ -82,18 +82,15 @@
                 <button class="profil <?php echo $active; ?>" type="submit" name="recipientId" value="<?php echo $userId; ?>">
                 <img src="
                 <?php 
-                    $result = getData(array('id'), $_SESSION['id']);
-                    $query = $connect->query("SELECT avatar_link FROM ".DB_PREFIX."USER WHERE id=".$result[0]);
-                    $profil_pic = $query->fetch()['avatar_link'];
-                    echo $profil_pic;
+                    $connect = connectDB();
+                    $user = $connect->query("SELECT pseudo, avatar_link FROM ".DB_PREFIX."USER WHERE id=".$userId);
+                    $userPseudo = $user->fetch();
+
+                    echo $userPseudo['avatar_link'];
                 ?>
                 " alt="Photo de profil">
                 <p>
                     <?php  
-                        $connect = connectDB();
-                        $user = $connect->query("SELECT pseudo FROM ".DB_PREFIX."USER WHERE id=".$userId);
-
-                        $userPseudo = $user->fetch();
                         echo $userPseudo['pseudo'];
                     ?>
                 </p>
