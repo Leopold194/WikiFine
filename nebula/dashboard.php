@@ -156,7 +156,15 @@
             ?>
             <div class="userRow">
                 <div class="profilColumn">
-                    <img src="../../img_avatar/5.png" alt="Photo de profil">
+                    <a href="<?php echo FILE_PREFIX . "pages/user/user_main.php"; ?>">
+                        <img src="<?php
+                        $result = getData(array('id'), $_SESSION['id']);
+                        $connect = connectDB();
+                        $query = $connect->query("SELECT avatar_link FROM ".DB_PREFIX."USER WHERE id=".$result[0]);
+                        $profil_pic = $query->fetch()['avatar_link'];
+                        echo $profil_pic;
+                        ?>" alt="Avatar" class="avatar">
+                    </a>
                     <p class="profilPseudo"><?php echo $user['pseudo'] ?></p>
                 </div>
                 <p class="profilDate"><?php echo date('d/m/Y', strtotime($user['date_inserted'])) ?></p>
