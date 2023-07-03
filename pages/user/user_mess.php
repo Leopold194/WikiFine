@@ -79,7 +79,14 @@
                     $active = (isset($_GET['recipientId']) && $_GET['recipientId'] == $userId) ? 'active' : '';
             ?>
                 <button class="profil <?php echo $active; ?>" type="submit" name="recipientId" value="<?php echo $userId; ?>">
-                <img src="../../../img_avatar/5.png" alt="Photo de profil">
+                <img src="
+                <?php 
+                    $result = getData(array('id'), $_SESSION['id']);
+                    $query = $connect->query("SELECT avatar_link FROM ".DB_PREFIX."USER WHERE id=".$result[0]);
+                    $profil_pic = $query->fetch()['avatar_link'];
+                    echo $profil_pic;
+                ?>
+                " alt="Photo de profil">
                 <p>
                     <?php  
                         $connect = connectDB();
