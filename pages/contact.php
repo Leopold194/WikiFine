@@ -26,7 +26,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail = new PHPMailer(true);
 
         try {
-            // Configuration des paramètres SMTP
             $mail->isSMTP();
             $mail->Host       = $obj[0]->HOST;
             $mail->SMTPAuth   = true;
@@ -35,7 +34,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
             $mail->Port       = $obj[0]->PORT;
 
-            // Destinataire et contenu du message
             $mail->setFrom($obj[0]->USERNAME, $obj[0]->ADRESS_NAME);
             $mail->addAddress($_POST['Email']);
 
